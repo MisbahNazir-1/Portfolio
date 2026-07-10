@@ -1,0 +1,12 @@
+.container-1 {
+    display: grid;
+    /* Turns on CSS Grid */
+    /* Creates 3 columns of equal width, using fractional units (fr) */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    /* Adds equal space between all grid items */
+}
+
+.part{
+    padding-top: 30px;
+}

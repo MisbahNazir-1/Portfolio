@@ -1,0 +1,217 @@
+.neon-auth-container {
+    background-color: #0d1117 !important;
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    font-family: 'Segoe UI', sans-serif !important;
+    color: #ffffff !important;
+    width: 100% !important;
+}
+
+.neon-auth-top-bar {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    background-color: #121620 !important;
+    padding: 15px 5% !important;
+    border-bottom: 1px solid #1f293d !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.neon-back-portfolio-btn {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: transparent !important;
+    color: #00ffcc !important;
+    border: 1px solid #00ffcc !important;
+    padding: 8px 18px !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.1) !important;
+    transition: all 0.25s ease !important;
+}
+
+.neon-back-portfolio-btn:hover {
+    background: #00ffcc !important;
+    color: #0d1117 !important;
+    box-shadow: 0 0 25px rgba(0, 255, 204, 0.4) !important;
+}
+
+.neon-system-badge-info {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background-color: rgba(0, 255, 204, 0.05) !important;
+    border: 1px dashed #00ffcc !important;
+    padding: 8px 16px !important;
+    border-radius: 6px !important;
+    font-size: 13px !important;
+    color: #e2e8f0 !important;
+}
+
+.neon-auth-main-layout {
+    flex: 1 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 40px 20px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.neon-register-card-panel {
+    background: #121620 !important;
+    border: 1px solid #1f293d !important;
+    border-radius: 16px !important;
+    padding: 40px !important;
+    width: 100% !important;
+    max-width: 550px !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) !important;
+    box-sizing: border-box !important;
+}
+
+.neon-auth-header-wrapper {
+    text-align: center !important;
+    margin-bottom: 25px !important;
+}
+
+.neon-card-title-text {
+    font-size: 26px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin: 0 0 6px 0 !important;
+    letter-spacing: 0.5px !important;
+}
+
+.neon-card-subtitle-text {
+    font-size: 13px !important;
+    color: #00ffcc !important;
+    margin: 0 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+}
+
+.neon-register-form-block {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+}
+
+.neon-form-grid-layout {
+    display: flex !important;
+    gap: 16px !important;
+    width: 100% !important;
+}
+
+.neon-form-grid-layout .neon-input-group-wrapper {
+    flex: 1 !important;
+}
+
+/* 🚀 CORE FIX: Absolute stack calculations layer build */
+.neon-input-group-wrapper {
+    position: relative !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* 🚀 CORE FIX: Icons forced precisely to the left side center */
+.neon-input-icon-left {
+    position: absolute !important;
+    left: 14px !important;
+    color: #00ffcc !important;
+    font-size: 18px !important;
+    pointer-events: none !important;
+    z-index: 10 !important;
+}
+
+/* 🚀 CORE FIX: Text starts precisely after 44px to prevent overlapping */
+.neon-input-field-element {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 12px 16px 12px 44px !important; /* Fixed left alignment */
+    background-color: #0d1117 !important;
+    border: 1px solid #1f293d !important;
+    border-radius: 8px !important;
+    color: #ffffff !important;
+    font-size: 14px !important;
+    outline: none !important;
+    transition: all 0.2s ease !important;
+}
+
+.neon-input-field-element:focus {
+    border-color: #00ffcc !important;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.2) !important;
+}
+
+.neon-terms-check-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    font-size: 13px !important;
+    color: #9ca3af !important;
+    margin-top: 5px !important;
+}
+
+.neon-custom-checkbox {
+    accent-color: #00ffcc !important;
+    cursor: pointer !important;
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.neon-pulse-btn-submit {
+    background: #00ffcc !important;
+    color: #0d1117 !important;
+    border: none !important;
+    padding: 14px !important;
+    border-radius: 8px !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    box-shadow: 0 4px 15px rgba(0, 255, 204, 0.2) !important;
+    transition: all 0.25s ease !important;
+    margin-top: 10px !important;
+}
+
+.neon-pulse-btn-submit:hover {
+    background: #00e6b8 !important;
+    box-shadow: 0 0 25px rgba(0, 255, 204, 0.5) !important;
+    transform: translateY(-1px) !important;
+}
+
+.neon-login-redirect-text {
+    text-align: center !important;
+    font-size: 13px !important;
+    color: #9ca3af !important;
+    margin-top: 15px !important;
+    margin-bottom: 0 !important;
+}
+
+.neon-login-redirect-text strong {
+    color: #00ffcc !important;
+    cursor: pointer !important;
+    font-weight: 600 !important;
+    margin-left: 5px !important;
+}
+
+.neon-login-redirect-text strong:hover {
+    text-decoration: underline !important;
+}
+
+.neon-btn-icon {
+    font-size: 16px !important;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none !important; 
+  margin: 0 !important; 
+}

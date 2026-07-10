@@ -1,0 +1,168 @@
+/* Container Box Alignment */
+.custom-app-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Flexbox Header configuration */
+.custom-header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.custom-heading {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+    color: #1a1a1a;
+}
+
+.custom-btn-view-all {
+    border: 2px solid #1a1a1a;
+    color: #1a1a1a;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 8px;
+    padding: 10px 20px;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.custom-btn-view-all:hover {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   MATHEMATICAL FLEX GRID: Forces exactly 3 blocks per row with 0 leftover white space
+   ========================================================================== */
+.custom-flex-grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px; /* Pulls cards back to standard margins */
+}
+
+/* Desktop layout configurations */
+@media (min-width: 768px) {
+    .custom-card-wrapper {
+        flex: 0 0 33.33333%;
+        max-width: 33.33333%;
+        padding: 15px; /* Luxury spacing between columns */
+        box-sizing: border-box;
+    }
+}
+
+/* Mobile configurations */
+@media (max-width: 767px) {
+    .custom-card-wrapper {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+}
+
+/* Inner Layout Card Container */
+.custom-inner-card {
+    background: #ffffff;
+    border: 1px solid #eef0f2;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.custom-inner-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* Images Aspect Adjustments */
+.custom-img-box {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.custom-actual-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Internal Card contents styling */
+.custom-card-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.custom-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.custom-card-badge {
+    background-color: #f1f3f5;
+    color: #495057;
+    font-weight: 600;
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+.custom-card-date {
+    font-size: 13px;
+    color: #6c757d;
+}
+
+.custom-card-text {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: #495057;
+    margin: 0 0 24px 0;
+}
+
+/* Card footer row alignment */
+.custom-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid #f1f3f5;
+}
+
+.custom-rating-stars {
+    color: #ffc107;
+    font-size: 14px;
+}
+
+.custom-rating-stars i {
+    margin-right: 2px;
+}
+
+.custom-read-more {
+    color: #0d6efd;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.custom-read-more:hover {
+    color: #004dc2;
+    text-decoration: underline;
+}

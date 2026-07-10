@@ -1,0 +1,230 @@
+.signin-container.neon-theme {
+    background-color: #0d1117 !important;
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    font-family: 'Segoe UI', sans-serif !important;
+    color: #ffffff !important;
+    width: 100% !important;
+}
+
+.auth-top-bar {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    background-color: #121620 !important;
+    padding: 15px 5% !important;
+    border-bottom: 1px solid #1f293d !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.back-portfolio-btn {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: transparent !important;
+    color: #00ffcc !important;
+    border: 1px solid #00ffcc !important;
+    padding: 8px 18px !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.1) !important;
+    transition: all 0.25s ease !important;
+}
+
+.back-portfolio-btn:hover {
+    background: #00ffcc !important;
+    color: #0d1117 !important;
+    box-shadow: 0 0 25px rgba(0, 255, 204, 0.4) !important;
+}
+
+.demo-credentials-info {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background-color: rgba(0, 255, 204, 0.05) !important;
+    border: 1px dashed #00ffcc !important;
+    padding: 8px 16px !important;
+    border-radius: 6px !important;
+    font-size: 13px !important;
+    color: #e2e8f0 !important;
+}
+
+.demo-credentials-info b {
+    color: #00ffcc !important;
+}
+
+.main-content {
+    flex: 1 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 40px 20px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.neon-card {
+    background: #121620 !important;
+    border: 1px solid #1f293d !important;
+    border-radius: 16px !important;
+    padding: 40px !important;
+    width: 100% !important;
+    max-width: 420px !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) !important;
+    box-sizing: border-box !important;
+}
+
+.auth-header-wrapper {
+    text-align: center !important;
+    margin-bottom: 30px !important;
+}
+
+.card-title {
+    font-size: 26px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin: 0 0 6px 0 !important;
+    letter-spacing: 0.5px !important;
+}
+
+.card-subtitle {
+    font-size: 13px !important;
+    color: #00ffcc !important;
+    margin: 0 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+}
+
+.form-group {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+}
+
+/* 🚀 FIX: Static alignment for icons */
+.input-group-wrapper {
+    position: relative !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* 🚀 FIX: Icons made exactly Neon Cyber Green */
+.input-icon-left {
+    position: absolute !important;
+    left: 14px !important;
+    color: #00ffcc !important; /* Cyber neon color matching register page */
+    font-size: 18px !important;
+    pointer-events: none !important;
+    z-index: 10 !important;
+}
+
+/* 🚀 FIX: Text padding 44px to prevent overlapping */
+.input-field-element {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 14px 16px 14px 44px !important; /* Balanced left space */
+    background-color: #0d1117 !important;
+    border: 1px solid #1f293d !important;
+    border-radius: 8px !important;
+    color: #ffffff !important;
+    font-size: 14px !important;
+    outline: none !important;
+    transition: all 0.2s ease !important;
+}
+
+.input-field-element:focus {
+    border-color: #00ffcc !important;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.2) !important;
+}
+
+.eye-icon {
+    position: absolute !important;
+    right: 14px !important;
+    color: #4b5563 !important;
+    cursor: pointer !important;
+    font-size: 18px !important;
+    z-index: 10 !important;
+}
+
+.eye-icon:hover {
+    color: #00ffcc !important;
+}
+
+.form-options {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    font-size: 13px !important;
+    color: #9ca3af !important;
+}
+
+.remember-me {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    cursor: pointer !important;
+}
+
+.neon-checkbox {
+    accent-color: #00ffcc !important;
+    cursor: pointer !important;
+}
+
+.forgot-password {
+    color: #9ca3af !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease !important;
+}
+
+.forgot-password:hover {
+    color: #00ffcc !important;
+}
+
+.neon-pulse-btn {
+    background: #00ffcc !important;
+    color: #0d1117 !important;
+    border: none !important;
+    padding: 14px !important;
+    border-radius: 8px !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    box-shadow: 0 4px 15px rgba(0, 255, 204, 0.2) !important;
+    transition: all 0.25s ease !important;
+}
+
+.neon-pulse-btn:hover {
+    background: #00e6b8 !important;
+    box-shadow: 0 0 25px rgba(0, 255, 204, 0.5) !important;
+    transform: translateY(-1px) !important;
+}
+
+.register-text {
+    text-align: center !important;
+    font-size: 13px !important;
+    color: #9ca3af !important;
+    margin-top: 25px !important;
+    margin-bottom: 0 !important;
+}
+
+.register-text a {
+    color: #00ffcc !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+}
+
+.register-text a:hover {
+    text-decoration: underline !important;
+}
+
+.btn-icon {
+    font-size: 16px !important;
+}

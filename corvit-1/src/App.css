@@ -1,0 +1,9 @@
+#crisp-chatbox {
+  bottom: 30px !important;
+  right: 30px !important;
+}
+
+#crisp-chatbox iframe {
+  bottom: 30px !important;
+  right: 30px !important;
+}
