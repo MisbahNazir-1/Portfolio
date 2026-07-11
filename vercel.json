@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/api/portfolio/(.*)",
+      "destination": "/portfolio-backend/index.js" 
+    },
+    {
+      "source": "/api/ecobazar/(.*)",
+      "destination": "/ecobazar-backend/index.js"
+    }
+  ]
+}

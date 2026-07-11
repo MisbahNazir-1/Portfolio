@@ -1,13 +1,12 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import dns from "dns"; // Yeh line add karein
+import dns from "dns"; 
 
 dotenv.config(); 
 
-// Apne Node.js ko Google ka DNS custom use karne par force karein
 dns.setServers(["8.8.8.8", "8.8.4.4"]); 
 
-const mongoURI = process.env.MONGO_URI;
+const mongoURI = process.env.MONGO_URI_ECOBAZAR; 
 
 mongoose.connect(mongoURI, {
     serverSelectionTimeoutMS: 5000 
