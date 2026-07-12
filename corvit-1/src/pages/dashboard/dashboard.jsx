@@ -107,7 +107,7 @@ function Dashboard() {
       {/* SIDEBAR NAVIGATION UTILITY */}
       <aside className="sidebar-container">
         <div className="sidebar-top-brand">
-          <div className="brand-neon-logo">MN</div>
+          <img src="https://i.postimg.cc/MK8VHhqk/logo.jpg" className="brand-neon-logo" alt="logo" />
           <span className="brand-text">Misbah Developer</span>
         </div>
         <nav className="sidebar-nav-links">
