@@ -15,7 +15,7 @@ const path = require('path');
 const Experience = require('./models/experience');
 const Project = require('./models/project');
 const Skill = require('./models/skill');
-const AppCard = require('./models/appCard');
+const AppCard = require('./models/appcard');
 const Resume = require('./models/resume');
 const Design = require('./models/design')
 
@@ -32,7 +32,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Database connection variables
 const PORT = process.env.PORT || 5000;
-const MONGO_URI = process.env.MONGO_URI_PORTFOLIO;
+const MONGO_URI = process.env.MONGO_URI;
 
 if (!MONGO_URI) {
   console.error

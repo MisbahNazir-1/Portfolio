@@ -25,7 +25,17 @@ app.use('/api/products', productRoutes);
 app.use('/api/user/login', loginRoutes);
 app.use('/api/cart', cartRoutes);
 
-const PORT = process.env.PORT || 3000; 
-app.listen(PORT, () => {
-    console.log(`Server is running with success on port ${PORT} !!!`);
-});
+// const PORT = process.env.PORT || 3000; 
+// app.listen(PORT, () => {
+//     console.log(`Server is running with success on port ${PORT} !!!`);
+// });
+
+if (process.env.NODE_ENV !== 'production') {
+    const PORT = process.env.PORT || 3000; 
+    app.listen(PORT, () => {
+        console.log(`Server is running with success on port ${PORT} !!!`);
+    });
+}
+
+export default app; 
+

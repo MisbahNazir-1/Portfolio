@@ -6,7 +6,7 @@ dotenv.config();
 
 dns.setServers(["8.8.8.8", "8.8.4.4"]); 
 
-const mongoURI = process.env.MONGO_URI_ECOBAZAR; 
+const mongoURI = process.env.MONGO_URI 
 
 mongoose.connect(mongoURI, {
     serverSelectionTimeoutMS: 5000 
