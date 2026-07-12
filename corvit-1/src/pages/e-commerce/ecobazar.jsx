@@ -46,7 +46,8 @@ function Ecobazar() {
 
   const navigate = useNavigate();
 
-  const imgbasedURL = `${VITE_ECOBAZAR_API_URL}`;
+const imgbasedURL = (import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:3000/api').replace('/api', '');
+
 
   const NavigateToProductDetail = (item) => {
     navigate(`/productdetail/${item.id}`, { state: { product: item } });

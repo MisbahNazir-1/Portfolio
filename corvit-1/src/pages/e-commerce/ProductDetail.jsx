@@ -8,7 +8,8 @@ const ProductDetail = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [count, setCount] = useState(1);
 
-const imgbasedURL = import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:3000/api';
+const imgbasedURL = (import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:3000/api').replace('/api', '');
+
 
 
   useEffect(() => {

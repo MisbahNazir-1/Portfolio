@@ -58,6 +58,9 @@ function Dashboard() {
    const [resumeLink, setResumeLink] = useState('#')
   const [loading, setLoading] = useState(true);
 
+  const imageBaseURL = PORTFOLIO_API_URL.replace('/api', '');
+
+
   // API services gateway root routing string
 const API_BASE_URL = import.meta.env.VITE_PORTFOLIO_API_URL || 'http://localhost:5000/api';
 
@@ -106,10 +109,14 @@ const API_BASE_URL = import.meta.env.VITE_PORTFOLIO_API_URL || 'http://localhost
     <div className="dashboard-root-frame">
       {/* SIDEBAR NAVIGATION UTILITY */}
       <aside className="sidebar-container">
-        <div className="sidebar-top-brand">
-          <img src="https://i.postimg.cc/MK8VHhqk/logo.jpg" className="brand-neon-logo" alt="logo" />
-          <span className="brand-text">Misbah Developer</span>
-        </div>
+          <div className="sidebar-top-brand">
+      <img 
+        src={`${imageBaseURL}/uploads/logo.jpeg`} 
+        className="brand-neon-logo" 
+        alt="logo" 
+      />
+      <span className="brand-text">Misbah Developer</span>
+    </div>
         <nav className="sidebar-nav-links">
           <button className={`nav-item ${activeTab === 'dashboard' ? 'active' : ''}`} onClick={() => setActiveTab('dashboard')}>
             <FiLayout className="nav-icon" /> <span>Dashboard</span>
