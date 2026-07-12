@@ -62,8 +62,7 @@ function Dashboard() {
 
 
   // API services gateway root routing string
-  // ✅ Local host hata kar direct live backend link fallback mein daal dein
-const API_BASE_URL = import.meta.env.VITE_PORTFOLIO_API_URL || 'https://portfolio-eight-indol-95.vercel.app';
+const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app'
 
 
   // Synchronizes aggregate portfolio assets from server instance
