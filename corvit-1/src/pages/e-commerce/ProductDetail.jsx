@@ -8,7 +8,7 @@ const ProductDetail = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [count, setCount] = useState(1);
 
-  const imgbasedURL = "VITE_ECOBAZAR_API_URL";
+  const imgbasedURL = `${VITE_ECOBAZAR_API_URL}`;
 
   useEffect(() => {
     const getProductDetail = async () => {
@@ -20,7 +20,7 @@ const ProductDetail = () => {
 
       // Step 2: Agar direct URL par aaye hain, toh API se fetch karein
       try {
-        const response = await fetch("VITE_ECOBAZAR_API_URL/api/products");
+        const response = await fetch(`${VITE_ECOBAZAR_API_URL}/api/products`);
         const data = await response.json();
         
         if (data?.products) {

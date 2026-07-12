@@ -59,7 +59,7 @@ function Dashboard() {
   const [loading, setLoading] = useState(true);
 
   // API services gateway root routing string
-  const API_BASE_URL = 'VITE_PORTFOLIO_API_URL/api';
+  const API_BASE_URL = `${VITE_PORTFOLIO_API_URL}/api`;
 
   // Synchronizes aggregate portfolio assets from server instance
   useEffect(() => {
