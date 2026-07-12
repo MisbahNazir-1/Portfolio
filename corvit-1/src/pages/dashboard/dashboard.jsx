@@ -58,7 +58,7 @@ function Dashboard() {
    const [resumeLink, setResumeLink] = useState('#')
   const [loading, setLoading] = useState(true);
 
-  const imageBaseURL = PORTFOLIO_API_URL.replace('/api', '');
+  const imageBaseURL =import.meta.env.VITE_PORTFOLIO_API_URL .replace('/api', '');
 
 
   // API services gateway root routing string
