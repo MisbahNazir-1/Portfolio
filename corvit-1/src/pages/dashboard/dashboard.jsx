@@ -199,7 +199,7 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
   <div className="cyber-avatar-ring">
     <div className="avatar-core-display">
       <img 
-        src={`${API_BASE_URL}/uploads/logo.jpeg`}
+        src={`${imgbasedURL}/uploads/logo.jpeg`}
         alt="" 
         style={{
           width: '100%',
