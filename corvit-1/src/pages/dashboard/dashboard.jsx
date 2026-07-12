@@ -8,7 +8,7 @@ import {
      FiUser, FiHash, FiPhone, FiMapPin 
 } from 'react-icons/fi';
 import { LuArrowRight } from "react-icons/lu";
-import './Dashboard.css';
+import './dashboard.css';
 
 
 // Dynamically resolves icon component from database string identifiers
