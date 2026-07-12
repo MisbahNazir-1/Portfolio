@@ -55,7 +55,7 @@ const imgbasedURL = (import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:
 
   const getNews = async () => {
     try {
-       const ECOBAZAR_API_URL = import.meta.env.VITE_ECOBAZAR_API_URL || 'https://ecobazar-ruby.vercel.app';
+       const ECOBAZAR_API_URL ='https://ecobazar-ruby.vercel.app/api'
       const response = await fetch(`${ECOBAZAR_API_URL}/products`);
       const data = await response.json();
       setNews(data);
