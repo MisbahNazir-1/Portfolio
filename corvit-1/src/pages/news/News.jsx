@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import './News.css'
+import './news.css'
 
 function News() {
     const [news, setNews] = useState(null);
