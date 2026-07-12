@@ -4,7 +4,7 @@ import Ecobazar from "../pages/e-commerce/ecobazar";
 import ProductDetail from "../pages/e-commerce/ProductDetail";
 import SignIn from "../pages/auth/entry/signin";
 import RegisterPage from "../pages/auth/registerpage/registerpage";
-import WeatherApp from "../pages/Weather/weather"
+import WeatherApp from "../pages/weather/weather"
 import NewsApp from "../pages/news/News";
 import News1 from "../pages/news1/news1"
 
