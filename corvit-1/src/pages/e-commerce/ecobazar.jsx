@@ -46,7 +46,7 @@ function Ecobazar() {
 
   const navigate = useNavigate();
 
-  const imgbasedURL = "https://ecobazar-ruby.vercel.app";
+  const imgbasedURL = "VITE_ECOBAZAR_API_URL";
 
   const NavigateToProductDetail = (item) => {
     navigate(`/productdetail/${item.id}`, { state: { product: item } });
@@ -54,7 +54,7 @@ function Ecobazar() {
 
   const getNews = async () => {
     try {
-      const response = await fetch("https://ecobazar-ruby.vercel.app/api/products");
+      const response = await fetch("VITE_ECOBAZAR_API_URL/api/products");
       const data = await response.json();
       setNews(data);
       setIsLoading(false);
