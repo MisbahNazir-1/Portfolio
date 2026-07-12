@@ -196,3 +196,5 @@ app.post('/api/resume', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`📡 Server is permanently alive and running on port: ${PORT}`);
 });
+
+module.exports = app;
