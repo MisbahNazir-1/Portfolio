@@ -46,16 +46,15 @@ function Ecobazar() {
 
   const navigate = useNavigate();
 
-  const imgbasedURL = "http://localhost:3000";
+  const imgbasedURL = "https://ecobazar-ruby.vercel.app";
 
   const NavigateToProductDetail = (item) => {
-    // Yahan 'item' pass ho raha hai, isliye state mein bhi 'item' hi jayega
     navigate(`/productdetail/${item.id}`, { state: { product: item } });
   };
 
   const getNews = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/products");
+      const response = await fetch("https://ecobazar-ruby.vercel.app/api/products");
       const data = await response.json();
       setNews(data);
       setIsLoading(false);
@@ -211,7 +210,7 @@ function Ecobazar() {
             <div
               className="product-card"
               key={product.id}
-              onClick={() => NavigateToProductDetail(product)} // Pura object bhej diya
+              onClick={() => NavigateToProductDetail(product)} 
               style={{ cursor: "pointer" }}
             >
               {product.discountprice > 0 && (
