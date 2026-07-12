@@ -110,11 +110,10 @@ const API_BASE_URL = import.meta.env.VITE_PORTFOLIO_API_URL || 'http://localhost
       {/* SIDEBAR NAVIGATION UTILITY */}
       <aside className="sidebar-container">
           <div className="sidebar-top-brand">
-      <img 
-        src={`${imageBaseURL}/uploads/logo.jpeg`} 
-        className="brand-neon-logo" 
-        alt="logo" 
-      />
+      <div className="sidebar-top-brand">
+  <img src="https://i.postimg.cc/MK8VHhqk/logo.jpg" className="brand-neon-logo" alt="logo" />
+  <span className="brand-text">Misbah Developer</span>
+</div>
       <span className="brand-text">Misbah Developer</span>
     </div>
         <nav className="sidebar-nav-links">
@@ -197,7 +196,7 @@ const API_BASE_URL = import.meta.env.VITE_PORTFOLIO_API_URL || 'http://localhost
   <div className="cyber-avatar-ring">
     <div className="avatar-core-display">
       <img 
-        src={`}${API_BASE_URL}/uploads/profile.jpeg`}
+        src={`${API_BASE_URL}/uploads/profile.jpeg`}
         alt="" 
         style={{
           width: '100%',
