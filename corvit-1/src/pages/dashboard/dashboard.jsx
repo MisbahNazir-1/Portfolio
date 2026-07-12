@@ -60,6 +60,9 @@ function Dashboard() {
 
   const imageBaseURL =import.meta.env.VITE_PORTFOLIO_API_URL .replace('/api', '');
 
+  const imgbasedURL = (import.meta.env.VITE_PORTFOLIO_API_URL || 'http://localhost:5000/api').replace('/api', '');
+
+
 
   // API services gateway root routing string
 const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
