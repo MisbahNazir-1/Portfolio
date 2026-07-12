@@ -62,7 +62,7 @@ function Dashboard() {
 
 
   // API services gateway root routing string
-const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app'
+const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
 
 
   // Synchronizes aggregate portfolio assets from server instance
