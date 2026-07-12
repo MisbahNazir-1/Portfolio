@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './RegisterPage.css'; // Unique clean CSS layer file link
+import './registerpage.css'; 
 import { useNavigate } from 'react-router-dom';
 import logo from "../../../assets/ecobazar-imgs/logo.png";
 import { FiArrowLeft, FiUser, FiMail, FiLock, FiHash, FiPhone, FiMapPin, FiCompass } from 'react-icons/fi';
