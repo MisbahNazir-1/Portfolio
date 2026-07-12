@@ -190,7 +190,7 @@ const API_BASE_URL = import.meta.env.VITE_PORTFOLIO_API_URL || 'http://localhost
   <div className="cyber-avatar-ring">
     <div className="avatar-core-display">
       <img 
-        src="http://localhost:5000/uploads/profile.jpeg" 
+        src={`}${API_BASE_URL}/uploads/profile.jpeg`}
         alt="" 
         style={{
           width: '100%',
