@@ -114,8 +114,7 @@ const API_BASE_URL = import.meta.env.VITE_PORTFOLIO_API_URL || 'http://localhost
   <img src="https://i.postimg.cc/MK8VHhqk/logo.jpg" className="brand-neon-logo" alt="logo" />
   <span className="brand-text">Misbah Developer</span>
 </div>
-      <span className="brand-text">Misbah Developer</span>
-    </div>
+</div>
         <nav className="sidebar-nav-links">
           <button className={`nav-item ${activeTab === 'dashboard' ? 'active' : ''}`} onClick={() => setActiveTab('dashboard')}>
             <FiLayout className="nav-icon" /> <span>Dashboard</span>
@@ -196,7 +195,7 @@ const API_BASE_URL = import.meta.env.VITE_PORTFOLIO_API_URL || 'http://localhost
   <div className="cyber-avatar-ring">
     <div className="avatar-core-display">
       <img 
-        src={`${API_BASE_URL}/uploads/profile.jpeg`}
+        src={`${API_BASE_URL}/uploads/logo.jpeg`}
         alt="" 
         style={{
           width: '100%',
