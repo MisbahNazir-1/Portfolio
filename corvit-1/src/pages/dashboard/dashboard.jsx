@@ -59,7 +59,7 @@ function Dashboard() {
   const [loading, setLoading] = useState(true);
 
   // API services gateway root routing string
-  const API_BASE_URL = 'http://localhost:5000/api';
+  const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api';
 
   // Synchronizes aggregate portfolio assets from server instance
   useEffect(() => {
