@@ -8,7 +8,8 @@ const ProductDetail = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [count, setCount] = useState(1);
 
-  const imgbasedURL = `${VITE_ECOBAZAR_API_URL}`;
+const imgbasedURL = import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:3000/api';
+
 
   useEffect(() => {
     const getProductDetail = async () => {
@@ -18,16 +19,15 @@ const ProductDetail = () => {
         return;
       }
 
-      // Step 2: Agar direct URL par aaye hain, toh API se fetch karein
       try {
-        const response = await fetch(`${VITE_ECOBAZAR_API_URL}/api/products`);
-        const data = await response.json();
-        
-        if (data?.products) {
-          // FIX: Number aur String ka farq khatam karne ke liye == use karein
-          const foundProduct = data.products.find(p => p.id == id);
-          setProduct(foundProduct);
-        }
+    const ECOBAZAR_API_URL = import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:3000/api';
+    const response = await fetch(`${ECOBAZAR_API_URL}/products`);
+    const data = await response.json();
+    
+    if (data?.products) {
+      const foundProduct = data.products.find(p => p.id == id);
+      setProduct(foundProduct);
+    }
         setIsLoading(false);
       } catch (error) {
         console.error("Fetch error:", error);

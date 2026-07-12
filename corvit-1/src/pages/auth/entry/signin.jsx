@@ -12,7 +12,11 @@ const Login = () => {
   const userLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:3000/api/user/login', { 
+const ECOBAZAR_API_URL = import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:3000/api';
+
+const response = await fetch(`${ECOBAZAR_API_URL}/user/login`,
+      
+      { 
         method: 'POST',
         headers: {
           "Content-Type": "application/json",

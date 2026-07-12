@@ -54,7 +54,8 @@ function Ecobazar() {
 
   const getNews = async () => {
     try {
-      const response = await fetch(`${VITE_ECOBAZAR_API_URL}/api/products`);
+       const ECOBAZAR_API_URL = import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:3000/api';
+      const response = await fetch(`${ECOBAZAR_API_URL}/products`);
       const data = await response.json();
       setNews(data);
       setIsLoading(false);
