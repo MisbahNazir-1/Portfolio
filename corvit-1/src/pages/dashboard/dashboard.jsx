@@ -392,26 +392,28 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
             <div className="contact-info-grid interactive-cluster-grid">
               
               {/* CHANNEL: OFFICIAL EMAIL SECURE GATEWAY */}
-   <a 
-  href="mailto:misbahnazirdeveloper@gmail.com" 
-  target="_blank" 
-  rel="noreferrer" 
+<a 
+  href="#copy-email"
+  onClick={(e) => {
+    e.preventDefault();
+    navigator.clipboard.writeText("misbahnazirdeveloper@gmail.com");
+    alert("Email copied to clipboard! 📋");
+  }}
   className="contact-anchor-card framework-elevation-link"
 >
+  <div className="contact-card-frame email-card-glow enterprise-card-spec">
+    <div className="card-dynamic-backdrop"></div>
+    <div className="contact-icon-wrapper email-icon-bg structural-icon-node">
+      <FiMail size={24} className="vector-pulse-node" />
+    </div>
+    <div className="contact-card-text communication-meta-block">
+      <h4 className="meta-label-tag">Secure Mail Gateway</h4>
+      <span className="contact-link-value email-text-color interface-string-highlight">misbahnazirdeveloper@gmail.com</span>
+      <span className="action-trigger-hint">Click to Copy Email ↗</span>
+    </div>
+  </div>
+</a>
 
-
-   <div className="contact-card-frame email-card-glow enterprise-card-spec">
-                  <div className="card-dynamic-backdrop"></div>
-                  <div className="contact-icon-wrapper email-icon-bg structural-icon-node">
-                    <FiMail size={24} className="vector-pulse-node" />
-                  </div>
-                  <div className="contact-card-text communication-meta-block">
-                    <h4 className="meta-label-tag">Secure Mail Gateway</h4>
-                    <span className="contact-link-value email-text-color interface-string-highlight">MisbahNazir</span>
-                    <span className="action-trigger-hint">Launch Mail Client ↗</span>
-                  </div>
-                </div>
-              </a>
 
               {/* CHANNEL: GITHUB REPOSITORY DOCK */}
               <a href="https://github.com/MisbahNazir-1" target="_blank" rel="noreferrer" className="contact-anchor-card framework-elevation-link">
