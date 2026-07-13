@@ -123,6 +123,9 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
           <button className={`nav-item ${activeTab === 'dashboard' ? 'active' : ''}`} onClick={() => setActiveTab('dashboard')}>
             <FiLayout className="nav-icon" /> <span>Dashboard</span>
           </button>
+          <button className={`nav-item ${activeTab === 'about' ? 'active' : ''}`} onClick={() => setActiveTab('about')}>
+  <FiUser className="nav-icon" /> <span>About Me</span>
+</button>
           <button className={`nav-item ${activeTab === 'experience' ? 'active' : ''}`} onClick={() => setActiveTab('experience')}>
             <FiBriefcase className="nav-icon" /> <span>Experience</span>
           </button>
@@ -335,6 +338,33 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
   </>
 )}
 
+{/* --- NAYA ABOUT ME CONTENT VIEW --- */}
+{activeTab === 'about' && (
+  <section className="dashboard-section-wrapper about-me-section">
+    <h2 className="section-heading">About Me</h2>
+    <div className="about-me-content">
+      <p>
+        Hi, I am <strong>Misbah Nazir</strong>, a passionate Full-Stack MERN Developer based in Lahore, Pakistan. 
+        I don’t just write code; I focus on understanding your business goals and translating complex 
+        challenges into seamless, high-performing digital solutions.
+      </p>
+      <p>
+        What makes my approach unique is my diverse background. Currently pursuing a Bachelor’s degree in 
+        International Relations from LCWU, I have developed strong critical thinking, global perspective, 
+        and cross-cultural communication skills. Combined with my professional MERN Stack certifications 
+        and industry internship experience at Decode Labs and Wolves Tech Solution, I bring a unique blend 
+        of technical expertise and strategic thinking to the table.
+      </p>
+      <p>
+        I am a natural multitasker who thrives under pressure. Whether I am architecting secure database 
+        structures, managing team workflows in Agile environments, or designing smooth frontend interfaces, 
+        I handle multiple moving parts effortlessly to deliver projects on time. From full-scale E-commerce 
+        platforms to secure data management systems, my goal is always to build clean, scalable, and secure 
+        web applications that drive real results for your business.
+      </p>
+    </div>
+  </section>
+)}
 
         {/* RUNTIME VIEWPORT: CORPORATE TIMELINE RECORD VIEWS */}
         {activeTab === 'experience' && (
