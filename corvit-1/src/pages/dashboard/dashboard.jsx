@@ -340,17 +340,28 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
 {/* About Me section */}
 {activeTab === 'about' && (
   <section style={{ padding: '40px 30px', color: '#e2e8f0', width: '100%', maxWidth: '1200px', boxSizing: 'border-box' }}>
-    {/* Heading Section */}
-    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '35px' }}>
-      <span style={{ width: '4px', height: '26px', backgroundColor: '#00f2fe', borderRadius: '2px' }}></span>
-      <h2 style={{ fontSize: '26px', fontWeight: '600', margin: 0, color: '#ffffff' }}>About Me</h2>
+    
+   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '35px', width: '100%' }}>
+   <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <span style={{ width: '4px', height: '26px', backgroundColor: '#00f2fe', borderRadius: '2px' }}></span>
+        <h2 style={{ fontSize: '26px', fontWeight: '600', margin: 0, color: '#ffffff' }}>About Me</h2>
+      </div>
+      <img 
+        src={`${imgbasedURL}/uploads/logo.jpeg`} 
+        alt="Misbah Nazir" 
+        style={{ 
+          width: '75px', 
+          height: '75px', 
+          borderRadius: '50%', 
+          border: '2px solid #00f2fe', 
+          objectFit: 'cover',
+          boxShadow: '0 0 15px rgba(0, 242, 254, 0.25)',
+          display: 'block'
+        }} 
+      />
     </div>
-
-    {/* Main Responsive Grid Layout */}
-    <div style={{ display: 'flex', gap: '40px', flexWrap: 'wrap', alignItems: 'start' }}>
-      
-      {/* Left Side: Professional Text Content */}
-      <div style={{ flex: '1 1 500px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+  <div style={{ display: 'flex', gap: '40px', flexWrap: 'wrap', alignItems: 'start' }}>
+    <div style={{ flex: '1 1 500px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
         <p style={{ fontSize: '18px', lineHeight: '1.7', color: '#f8fafc', margin: 0 }}>
           Hi, I am <span style={{ color: '#00f2fe', fontWeight: '600' }}>Misbah Nazir</span>, a passionate Full-Stack MERN Developer based in Lahore, Pakistan. I don’t just write code; I focus on understanding your business goals and translating complex challenges into seamless, high-performing digital solutions.
         </p>
@@ -362,25 +373,8 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
         </p>
       </div>
 
-      {/* Right Side: Profile Picture and Cards Stacked Smoothly */}
-      <div style={{ flex: '1 1 350px', display: 'flex', flexDirection: 'column', gap: '20px', alignItems: 'stretch' }}>
-        
-        {/* Profile Picture Wrapper */}
-        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
-          <img 
-            src="aapki-image-ka-path.jpg" /* Yahan apni image ka absolute path ya variable lagayein */
-            alt="Misbah Nazir" 
-            style={{ 
-              width: '140px', 
-              height: '140px', 
-              borderRadius: '50%', 
-              border: '3px solid #00f2fe', 
-              objectFit: 'cover',
-              boxShadow: '0 0 20px rgba(0, 242, 254, 0.25)',
-              display: 'block'
-            }} 
-          />
-        </div>
+      {/* Right Column: All Cards Stacked Seamlessly */}
+      <div style={{ flex: '1 1 350px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
         
         {/* Card 1 */}
         <div style={{ background: '#1e293b', border: '1px solid rgba(255, 255, 255, 0.08)', padding: '20px', borderRadius: '14px', boxShadow: '0 4px 20px rgba(0,0,0,0.2)' }}>
@@ -414,6 +408,7 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
     </div>
   </section>
 )}
+
 
 
 
