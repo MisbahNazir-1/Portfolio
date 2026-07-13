@@ -123,7 +123,10 @@
   margin-bottom: 40px;
   position: relative;
   overflow: hidden;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
+
 
 .greeting-pill {
   background: rgba(0, 255, 204, 0.08);
