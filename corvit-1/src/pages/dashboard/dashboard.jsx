@@ -5,7 +5,7 @@ import axios from 'axios';
 import { 
   FiLayout, FiBriefcase, FiCpu, FiMail, FiLogOut, FiDownload, 
   FiGithub, FiLinkedin, FiExternalLink, FiArrowUpRight, FiLock,
-     FiUser, FiHash, FiPhone, FiMapPin ,FiAward, FiZap, 
+     FiUser, FiHash, FiPhone, FiMapPin ,FiAward, FiZap,FiMenu, FiLayers,
 } from 'react-icons/fi';
 import { LuArrowRight } from "react-icons/lu";
 import './dashboard.css';
@@ -47,6 +47,7 @@ function Dashboard() {
   
   const [activeTab, setActiveTab] = useState('dashboard');
   const [isLoggedOut, setIsLoggedOut] = useState(false);
+const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const navigate = useNavigate;
    const [frontendDesigns, setFrontendDesigns] = useState([]);
 
@@ -110,44 +111,57 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
   }
 
   return (
-    <div className="dashboard-root-frame">
-      {/* SIDEBAR NAVIGATION UTILITY */}
-      <aside className="sidebar-container">
-          <div className="sidebar-top-brand">
-      <div className="sidebar-top-brand">
-  <img src="https://i.postimg.cc/MK8VHhqk/logo.jpg" className="brand-neon-logo" alt="logo" />
-  <span className="brand-text">Misbah Developer</span>
-</div>
-</div>
-        <nav className="sidebar-nav-links">
-          <button className={`nav-item ${activeTab === 'dashboard' ? 'active' : ''}`} onClick={() => setActiveTab('dashboard')}>
-            <FiLayout className="nav-icon" /> <span>Dashboard</span>
-          </button>
-          <button className={`nav-item ${activeTab === 'about' ? 'active' : ''}`} onClick={() => setActiveTab('about')}>
-  <FiUser className="nav-icon" /> <span>About Me</span>
-</button>
-          <button className={`nav-item ${activeTab === 'experience' ? 'active' : ''}`} onClick={() => setActiveTab('experience')}>
-            <FiBriefcase className="nav-icon" /> <span>Experience</span>
-          </button>
-          <button className={`nav-item ${activeTab === 'tech' ? 'active' : ''}`} onClick={() => setActiveTab('tech')}>
-            <FiCpu className="nav-icon" /> <span>Tech Stack</span>
-          </button>
-          <button className={`nav-item ${activeTab === 'contact' ? 'active' : ''}`} onClick={() => setActiveTab('contact')}>
-            <FiMail className="nav-icon" /> <span>Contact</span>
-          </button>
-          <button 
-  className={`nav-item ${activeTab === 'auth-demo' ? 'active' : ''}`} 
-  onClick={() => setActiveTab('auth-demo')}
->
-  <FiLock className="nav-icon" /> <span>Auth Live Demo</span>
-</button>
-          <a href={resumeLink} download className="nav-item download-resume-btn">
-  <FiDownload /> <span>Download Executive CV</span>
-</a>
+  <div className="dashboard-root-frame">
+    
+    <div className="mobile-header-bar">
+      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <img 
+          src="https://postimg.cc" 
+          style={{ width: '35px', height: '35px', borderRadius: '8px', objectFit: 'cover' }} 
+          alt="logo" 
+        />
+        <span className="brand-text" style={{ fontSize: '16px', fontWeight: '700' }}>Misbah Developer</span>
+      </div>
+      <button 
+        className="mobile-menu-toggle" 
+        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+        style={{ background: 'transparent', border: 'none', color: '#00ffcc', fontSize: '24px', cursor: 'pointer', display: 'flex', alignItems: 'center' }}
+      >
+        {isSidebarOpen ? <FiX /> : <FiMenu />}
+      </button>
+    </div>
 
-        </nav>
-       
-      </aside>
+    <aside className={`sidebar-container ${isSidebarOpen ? 'mobile-show' : ''}`}>
+      <div className="sidebar-top-brand">
+        <img src="https://postimg.cc" className="brand-neon-logo" alt="logo" />
+        <span className="brand-text">Misbah Developer</span>
+      </div>
+
+      <nav className="sidebar-nav-links">
+        <button className={`nav-item ${activeTab === 'dashboard' ? 'active' : ''}`} onClick={() => { setActiveTab('dashboard'); setIsSidebarOpen(false); }}>
+          <FiLayout className="nav-icon" /> <span>Dashboard</span>
+        </button>
+        <button className={`nav-item ${activeTab === 'about' ? 'active' : ''}`} onClick={() => { setActiveTab('about'); setIsSidebarOpen(false); }}>
+          <FiUser className="nav-icon" /> <span>About Me</span>
+        </button>
+        <button className={`nav-item ${activeTab === 'experience' ? 'active' : ''}`} onClick={() => { setActiveTab('experience'); setIsSidebarOpen(false); }}>
+          <FiBriefcase className="nav-icon" /> <span>Experience</span>
+        </button>
+        <button className={`nav-item ${activeTab === 'tech' ? 'active' : ''}`} onClick={() => { setActiveTab('tech'); setIsSidebarOpen(false); }}>
+          <FiCpu className="nav-icon" /> <span>Tech Stack</span>
+        </button>
+        <button className={`nav-item ${activeTab === 'contact' ? 'active' : ''}`} onClick={() => { setActiveTab('contact'); setIsSidebarOpen(false); }}>
+          <FiMail className="nav-icon" /> <span>Contact</span>
+        </button>
+        <button className={`nav-item ${activeTab === 'auth-demo' ? 'active' : ''}`} onClick={() => { setActiveTab('auth-demo'); setIsSidebarOpen(false); }}>
+          <FiLock className="nav-icon" /> <span>Auth Live Demo</span>
+        </button>
+        <a href={resumeLink} download className="nav-item download-resume-btn" onClick={() => setIsSidebarOpen(false)}>
+          <FiDownload /> <span>Download Executive CV</span>
+        </a>
+      </nav>
+    </aside>
+
 
       {/* RECEPTIVE CENTRAL VIEWPORT WRAPPER */}
       <main className="main-viewport-content">
@@ -304,7 +318,7 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
             {/* Text Content */}
             <div className="card-text-content">
               <div className="card-header-row">
-                <div className="card-icon-indicator">📁</div>
+                <div className="card-icon-indicator"><FiLayers/></div>
                 <div>
                   <h3 className="card-main-title">{design.title}</h3>
                   <p className="card-sub-description">{design.description}</p>
