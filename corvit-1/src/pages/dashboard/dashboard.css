@@ -100,11 +100,12 @@
 }
 
 /* --- MAIN FRAME SPACE MANIPULATION (FIXED & SECURE) --- */
+
 .main-viewport-content {
   flex: 1;
   margin-left: 260px; 
   padding: 40px;
-  width: calc(100% - 260px) !important;
+  width:100% !important;
   max-width: 100% !important;
   box-sizing: border-box !important;
   display: block !important;
