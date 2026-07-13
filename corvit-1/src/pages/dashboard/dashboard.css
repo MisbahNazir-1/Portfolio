@@ -1304,3 +1304,12 @@
     gap: 8px;
   }
 }
+
+.main-viewport-content > div,
+.main-viewport-content > section,
+.hero-branding-section,
+.apps-gateway-grid {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
