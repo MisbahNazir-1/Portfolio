@@ -116,7 +116,7 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
     <div className="mobile-header-bar">
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
         <img 
-          src="https://postimg.cc" 
+          src="https://i.postimg.cc/MK8VHhqk/logo.jpg" 
           style={{ width: '35px', height: '35px', borderRadius: '8px', objectFit: 'cover' }} 
           alt="logo" 
         />

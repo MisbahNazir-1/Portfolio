@@ -101,10 +101,13 @@
 /* --- MAIN FRAME SPACE MANIPULATION --- */
 .main-viewport-content {
   flex: 1;
-  margin-left: 260px; /* Offset for sidebar tracking */
+  margin-left: 260px; 
   padding: 40px;
-  max-width: 1180px;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
 }
+
 
 /* --- SECTION B: HERO BRANDING DESIGNS --- */
 .hero-branding-section {
