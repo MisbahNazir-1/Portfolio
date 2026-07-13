@@ -8,7 +8,6 @@ const ProductDetail = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [count, setCount] = useState(1);
 
-  // Dynamic Image URL Base Path
   const imgbasedURL = (import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:3000/api').replace('/api', '');
 
   useEffect(() => {
@@ -24,7 +23,6 @@ const ProductDetail = () => {
         const response = await fetch(`${ECOBAZAR_API_URL}/products`);
         const data = await response.json();
         
-        // MongoDB uses _id instead of id usually. Handled both just in case.
         if (data?.products) {
           const foundProduct = data.products.find(p => p._id === id || p.id == id);
           setProduct(foundProduct);
@@ -38,139 +36,93 @@ const ProductDetail = () => {
     getProductDetail();
   }, [id, location.state]);
 
-  // Loading Screen Layout
   if (isLoading) {
     return (
-      <div className="d-flex justify-content-center align-items-center min-vh-100" style={{ backgroundColor: '#fcfcfc' }}>
-        <div className="spinner-border text-success" role="status" style={{ width: '3rem', height: '3rem' }}>
-          <span className="visually-hidden">Loading...</span>
-        </div>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: '#f9fafb' }}>
+        <div style={{ width: '40px', height: '40px', border: '4px solid #f3f3f3', borderTop: '4px solid #10b981', borderRadius: '50%', animation: 'spin 1s linear infinite' }}></div>
+        <style>{`@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }`}</style>
       </div>
     );
   }
 
-  // 404 Product Not Found Layout
   if (!product) {
     return (
-      <div className="d-flex justify-content-center align-items-center min-vh-100" style={{ backgroundColor: '#f8f9fa' }}>
-        <div className="p-5 text-center shadow-lg rounded-5 bg-white border-0" style={{ maxWidth: '480px', borderRadius: '24px' }}>
-          <div className="display-1 fw-bold text-success mb-3" style={{ opacity: 0.15 }}>404</div>
-          <h3 className="fw-bold text-dark mb-2">Product Not Found</h3>
-          <p className="text-muted mb-4 small text-break">We couldn't retrieve details for ID: <code className="text-danger">{id}</code></p>
-          <Link to="/" className="btn btn-success px-4 py-2.5 rounded-pill shadow-sm fw-medium border-0 w-100" style={{ backgroundColor: '#10b981' }}>
-            Return to Marketplace
-          </Link>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: '#f8f9fa', padding: '20px' }}>
+        <div style={{ padding: '40px', textAlign: 'center', boxShadow: '0 10px 25px rgba(0,0,0,0.05)', borderRadius: '20px', backgroundColor: '#fff', maxWidth: '400px', width: '100%' }}>
+          <h1 style={{ fontSize: '3rem', color: '#10b981', margin: '0 0 10px 0', opacity: 0.3 }}>404</h1>
+          <h3 style={{ fontWeight: '700', color: '#1f2937', marginBottom: '10px' }}>Item Not Found</h3>
+          <p style={{ color: '#6b7280', fontSize: '0.9rem', marginBottom: '20px' }}>ID: {id}</p>
+          <Link to="/" style={{ display: 'block', backgroundColor: '#10b981', color: '#fff', textDecoration: 'none', padding: '12px', borderRadius: '10px', fontWeight: '500' }}>Back to Shop</Link>
         </div>
       </div>
     );
   }
 
-  // Fallback for naming variations
   const pName = product.producname || product.productname || "Premium Item";
 
   return (
-    <div style={{ backgroundColor: '#f9fafb', minHeight: '100vh', padding: '40px 20px' }}>
-      <div className="container" style={{ maxWidth: '1140px' }}>
+    <div style={{ backgroundColor: '#f3f4f6', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: '15px', boxSizing: 'border-box', fontFamily: 'system-ui, sans-serif' }}>
+      
+      <div style={{ width: '100%', maxWidth: '950px', backgroundColor: '#ffffff', borderRadius: '24px', boxShadow: '0 20px 40px rgba(0,0,0,0.04)', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', overflow: 'hidden', minHeight: '500px' }}>
         
-        {/* Elegant Minimal Breadcrumb */}
-        <nav className="mb-4 ps-1">
-          <ol className="breadcrumb m-0 p-0" style={{ fontSize: '0.9rem' }}>
-            <li className="breadcrumb-item"><Link to="/" className="text-muted text-decoration-none hover-link">Shop</Link></li>
-            <li className="breadcrumb-item active text-dark fw-semibold" aria-current="page">{pName}</li>
-          </ol>
-        </nav>
+        {/* Left Side: Product Image Canvas */}
+        <div style={{ flex: '1 1 400px', backgroundColor: '#f9fafb', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '30px', position: 'relative', borderRight: '1px solid #f1f5f9' }}>
+          <img 
+            src={imgbasedURL + product.image} 
+            alt={pName}
+            style={{ maxHeight: '320px', maxWidth: '100%', objectFit: 'contain', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.03))' }}
+          />
+        </div>
 
-        {/* Premium Split Grid Layout */}
-        <div className="row g-5 align-items-stretch">
+        {/* Right Side: Product Details & CTA */}
+        <div style={{ flex: '1 1 450px', padding: '40px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxSizing: 'border-box' }}>
           
-          {/* Left Column: Image Canvas */}
-          <div className="col-lg-6">
-            <div className="d-flex align-items-center justify-content-center p-4 bg-white border border-light position-sticky" style={{ borderRadius: '24px', minHeight: '520px', top: '24px', boxShadow: '0 4px 20px rgba(0,0,0,0.02)' }}>
-              <div className="image-container overflow-hidden position-relative w-100 h-100 d-flex justify-content-center align-items-center">
-                <img 
-                  src={imgbasedURL + product.image} 
-                  alt={pName}
-                  className="img-fluid main-product-img"
-                  style={{ maxHeight: '400px', objectFit: 'contain', transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)' }}
-                />
-              </div>
+          <div>
+            {/* Header info */}
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+              <span style={{ backgroundColor: '#ecfdf5', color: '#059669', padding: '6px 14px', borderRadius: '50px', fontWeight: '600', fontSize: '0.75rem', letterSpacing: '0.5px' }}>IN STOCK</span>
+              <span style={{ color: '#9ca3af', fontSize: '0.8rem', fontWeight: '500' }}>SKU: #00{product.id || 'N/A'}</span>
             </div>
+
+            {/* Product Title */}
+            <h1 style={{ fontSize: '2.2rem', fontWeight: '800', color: '#111827', margin: '0 0 15px 0', lineHeight: '1.2' }}>{pName}</h1>
+
+            {/* Price section */}
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: '12px', marginBottom: '25px' }}>
+              <span style={{ color: '#10b981', fontSize: '2.4rem', fontWeight: '800' }}>${product.actualprice}</span>
+              {product.discountprice > 0 && (
+                <span style={{ color: '#9ca3af', textDecoration: 'line-through', fontSize: '1.2rem' }}>${product.discountprice}</span>
+              )}
+            </div>
+
+            {/* Description */}
+            <p style={{ color: '#4b5563', fontSize: '1rem', lineHeight: '1.6', margin: '0 0 30px 0' }}>
+              Premium organic <strong>{pName}</strong>. Hand-picked at peak maturity to maintain unparalleled organic quality standards and dynamic freshness delivered straight for consumption.
+            </p>
           </div>
 
-          {/* Right Column: Product Content Configurator */}
-          <div className="col-lg-6 d-flex flex-column justify-content-between py-2">
-            <div>
-              {/* Status Header */}
-              <div className="d-flex align-items-center justify-content-between mb-3">
-                <span style={{ backgroundColor: '#ecfdf5', color: '#059669', padding: '6px 14px', borderRadius: '50px', fontWeight: '600', fontSize: '0.75rem', letterSpacing: '0.5px' }}>
-                  IN STOCK
-                </span>
-                <span className="text-secondary tracking-wider" style={{ fontSize: '0.8rem', fontWeight: '500' }}>
-                  SKU: #00{product.id || 'N/A'}
-                </span>
-              </div>
-              
-              {/* Product Title */}
-              <h1 className="fw-extrabold text-dark mb-3" style={{ fontSize: '2.4rem', letterSpacing: '-0.5px', lineHeight: '1.2' }}>
-                {pName}
-              </h1>
-              
-              {/* Price Tier Block */}
-              <div className="d-flex align-items-baseline gap-3 mb-4">
-                <h2 className="m-0 fw-bold" style={{ color: '#10b981', fontSize: '2.2rem' }}>
-                  ${product.actualprice}
-                </h2>
-                {product.discountprice > 0 && (
-                  <span className="text-muted text-decoration-line-through fs-5" style={{ opacity: 0.7 }}>
-                    ${product.discountprice}
-                  </span>
-                )}
-              </div>
-
-              {/* Separator Line */}
-              <hr style={{ borderTop: '1px solid #e5e7eb', margin: '24px 0' }} />
-
-              {/* Meta Specs Overview */}
-              <p className="text-secondary mb-4" style={{ lineHeight: '1.75', fontSize: '1.05rem' }}>
-                Experience premium tier selection with our meticulously sourced <strong>{pName}</strong>. Hand-picked at peak maturity to maintain unparalleled organic quality standards, dynamic freshness, and optimal nutrient integrity directly delivered for everyday consumption.
-              </p>
+          {/* Bottom Action Section */}
+          <div style={{ display: 'flex', gap: '15px', alignItems: 'center', width: '100%' }}>
+            
+            {/* Counter Stepper */}
+            <div style={{ display: 'flex', alignItems: 'center', backgroundColor: '#f3f4f6', borderRadius: '12px', padding: '2px' }}>
+              <button onClick={() => count > 1 && setCount(count-1)} style={{ border: 'none', background: 'none', padding: '12px 18px', fontSize: '1.2rem', fontWeight: '600', color: '#4b5563', cursor: 'pointer' }}>−</button>
+              <span style={{ fontSize: '1rem', fontWeight: '700', color: '#111827', minWidth: '30px', textAlign: 'center' }}>{count}</span>
+              <button onClick={() => setCount(count+1)} style={{ border: 'none', background: 'none', padding: '12px 18px', fontSize: '1.2rem', fontWeight: '600', color: '#4b5563', cursor: 'pointer' }}>+</button>
             </div>
 
-            {/* Functional Call To Action Section */}
-            <div className="mt-4 pt-3">
-              <div className="row g-3">
-                {/* Quantity Control Stepper */}
-                <div className="col-auto">
-                  <div className="d-flex align-items-center bg-white border" style={{ borderRadius: '14px', padding: '4px', height: '56px', boxShadow: '0 2px 8px rgba(0,0,0,0.01)' }}>
-                    <button className="btn border-0 px-3 py-1 font-monospace fw-bold text-secondary text-scale" onClick={() => count > 1 && setCount(count-1)} style={{ fontSize: '1.2rem' }}>−</button>
-                    <span className="fw-bold px-3 text-dark" style={{ minWidth: '40px', textAlign: 'center', fontSize: '1.05rem' }}>{count}</span>
-                    <button className="btn border-0 px-3 py-1 font-monospace fw-bold text-secondary text-scale" onClick={() => setCount(count+1)} style={{ fontSize: '1.2rem' }}>+</button>
-                  </div>
-                </div>
-
-                {/* Primary Core Action Button */}
-                <div className="col">
-                  <button className="btn w-100 buy-btn fw-semibold d-flex justify-content-between align-items-center px-4" style={{ backgroundColor: '#10b981', color: '#fff', border: 'none', borderRadius: '14px', height: '56px', transition: 'all 0.3s ease', boxShadow: '0 10px 20px rgba(16, 185, 129, 0.2)' }}>
-                    <span>Add to Cart</span>
-                    <span>${(product.actualprice * count).toFixed(2)}</span>
-                  </button>
-                </div>
-              </div>
-            </div>
+            {/* Add To Cart CTA Button */}
+            <button style={{ flex: 1, backgroundColor: '#10b981', color: '#ffffff', border: 'none', borderRadius: '12px', height: '52px', fontWeight: '600', fontSize: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 24px', cursor: 'pointer', boxShadow: '0 10px 15px -3px rgba(16, 185, 129, 0.2)', transition: 'transform 0.2s' }}>
+              <span>Add to Cart</span>
+              <span>${(product.actualprice * count).toFixed(2)}</span>
+            </button>
 
           </div>
+
         </div>
 
       </div>
 
-      {/* Styled Embed System */}
-      <style>{`
-        .hover-link:hover { color: #10b981 !important; transition: color 0.2s ease; }
-        .image-container:hover .main-product-img { transform: scale(1.04); }
-        .text-scale:hover { color: #10b981 !important; transform: scale(1.1); transition: all 0.2s ease; }
-        .buy-btn:hover { background-color: #059669 !important; transform: translateY(-2px); box-shadow: 0 12px 24px rgba(5, 150, 105, 0.3) !important; }
-        .buy-btn:active { transform: translateY(0); }
-      `}</style>
     </div>
   );
 };
