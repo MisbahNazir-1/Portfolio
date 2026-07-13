@@ -100,13 +100,14 @@
 
 /* --- MAIN FRAME SPACE MANIPULATION --- */
 .main-viewport-content {
-  flex: 1;
-  margin-left: 260px; 
-  padding: 40px;
-  max-width: 100%;
-  width: 100%;
-  box-sizing: border-box;
+  flex: 1 !important;
+  margin-left: 260px !important; 
+  padding: 40px !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
+
 
 
 /* --- SECTION B: HERO BRANDING DESIGNS --- */
