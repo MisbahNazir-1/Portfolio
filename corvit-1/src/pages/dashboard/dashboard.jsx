@@ -393,13 +393,12 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
               
               {/* CHANNEL: OFFICIAL EMAIL SECURE GATEWAY */}
    <a 
-  href="#email"
-  onClick={(e) => {
-    e.preventDefault();
-    window.open("https://google.com", "_blank", "noopener,noreferrer");
-  }}
+  href="mailto:misbahnazirdeveloper@gmail.com" 
+  target="_blank" 
+  rel="noreferrer" 
   className="contact-anchor-card framework-elevation-link"
 >
+
 
    <div className="contact-card-frame email-card-glow enterprise-card-spec">
                   <div className="card-dynamic-backdrop"></div>
