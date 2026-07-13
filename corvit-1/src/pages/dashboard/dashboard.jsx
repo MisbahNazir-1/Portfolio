@@ -392,8 +392,13 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
             <div className="contact-info-grid interactive-cluster-grid">
               
               {/* CHANNEL: OFFICIAL EMAIL SECURE GATEWAY */}
-              <a href="mailto:misbahnazirdeveloper@gmail.com" className="contact-anchor-card framework-elevation-link">
-                <div className="contact-card-frame email-card-glow enterprise-card-spec">
+             <a 
+  href="https://google.com" 
+  target="_blank" 
+  rel="noreferrer" 
+  className="contact-anchor-card framework-elevation-link"
+>
+   <div className="contact-card-frame email-card-glow enterprise-card-spec">
                   <div className="card-dynamic-backdrop"></div>
                   <div className="contact-icon-wrapper email-icon-bg structural-icon-node">
                     <FiMail size={24} className="vector-pulse-node" />
