@@ -363,6 +363,20 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
       </div>
 
       {/* Right Side: Sleek Professional Highlight Cards */}
+  <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
+    <img 
+      src={`${imgbasedURL}/uploads/logo.jpeg`}
+      alt="Misbah Nazir" 
+      style={{ 
+        width: '130px', 
+        height: '130px', 
+        borderRadius: '50%', 
+        border: '3px solid #00f2fe', 
+        objectFit: 'cover',
+        boxShadow: '0 0 15px rgba(0, 242, 254, 0.2)' 
+      }} 
+    />
+  </div>
       <div style={{ flex: '1 1 350px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
         
         {/* Card 1 */}
