@@ -113,27 +113,32 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
   return (
   <div className="dashboard-root-frame">
     
-    <div className="mobile-header-bar">
-      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-        <img 
-          src="https://i.postimg.cc/MK8VHhqk/logo.jpg" 
-          style={{ width: '35px', height: '35px', borderRadius: '8px', objectFit: 'cover' }} 
-          alt="logo" 
-        />
-        <span className="brand-text" style={{ fontSize: '16px', fontWeight: '700' }}>Misbah Developer</span>
-      </div>
-      <button 
-        className="mobile-menu-toggle" 
-        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-        style={{ background: 'transparent', border: 'none', color: '#00ffcc', fontSize: '24px', cursor: 'pointer', display: 'flex', alignItems: 'center' }}
-      >
-        {isSidebarOpen ? <FiX /> : <FiMenu />}
-      </button>
-    </div>
+   <div className="mobile-header-bar">
+  {/* Empty div left side par spacing maintain karne ke liye taake logo absolute center ho sake */}
+  <div style={{ width: '24px' }} className="mobile-spacer"></div> 
+  
+  <div className="mobile-brand-centered">
+    <img 
+      src="https://i.postimg.cc/MK8VHhqk/logo.jpg" 
+      style={{ width: '35px', height: '35px', borderRadius: '8px', objectFit: 'cover' }} 
+      alt="logo" 
+    />
+    <span className="brand-text" style={{ fontSize: '16px', fontWeight: '700' }}>Misbah Developer</span>
+  </div>
+
+  <button 
+    className="mobile-menu-toggle" 
+    onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+    style={{ background: 'transparent', border: 'none', color: '#00ffcc', fontSize: '24px', cursor: 'pointer', display: 'flex', alignItems: 'center' }}
+  >
+    {isSidebarOpen ? <FiX /> : <FiMenu />}
+  </button>
+</div>
+
 
     <aside className={`sidebar-container ${isSidebarOpen ? 'mobile-show' : ''}`}>
       <div className="sidebar-top-brand">
-        <img src="https://postimg.cc" className="brand-neon-logo" alt="logo" />
+        <img src="https://i.postimg.cc/MK8VHhqk/logo.jpg" className="brand-neon-logo" alt="logo" />
         <span className="brand-text">Misbah Developer</span>
       </div>
 

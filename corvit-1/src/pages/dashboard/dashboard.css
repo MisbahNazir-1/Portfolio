@@ -27,7 +27,7 @@
 /* --- SECTION A: SIDEBAR NAV ARCHITECTURE --- */
 .sidebar-container {
   width: 260px;
-  background: rgba(10, 14, 23, 0.85);
+  background: rgba(10, 14, 23, 0.95);
   backdrop-filter: blur(20px);
   border-right: 1px solid var(--border-neon-glow);
   padding: 30px 20px;
@@ -35,14 +35,11 @@
   flex-direction: column;
   justify-content: space-between;
   position: fixed;
-  height: calc(100vh - 60px);
-  z-index: 100;
-}
-
-.sidebar-top-brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  left: 0;
+  top: 0;
+  height: 100vh; 
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
 }
 
 .brand-neon-logo {
@@ -103,10 +100,9 @@
 
 .main-viewport-content {
   flex: 1;
-  margin-left: 260px; 
+  margin-left: 260px;
   padding: 40px;
-  width:100% !important;
-  max-width: 100% !important;
+  width: calc(100% - 260px) !important; 
   box-sizing: border-box !important;
   display: block !important;
 }
@@ -273,7 +269,6 @@
   opacity: 0.3;
 }
 
-/* Mobile Screens ke liye responsiveness */
 @media (max-width: 768px) {
   .hero-metrics-container {
     gap: 16px;
@@ -358,43 +353,76 @@
   border-radius: 2px;
 }
 
-
-/* ==========================================================================
-   ADDED CLEAN BACKWARD-COMPATIBLE MOBILE MEDIA QUERY RULES (BINA DESIGN CHERE)
-   ========================================================================== */
 @media (max-width: 768px) {
-  /* 1. Global Frame & Mobile Sidebar Navigation Switch Layout */
-  .dashboard-root-frame {
-    flex-direction: column; /* Mobile par screen top-to-bottom stack hogi */
-  }
-  
-  .sidebar-container {
-    position: static; /* Fixed se remove taake viewport par kabza na kare */
-    width: 100%;
-    height: auto;
-    box-sizing: border-box;
-    padding: 20px;
-    border-right: none;
-    border-bottom: 1px solid var(--border-neon-glow);
-  }
-  
   .main-viewport-content {
-    margin-left: 0 !important; /* Sidebar left margin hataya */
-    padding: 20px 15px !important; /* Spacing tightly grid fix */
-    width: 100%;
+    margin-left: 0 !important;
+    padding: 90px 15px 20px 15px !important;
+    width: 100% !important;
+    max-width: 100% !important;
     box-sizing: border-box;
   }
 
-  /* 2. Hero Section Mobile Optimization */
+  .mobile-header-bar {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #0a0e17;
+    border-bottom: 1px solid var(--border-neon-glow);
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 2000;
+  }
+
+  .mobile-header-bar > div:first-of-type {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .mobile-menu-toggle {
+    margin-left: auto;
+    z-index: 2001;
+  }
+
+  .sidebar-container {
+    position: fixed !important;
+    top: 60px;
+    left: 0;
+    width: 280px;
+    height: calc(100vh - 60px);
+    background: rgba(10, 14, 23, 0.98);
+    backdrop-filter: blur(20px);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1999;
+    border-right: 1px solid var(--border-neon-glow);
+    border-bottom: none;
+    box-sizing: border-box;
+    padding: 30px 20px;
+  }
+
+  .sidebar-container.mobile-show {
+    transform: translateX(0);
+    box-shadow: 20px 0 40px rgba(0, 0, 0, 0.7);
+  }
+
   .hero-branding-section {
-    flex-direction: column-reverse; /* Image ko top par laane ke liye vertical stacking */
+    flex-direction: column-reverse;
     gap: 30px;
     padding: 30px 20px;
     text-align: center;
   }
 
   .hero-title {
-    font-size: 28px; /* Headings automatic micro-adjust font size */
+    font-size: 28px;
   }
 
   .hero-subtitle {
@@ -402,7 +430,6 @@
     margin: 0 auto;
   }
 
-  /* Center alignment for inline actions on mobile devices */
   .hero-social-dock {
     justify-content: center;
     flex-wrap: wrap;
@@ -414,6 +441,13 @@
     box-sizing: border-box;
   }
 }
+
+@media (min-width: 769px) {
+  .mobile-header-bar {
+    display: none !important;
+  }
+}
+
 .apps-gateway-grid {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
