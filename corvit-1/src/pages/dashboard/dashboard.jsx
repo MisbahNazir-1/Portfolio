@@ -5,7 +5,7 @@ import axios from 'axios';
 import { 
   FiLayout, FiBriefcase, FiCpu, FiMail, FiLogOut, FiDownload, 
   FiGithub, FiLinkedin, FiExternalLink, FiArrowUpRight, FiLock,
-     FiUser, FiHash, FiPhone, FiMapPin ,FiAward, FiZap,FiMenu, FiLayers,
+     FiUser, FiHash, FiPhone, FiMapPin ,FiAward, FiZap,FiMenu, FiLayers, FiX
 } from 'react-icons/fi';
 import { LuArrowRight } from "react-icons/lu";
 import './dashboard.css';
@@ -112,9 +112,7 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
 
   return (
   <div className="dashboard-root-frame">
-    
    <div className="mobile-header-bar">
-  {/* Empty div left side par spacing maintain karne ke liye taake logo absolute center ho sake */}
   <div style={{ width: '24px' }} className="mobile-spacer"></div> 
   
   <div className="mobile-brand-centered">
