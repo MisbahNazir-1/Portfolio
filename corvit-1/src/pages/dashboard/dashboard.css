@@ -160,9 +160,8 @@
 .social-icon-btn {
   background: rgba(255, 255, 255, 0.08); 
   border: 1px solid var(--border-neon-glow);
-color: var(--text-primary-white) !important; 
+  color: var(--text-primary-white) !important; 
   opacity: 1 !important; 
-  color: #ffffff; 
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -216,8 +215,6 @@ color: var(--text-primary-white) !important;
   height: 16px;
   transition: transform 0.3s ease;
 }
-
-
 
 .hero-metrics-container {
   display: flex;
@@ -278,7 +275,6 @@ color: var(--text-primary-white) !important;
     height: 24px;
   }
 }
-
 
 .hero-right-avatar-box {
   display: flex;
@@ -347,7 +343,62 @@ color: var(--text-primary-white) !important;
   border-radius: 2px;
 }
 
-/* Updated to explicitly handle mobile stack and responsive 2 columns on desktop */
+
+/* ==========================================================================
+   ADDED CLEAN BACKWARD-COMPATIBLE MOBILE MEDIA QUERY RULES (BINA DESIGN CHERE)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* 1. Global Frame & Mobile Sidebar Navigation Switch Layout */
+  .dashboard-root-frame {
+    flex-direction: column; /* Mobile par screen top-to-bottom stack hogi */
+  }
+  
+  .sidebar-container {
+    position: static; /* Fixed se remove taake viewport par kabza na kare */
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    padding: 20px;
+    border-right: none;
+    border-bottom: 1px solid var(--border-neon-glow);
+  }
+  
+  .main-viewport-content {
+    margin-left: 0 !important; /* Sidebar left margin hataya */
+    padding: 20px 15px !important; /* Spacing tightly grid fix */
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* 2. Hero Section Mobile Optimization */
+  .hero-branding-section {
+    flex-direction: column-reverse; /* Image ko top par laane ke liye vertical stacking */
+    gap: 30px;
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 28px; /* Headings automatic micro-adjust font size */
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+    margin: 0 auto;
+  }
+
+  /* Center alignment for inline actions on mobile devices */
+  .hero-social-dock {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-metrics-container {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+}
 .apps-gateway-grid {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -357,11 +408,10 @@ color: var(--text-primary-white) !important;
 
 @media (min-width: 768px) {
   .apps-gateway-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)); /* Force exactly 2 cards in 1 row */
+    grid-template-columns: repeat(2, minmax(0, 1fr)); 
   }
 }
 
-/* Merged and cleaned up Gateway Card Styles */
 .gateway-card {
   position: relative;
   background: var(--bg-card-glass);
@@ -385,7 +435,6 @@ color: var(--text-primary-white) !important;
   z-index: 2;
 }
 
-/* Image Preview Block inside the card */
 .card-image-preview {
   width: 100%;
   height: 160px;
@@ -426,7 +475,6 @@ color: var(--text-primary-white) !important;
   margin-top: 4px;
 }
 
-/* Action Buttons Container Grid for Deployed Layouts */
 .gateway-action-row {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -475,7 +523,6 @@ color: var(--text-primary-white) !important;
   font-size: 15px;
 }
 
-/* --- SECTION D: SPLIT CASE TIMELINE AND MODULES --- */
 .split-showcase-layout {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -546,12 +593,30 @@ color: var(--text-primary-white) !important;
   margin: 0;
 }
 
-/* Project Cards Asset Details */
 .project-tags-row {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin: 12px 0 18px 0;
+}
+
+@media (max-width: 480px) {
+  .gateway-action-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .exp-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  
+  .duration-tag {
+    align-self: flex-start;
+  }
 }
 
 .tech-badge {
@@ -598,7 +663,6 @@ color: var(--text-primary-white) !important;
 
 .repo-btn:hover { background: rgba(255, 255, 255, 0.05); }
 
-/* --- SECTION E: DYNAMIC TECH STACK DOCK MARQUEE --- */
 .tech-stack-marquee-dock {
   background: var(--bg-card-glass);
   border: 1px solid var(--border-neon-glow);
@@ -656,14 +720,15 @@ color: var(--text-primary-white) !important;
   100% { transform: translateX(-50%); }
 }
 
-/* --- UTILITY: AUTH GATE HOVER PLACEHOLDER --- */
 .auth-gate-placeholder {
   min-height: 100vh;
   width: 100vw;
   background: var(--bg-deep-midnight);
-display: flex;align-items: center;justify-content: center;}/* --- RESPONSIVE SYSTEMS DESIGN: MEDIA QUERIES --- */@media (max-width: 1024px) {.apps-gateway-grid, .split-showcase-layout {grid-template-columns: 1fr;}}@media (max-width: 768px) {.sidebar-container {display: none; /* Mobile navigation utility setup placeholder */}.main-viewport-content {margin-left: 0;padding: 20px;}.hero-branding-section {flex-direction: column;text-align: center;gap: 30px;}.hero-title { font-size: 28px; }}
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-/* Premium Typography & Communications Layout Structural Overrides */
 .communications-viewport {
   animation: fadeInViewport 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -692,7 +757,6 @@ display: flex;align-items: center;justify-content: center;}/* --- RESPONSIVE SYS
   font-weight: 800;
   letter-spacing: -1px;
   margin: 0 0 12px 0;
-
 }
 
 .premium-subtitle {
@@ -701,7 +765,7 @@ display: flex;align-items: center;justify-content: center;}/* --- RESPONSIVE SYS
   max-width: 700px;
   opacity: 0.7;
 }
-/* Premium Tech Matrix Pipeline Grid Layouts Styles Override */
+
 .skill-matrix-viewport {
   animation: fadeInViewport 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -758,7 +822,6 @@ display: flex;align-items: center;justify-content: center;}/* --- RESPONSIVE SYS
   transition: var(--transition-smooth);
 }
 
-/* Advanced Hover Interactivity State Pipeline Transitions */
 .structural-matrix-pill:hover {
   transform: translateY(-3px);
   border-color: rgba(0, 255, 204, 0.3);
@@ -776,7 +839,6 @@ display: flex;align-items: center;justify-content: center;}/* --- RESPONSIVE SYS
   letter-spacing: 0.2px;
 }
 
-/* Glassmorphism Structural Core Matrix Grid */
 .interactive-cluster-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -834,6 +896,44 @@ display: flex;align-items: center;justify-content: center;}/* --- RESPONSIVE SYS
   transition: var(--transition-smooth);
 }
 
+@keyframes fadeInViewport {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1024px) {
+  .apps-gateway-grid, .split-showcase-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar-container {
+    display: none;
+  }
+  .main-viewport-content {
+    margin-left: 0;
+    padding: 20px;
+  }
+  .hero-branding-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+  .hero-title { 
+    font-size: 28px; 
+  }
+  .modern-heading-style {
+    font-size: 1.8rem;
+  }
+  .interactive-cluster-grid {
+    grid-template-columns: 1fr;
+  }
+  .project-actions-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
 .action-trigger-hint {
   font-size: 0.8rem;
   color: #fff;
@@ -846,7 +946,6 @@ display: flex;align-items: center;justify-content: center;}/* --- RESPONSIVE SYS
   transition: var(--transition-smooth);
 }
 
-/* Animations & Dynamic Hover State Transitions Node Matrices */
 .framework-elevation-link:hover .enterprise-card-spec {
   transform: translateY(-5px);
   border-color: rgba(255, 255, 255, 0.12) !important;
@@ -871,9 +970,6 @@ display: flex;align-items: center;justify-content: center;}/* --- RESPONSIVE SYS
   to { opacity: 1; transform: translateY(0); }
 }
 
-@media (max-width: 768px) {
-  .hero-right-avatar-box { display: none; }
-}
 .project-card-thumbnail {
   width: 100%;
   height: 160px;
@@ -882,7 +978,6 @@ display: flex;align-items: center;justify-content: center;}/* --- RESPONSIVE SYS
   margin-bottom: 12px;
 }
 
-/* Grid Container Setup */
 .portfolio-grid-container {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -898,14 +993,12 @@ display: flex;align-items: center;justify-content: center;}/* --- RESPONSIVE SYS
 
 @media (min-width: 1024px) {
   .portfolio-grid-container {
-    /* Set to 2 columns layout to closely match the reference UI image */
     grid-template-columns: repeat(2, minmax(0, 1fr)); 
   }
 }
 
-/* Card Styling matching the Application Central Gateway theme */
 .portfolio-card {
-  background-color: #0b1521; /* Dark theme background matching the dashboard */
+  background-color: #0b1521; 
   border: 1px solid #162a45;
   border-radius: 12px;
   overflow: hidden;
@@ -918,10 +1011,9 @@ display: flex;align-items: center;justify-content: center;}/* --- RESPONSIVE SYS
 }
 
 .portfolio-card:hover {
-  border-color: #00c853; /* Subtle light green accent glow on hover */
+  border-color: #00c853; 
 }
 
-/* Image Thumbnail Section */
 .card-image-wrapper {
   position: relative;
   width: 100%;
@@ -959,7 +1051,6 @@ display: flex;align-items: center;justify-content: center;}/* --- RESPONSIVE SYS
   font-weight: 500;
 }
 
-/* Text Content & Typography Hierarchy */
 .card-text-content {
   margin-top: 14px;
 }
@@ -998,7 +1089,6 @@ display: flex;align-items: center;justify-content: center;}/* --- RESPONSIVE SYS
   overflow: hidden;
 }
 
-/* Action Buttons Grid Layout */
 .card-action-buttons {
   margin-top: 16px;
   display: grid;
@@ -1006,12 +1096,11 @@ display: flex;align-items: center;justify-content: center;}/* --- RESPONSIVE SYS
   gap: 12px;
 }
 
-/* Green Live Link Button (Open Module Style) */
 .btn-open-module {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #00c853; /* Vibrant green matching the original theme */
+  background-color: #00c853; 
   color: #000000;
   font-weight: 600;
   font-size: 13px;
@@ -1025,7 +1114,6 @@ display: flex;align-items: center;justify-content: center;}/* --- RESPONSIVE SYS
   background-color: #00a944;
 }
 
-/* Dark Secondary Repository Button */
 .btn-repository {
   display: flex;
   align-items: center;
@@ -1046,7 +1134,7 @@ display: flex;align-items: center;justify-content: center;}/* --- RESPONSIVE SYS
   color: #ffffff;
   border-color: #334155;
 }
-/* Custom Twin Layout System for Deployed Architectures */
+
 .architecture-showcase-section {
   width: 100%;
   margin-bottom: 40px;
@@ -1062,12 +1150,10 @@ display: flex;align-items: center;justify-content: center;}/* --- RESPONSIVE SYS
 
 @media (min-width: 768px) {
   .architecture-twin-grid {
-    /* Forces exactly two equal cards side-by-side without occupying extra lines */
     grid-template-columns: repeat(2, minmax(0, 1fr)); 
   }
 }
 
-/* Individual Card Blocks Matching Client-side Layout Spec */
 .architecture-display-card {
   background: var(--bg-card-glass, rgba(17, 24, 39, 0.6));
   backdrop-filter: blur(15px);
@@ -1081,7 +1167,6 @@ display: flex;align-items: center;justify-content: center;}/* --- RESPONSIVE SYS
   box-sizing: border-box;
 }
 
-/* Fluid Media Wrapper Elements */
 .architecture-media-frame {
   width: 100%;
   height: 180px;
@@ -1104,7 +1189,6 @@ display: flex;align-items: center;justify-content: center;}/* --- RESPONSIVE SYS
   opacity: 1;
 }
 
-/* Text & Badges Control Space */
 .architecture-meta-details {
   flex-grow: 1;
   display: flex;
@@ -1136,7 +1220,6 @@ display: flex;align-items: center;justify-content: center;}/* --- RESPONSIVE SYS
   font-weight: 500;
 }
 
-/* Unified Footer Action Control Buttons */
 .architecture-actions-row {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1187,7 +1270,7 @@ display: flex;align-items: center;justify-content: center;}/* --- RESPONSIVE SYS
 }
 
 .stat-icon {
-  color: #00f2fe; /* Aapka cyan color */
+  color: #00f2fe; 
   font-size: 18px;
 }
 
@@ -1196,4 +1279,19 @@ display: flex;align-items: center;justify-content: center;}/* --- RESPONSIVE SYS
   margin: 0;
   font-size: 16px;
   font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .hero-right-avatar-box { 
+    display: none; 
+  }
+  .card-action-buttons,
+  .architecture-actions-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .card-header-row {
+    flex-direction: column;
+    gap: 8px;
+  }
 }
