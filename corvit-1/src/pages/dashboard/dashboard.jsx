@@ -339,52 +339,61 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
 )}
 {/* About Me section */}
 {activeTab === 'about' && (
-  <section className="dashboard-section-wrapper about-me-section">
-    <div className="section-header">
-      <span className="accent-bar"></span>
-      <h2 className="section-heading">About Me</h2>
+  <section style={{ padding: '40px 30px', color: '#e2e8f0', width: '100%', maxWidth: '1200px' }}>
+    {/* Heading Section */}
+    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '35px' }}>
+      <span style={{ width: '4px', height: '26px', backgroundColor: '#00f2fe', borderRadius: '2px' }}></span>
+      <h2 style={{ fontSize: '26px', fontWeight: '600', margin: 0, color: '#ffffff' }}>About Me</h2>
     </div>
 
-    <div className="about-me-grid">
-      {/* Left Column: Text Content */}
-      <div className="about-text-content">
-        <p className="lead-text">
-          Hi, I am <span className="highlight-cyan">Misbah Nazir</span>, a passionate Full-Stack MERN Developer based in Lahore, Pakistan. I don’t just write code; I focus on understanding your business goals and translating complex challenges into seamless, high-performing digital solutions.
+    {/* Main Responsive Grid Layout */}
+    <div className="about-grid-container" style={{ display: 'flex', gap: '40px', flexWrap: 'wrap', alignItems: 'start' }}>
+      
+      {/* Left Side: Professional Text Content */}
+      <div style={{ flex: '1 1 500px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <p style={{ fontSize: '18px', lineHeight: '1.7', color: '#f8fafc', margin: 0 }}>
+          Hi, I am <span style={{ color: '#00f2fe', fontWeight: '600' }}>Misbah Nazir</span>, a passionate Full-Stack MERN Developer based in Lahore, Pakistan. I don’t just write code; I focus on understanding your business goals and translating complex challenges into seamless, high-performing digital solutions.
         </p>
-        <p>
-          What makes my approach unique is my diverse background. Currently pursuing a Bachelor’s degree in International Relations from LCWU, I have developed strong critical thinking, global perspective, and cross-cultural communication skills. 
+        <p style={{ fontSize: '16px', lineHeight: '1.7', color: '#94a3b8', margin: 0 }}>
+          What makes my approach unique is my diverse background. Currently pursuing a Bachelor’s degree in International Relations from LCWU, I have developed strong critical thinking, global perspective, and cross-cultural communication skills.
         </p>
-        <p>
+        <p style={{ fontSize: '16px', lineHeight: '1.7', color: '#94a3b8', margin: 0 }}>
           Combined with my professional MERN Stack certifications and industry internship experience at Decode Labs and Wolves Tech Solution, I bring a unique blend of technical expertise and strategic thinking to the table.
         </p>
       </div>
 
-      {/* Right Column: Visual Highlights Cards with React Icons */}
-      <div className="about-stats-cards">
-        <div className="stat-card">
-          <div className="card-icon-title">
-            <FiAward className="stat-icon" />
-            <h4>Education Blend</h4>
-          </div>
-          <p>BS International Relations (LCWU) + MERN Certified</p>
-        </div>
+      {/* Right Side: Sleek Professional Highlight Cards */}
+      <div style={{ flex: '1 1 350px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
         
-        <div className="stat-card">
-          <div className="card-icon-title">
-            <FiZap className="stat-icon" />
-            <h4>Core Superpower</h4>
+        {/* Card 1 */}
+        <div style={{ background: '#1e293b', border: '1px solid rgba(255, 255, 255, 0.08)', padding: '20px', borderRadius: '14px', boxShadow: '0 4px 20px rgba(0,0,0,0.2)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
+            <FiAward style={{ color: '#00f2fe', fontSize: '20px' }} />
+            <h4 style={{ color: '#00f2fe', margin: 0, fontSize: '16px', fontWeight: '600' }}>Education Blend</h4>
           </div>
-          <p>Natural multitasker who thrives under high-pressure Agile workflows</p>
+          <p style={{ color: '#94a3b8', fontSize: '14px', margin: 0, lineHeight: '1.5' }}>BS International Relations (LCWU) + MERN Certified</p>
         </div>
-        
-        <div className="stat-card">
-          <div className="card-icon-title">
-            <FiBriefcase className="stat-icon" />
-            <h4>Industry Ready</h4>
+
+        {/* Card 2 */}
+        <div style={{ background: '#1e293b', border: '1px solid rgba(255, 255, 255, 0.08)', padding: '20px', borderRadius: '14px', boxShadow: '0 4px 20px rgba(0,0,0,0.2)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
+            <FiZap style={{ color: '#00f2fe', fontSize: '20px' }} />
+            <h4 style={{ color: '#00f2fe', margin: 0, fontSize: '16px', fontWeight: '600' }}>Core Superpower</h4>
           </div>
-          <p>Hands-on experience building scalable E-commerce & secure systems</p>
+          <p style={{ color: '#94a3b8', fontSize: '14px', margin: 0, lineHeight: '1.5' }}>Natural multitasker who thrives under high-pressure Agile workflows</p>
         </div>
+
+        {/* Card 3 */}
+        <div style={{ background: '#1e293b', border: '1px solid rgba(255, 255, 255, 0.08)', padding: '20px', borderRadius: '14px', boxShadow: '0 4px 20px rgba(0,0,0,0.2)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
+            <FiBriefcase style={{ color: '#00f2fe', fontSize: '20px' }} />
+            <h4 style={{ color: '#00f2fe', margin: 0, fontSize: '16px', fontWeight: '600' }}>Industry Ready</h4>
+          </div>
+          <p style={{ color: '#94a3b8', fontSize: '14px', margin: 0, lineHeight: '1.5' }}>Hands-on experience building scalable E-commerce & secure systems</p>
+        </div>
+
       </div>
+
     </div>
   </section>
 )}
