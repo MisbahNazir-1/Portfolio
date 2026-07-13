@@ -558,15 +558,21 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
           tag="User Login / JWT Session Gate"
           iconName="FiLock"
           glowColor="#00ffcc"
-          imageUrl="" 
+          imageUrl="https://i.postimg.cc/63NxRRKv/login.png"
         />
         <div className="gateway-action-row">
           <Link to="/login" className="gateway-live-btn">
             Open Module <FiArrowUpRight className="button-icon" />
           </Link>
-          <div className="gateway-repo-btn disabled-btn">
-            Code Coming Soon <FiGithub className="button-icon" />
-          </div>
+          {/* Active GitHub Link */}
+          <a 
+            href="https://github.com/MisbahNazir-1/Portfolio/tree/f190bf9c639b469e363e280493682bf9ccfd4930/corvit-1/src/pages/auth/entry" // 👈 Apna GitHub Repo Link yahan paste karen
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="gateway-repo-btn" // 👈 'disabled-btn' class hata di hai
+          >
+            Repository <FiGithub className="button-icon" />
+          </a>
         </div>
       </div>
 
@@ -577,25 +583,27 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
           tag="Admin Enrollment / Schema Setup"
           iconName="FiUser"
           glowColor="#00ffcc"
-          imageUrl="" 
+          imageUrl="https://i.postimg.cc/rpjNC22q/register.png"
         />
         <div className="gateway-action-row">
           <Link to="/register" className="gateway-live-btn">
             Open Module <FiArrowUpRight className="button-icon" />
           </Link>
-          <div className="gateway-repo-btn disabled-btn">
-            Code Coming Soon <FiGithub className="button-icon" />
-          </div>
+          {/* Active GitHub Link */}
+          <a 
+            href="https://github.com/MisbahNazir-1/Portfolio/tree/f190bf9c639b469e363e280493682bf9ccfd4930/corvit-1/src/pages/auth/registerpage" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="gateway-repo-btn" 
+          >
+            Repository <FiGithub className="button-icon" />
+          </a>
         </div>
       </div>
 
     </div>
   </section>
 )}
-
-
-
-
 
       </main>
     </div>
