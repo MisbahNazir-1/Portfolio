@@ -41,6 +41,12 @@
   z-index: 1000;
   transition: transform 0.3s ease-in-out;
 }
+.sidebar-top-brand {
+  display: flex;
+  align-items: center; 
+  gap: 12px;           
+}
+
 
 .brand-neon-logo {
   background: linear-gradient(135deg, var(--accent-cyber-green), var(--accent-glow-cyan));
