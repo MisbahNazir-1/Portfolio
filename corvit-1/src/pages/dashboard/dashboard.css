@@ -10,7 +10,7 @@
   --accent-electric-purple: #bf00ff;
   --accent-cyber-green: #00ffcc;
   --accent-glow-cyan: #00bfff;
-  --primary-green: #00c853; /* Synced with your standard gateway button color */
+  --primary-green: #00c853; 
 }
 
 .dashboard-root-frame {
@@ -23,7 +23,6 @@
   width: 100% !important;
   box-sizing: border-box !important;
 }
-
 
 /* --- SECTION A: SIDEBAR NAV ARCHITECTURE --- */
 .sidebar-container {
@@ -100,35 +99,33 @@
   font-size: 18px;
 }
 
-/* --- MAIN FRAME SPACE MANIPULATION --- */
+/* --- MAIN FRAME SPACE MANIPULATION (FIXED & SECURE) --- */
 .main-viewport-content {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start !important; /* Content ko left edge se tightly bind karega */
-  justify-content: flex-start !important;
+  flex: 1;
+  margin-left: 260px; 
+  padding: 40px;
   width: calc(100% - 260px) !important;
   max-width: 100% !important;
   box-sizing: border-box !important;
+  display: block !important;
 }
 
-.main-viewport-content > div,
-.main-viewport-content > section,
-.hero-branding-section,
-.apps-gateway-grid,
-.portfolio-grid-container {
+/* --- SECTION B: HERO BRANDING DESIGNS --- */
+.hero-branding-section {
+  background: var(--bg-card-glass);
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--border-neon-glow);
+  border-radius: 24px;
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
   width: 100% !important;
-  max-width: 100% !important;
-  display: flex !important;
-  flex-direction: column !important;
   box-sizing: border-box !important;
 }
-
-.hero-branding-section {
-  flex-direction: row !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-}
-
 
 .greeting-pill {
   background: rgba(0, 255, 204, 0.08);
@@ -192,6 +189,7 @@
   opacity: 1 !important;
   fill: currentColor; 
 }
+
 
 /* --- Neon CTA Button Styling --- */
 .neon-cta-btn {
