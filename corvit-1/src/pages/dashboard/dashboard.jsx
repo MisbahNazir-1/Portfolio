@@ -339,7 +339,7 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
 )}
 {/* About Me section */}
 {activeTab === 'about' && (
-  <section style={{ padding: '40px 30px', color: '#e2e8f0', width: '100%', maxWidth: '1200px' }}>
+  <section style={{ padding: '40px 30px', color: '#e2e8f0', width: '100%', maxWidth: '1200px', boxSizing: 'border-box' }}>
     {/* Heading Section */}
     <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '35px' }}>
       <span style={{ width: '4px', height: '26px', backgroundColor: '#00f2fe', borderRadius: '2px' }}></span>
@@ -347,7 +347,7 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
     </div>
 
     {/* Main Responsive Grid Layout */}
-    <div className="about-grid-container" style={{ display: 'flex', gap: '40px', flexWrap: 'wrap', alignItems: 'start' }}>
+    <div style={{ display: 'flex', gap: '40px', flexWrap: 'wrap', alignItems: 'start' }}>
       
       {/* Left Side: Professional Text Content */}
       <div style={{ flex: '1 1 500px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
@@ -362,24 +362,25 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
         </p>
       </div>
 
-      {/* Right Side: Sleek Professional Highlight Cards */}
-  <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
-    <img 
-      src={`${imgbasedURL}/uploads/logo.jpeg`}
-      alt="Misbah Nazir" 
-      style={{  
-        border: '3px solid #00f2fe', 
-        objectFit: 'cover',
-        boxShadow: '0 0 15px rgba(0, 242, 254, 0.2)' ,
-          width: '100%',
-          height: '100%',
-          objectPosition: 'center 12%', 
-          borderRadius:'50%'
-
-      }} 
-    />
-  </div>
-      <div style={{ flex: '1 1 350px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      {/* Right Side: Profile Picture and Cards Stacked Smoothly */}
+      <div style={{ flex: '1 1 350px', display: 'flex', flexDirection: 'column', gap: '20px', alignItems: 'stretch' }}>
+        
+        {/* Profile Picture Wrapper */}
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
+          <img 
+            src="aapki-image-ka-path.jpg" /* Yahan apni image ka absolute path ya variable lagayein */
+            alt="Misbah Nazir" 
+            style={{ 
+              width: '140px', 
+              height: '140px', 
+              borderRadius: '50%', 
+              border: '3px solid #00f2fe', 
+              objectFit: 'cover',
+              boxShadow: '0 0 20px rgba(0, 242, 254, 0.25)',
+              display: 'block'
+            }} 
+          />
+        </div>
         
         {/* Card 1 */}
         <div style={{ background: '#1e293b', border: '1px solid rgba(255, 255, 255, 0.08)', padding: '20px', borderRadius: '14px', boxShadow: '0 4px 20px rgba(0,0,0,0.2)' }}>
@@ -413,6 +414,7 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
     </div>
   </section>
 )}
+
 
 
         {/* RUNTIME VIEWPORT: CORPORATE TIMELINE RECORD VIEWS */}
