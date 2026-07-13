@@ -350,13 +350,14 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
         src={`${imgbasedURL}/uploads/logo.jpeg`} 
         alt="Misbah Nazir" 
         style={{ 
-          width: '75px', 
-          height: '75px', 
-          borderRadius: '50%', 
-          border: '2px solid #00f2fe', 
-          objectFit: 'cover',
-          boxShadow: '0 0 15px rgba(0, 242, 254, 0.25)',
-          display: 'block'
+             width: '110px', 
+    height: '110px', 
+    borderRadius: '50%', 
+    border: '3px solid #00f2fe', 
+    objectFit: 'cover',
+    objectPosition: 'top', /* Isse aapka face circle ke center mein aa jayega */
+    boxShadow: '0 0 20px rgba(0, 242, 254, 0.35)',
+    display: 'block'
         }} 
       />
     </div>
