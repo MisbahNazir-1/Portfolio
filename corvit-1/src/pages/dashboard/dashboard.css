@@ -13,7 +13,6 @@
   --primary-green: #00c853; /* Synced with your standard gateway button color */
 }
 
-/* --- Layout Structural Systems --- */
 .dashboard-root-frame {
   display: flex;
   background-color: var(--bg-deep-midnight);
@@ -21,7 +20,10 @@
   min-height: 100vh;
   font-family: 'Plus Jakarta Sans', sans-serif;
   overflow-x: hidden;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
+
 
 /* --- SECTION A: SIDEBAR NAV ARCHITECTURE --- */
 .sidebar-container {
