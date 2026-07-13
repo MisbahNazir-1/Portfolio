@@ -367,13 +367,15 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
     <img 
       src={`${imgbasedURL}/uploads/logo.jpeg`}
       alt="Misbah Nazir" 
-      style={{ 
-        width: '130px', 
-        height: '130px', 
-        borderRadius: '50%', 
+      style={{  
         border: '3px solid #00f2fe', 
         objectFit: 'cover',
-        boxShadow: '0 0 15px rgba(0, 242, 254, 0.2)' 
+        boxShadow: '0 0 15px rgba(0, 242, 254, 0.2)' ,
+          width: '100%',
+          height: '100%',
+          objectPosition: 'center 12%', 
+          borderRadius:'50%'
+
       }} 
     />
   </div>
