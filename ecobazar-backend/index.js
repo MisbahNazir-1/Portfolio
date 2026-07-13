@@ -6,8 +6,7 @@ import path from 'node:path';
 import productRoutes from "./routes/productRoutes.js";
 import loginRoutes from "./routes/loginRoutes.js";
 import cartRoutes from "./routes/cartRoutes.js";
-import db from "./config/db.js"; 
-
+import connectDB from "./config/db.js"; // Importing connectDB function instead of static connection instance
 
 dotenv.config(); 
 
@@ -21,14 +20,20 @@ app.use(cors());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(express.json());
 
+// Middleware to ensure database is connected before handling any requests
+app.use(async (req, res, next) => {
+    try {
+        await connectDB();
+        next();
+    } catch (err) {
+        res.status(500).json({ status: false, message: "Database connection failed", error: err.message });
+    }
+});
+
+// API Routes
 app.use('/api/products', productRoutes);
 app.use('/api/user/login', loginRoutes);
 app.use('/api/cart', cartRoutes);
-
-// const PORT = process.env.PORT || 3000; 
-// app.listen(PORT, () => {
-//     console.log(`Server is running with success on port ${PORT} !!!`);
-// });
 
 if (process.env.NODE_ENV !== 'production') {
     const PORT = process.env.PORT || 3000; 
@@ -38,4 +43,3 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 export default app; 
-

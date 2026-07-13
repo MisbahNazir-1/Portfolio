@@ -206,7 +206,6 @@ const imgbasedURL = (import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:
           <h2>Popular Products</h2>
         </div>
 
-        {/* FIX: Aapki CSS class 'product-grid' hai */}
         <div className="category-grid">
           {news.products.map((product) => (
             <div

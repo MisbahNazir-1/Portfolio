@@ -1,22 +1,30 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import dns from "dns"; 
 
-dotenv.config(); 
+dotenv.config();
 
-dns.setServers(["8.8.8.8", "8.8.4.4"]); 
+const mongoURI = process.env.MONGO_URI;
 
-const mongoURI = process.env.MONGO_URI 
+if (!mongoURI) {
+  console.error("MONGO_URI is missing in environment variables!");
+}
 
-mongoose.connect(mongoURI, {
-    serverSelectionTimeoutMS: 5000 
-})
-  .then(() => {
+const connectDB = async () => {
+  // Agar pehle se connected hai toh dubara connect na karein
+  if (mongoose.connection.readyState >= 1) {
+    return mongoose.connection;
+  }
+
+  try {
+    await mongoose.connect(mongoURI, {
+      serverSelectionTimeoutMS: 5000,
+    });
     console.log("MongoDB Cloud Connection Success !!! 🚀🔥");
-  })
-  .catch((err) => {
-    console.log("Database Connection Error !!! ❌", err.message);
-  });
+    return mongoose.connection;
+  } catch (err) {
+    console.error("Database Connection Error !!! ❌", err.message);
+    throw err;
+  }
+};
 
-const db = mongoose.connection;
-export default db;
+export default connectDB;
