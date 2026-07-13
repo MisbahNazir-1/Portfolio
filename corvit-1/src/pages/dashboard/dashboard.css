@@ -210,6 +210,13 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
+.hero-branding-section,
+.apps-gateway-grid,
+.portfolio-grid-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
 
 .neon-cta-btn:hover {
   background: var(--border-neon-glow);
