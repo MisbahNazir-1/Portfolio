@@ -5,7 +5,7 @@ import axios from 'axios';
 import { 
   FiLayout, FiBriefcase, FiCpu, FiMail, FiLogOut, FiDownload, 
   FiGithub, FiLinkedin, FiExternalLink, FiArrowUpRight, FiLock,
-     FiUser, FiHash, FiPhone, FiMapPin 
+     FiUser, FiHash, FiPhone, FiMapPin ,FiAward, FiZap, 
 } from 'react-icons/fi';
 import { LuArrowRight } from "react-icons/lu";
 import './dashboard.css';
@@ -106,7 +106,7 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
 
 
   if (loading) {
-    return <div className="auth-gate-placeholder"><h1>Loading Digital Portfolio Settings...</h1></div>;
+    return <div className="auth-gate-placeholder"><h1>Loading Digital Portfolio ...</h1></div>;
   }
 
   return (
@@ -337,34 +337,58 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
     </div>
   </>
 )}
-
-{/* --- NAYA ABOUT ME CONTENT VIEW --- */}
+{/* About Me section */}
 {activeTab === 'about' && (
   <section className="dashboard-section-wrapper about-me-section">
-    <h2 className="section-heading">About Me</h2>
-    <div className="about-me-content">
-      <p>
-        Hi, I am <strong>Misbah Nazir</strong>, a passionate Full-Stack MERN Developer based in Lahore, Pakistan. 
-        I don’t just write code; I focus on understanding your business goals and translating complex 
-        challenges into seamless, high-performing digital solutions.
-      </p>
-      <p>
-        What makes my approach unique is my diverse background. Currently pursuing a Bachelor’s degree in 
-        International Relations from LCWU, I have developed strong critical thinking, global perspective, 
-        and cross-cultural communication skills. Combined with my professional MERN Stack certifications 
-        and industry internship experience at Decode Labs and Wolves Tech Solution, I bring a unique blend 
-        of technical expertise and strategic thinking to the table.
-      </p>
-      <p>
-        I am a natural multitasker who thrives under pressure. Whether I am architecting secure database 
-        structures, managing team workflows in Agile environments, or designing smooth frontend interfaces, 
-        I handle multiple moving parts effortlessly to deliver projects on time. From full-scale E-commerce 
-        platforms to secure data management systems, my goal is always to build clean, scalable, and secure 
-        web applications that drive real results for your business.
-      </p>
+    <div className="section-header">
+      <span className="accent-bar"></span>
+      <h2 className="section-heading">About Me</h2>
+    </div>
+
+    <div className="about-me-grid">
+      {/* Left Column: Text Content */}
+      <div className="about-text-content">
+        <p className="lead-text">
+          Hi, I am <span className="highlight-cyan">Misbah Nazir</span>, a passionate Full-Stack MERN Developer based in Lahore, Pakistan. I don’t just write code; I focus on understanding your business goals and translating complex challenges into seamless, high-performing digital solutions.
+        </p>
+        <p>
+          What makes my approach unique is my diverse background. Currently pursuing a Bachelor’s degree in International Relations from LCWU, I have developed strong critical thinking, global perspective, and cross-cultural communication skills. 
+        </p>
+        <p>
+          Combined with my professional MERN Stack certifications and industry internship experience at Decode Labs and Wolves Tech Solution, I bring a unique blend of technical expertise and strategic thinking to the table.
+        </p>
+      </div>
+
+      {/* Right Column: Visual Highlights Cards with React Icons */}
+      <div className="about-stats-cards">
+        <div className="stat-card">
+          <div className="card-icon-title">
+            <FiAward className="stat-icon" />
+            <h4>Education Blend</h4>
+          </div>
+          <p>BS International Relations (LCWU) + MERN Certified</p>
+        </div>
+        
+        <div className="stat-card">
+          <div className="card-icon-title">
+            <FiZap className="stat-icon" />
+            <h4>Core Superpower</h4>
+          </div>
+          <p>Natural multitasker who thrives under high-pressure Agile workflows</p>
+        </div>
+        
+        <div className="stat-card">
+          <div className="card-icon-title">
+            <FiBriefcase className="stat-icon" />
+            <h4>Industry Ready</h4>
+          </div>
+          <p>Hands-on experience building scalable E-commerce & secure systems</p>
+        </div>
+      </div>
     </div>
   </section>
 )}
+
 
         {/* RUNTIME VIEWPORT: CORPORATE TIMELINE RECORD VIEWS */}
         {activeTab === 'experience' && (
