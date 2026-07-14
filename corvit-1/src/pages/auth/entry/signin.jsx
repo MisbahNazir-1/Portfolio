@@ -7,16 +7,23 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userData, setUserData] = useState();
+  const [alertConfig, setAlertConfig] = useState({ show: false, message: "", isSuccess: true });
   const navigate = useNavigate();
+
+  const showAlert = (message, isSuccess, callback = null) => {
+    setAlertConfig({ show: true, message, isSuccess });
+    setTimeout(() => {
+      setAlertConfig({ show: false, message: "", isSuccess: true });
+      if (callback) callback();
+    }, 3000);
+  };
 
   const userLogin = async (e) => {
     e.preventDefault();
     try {
-const ECOBAZAR_API_URL = import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:3000/api';
+      const ECOBAZAR_API_URL = 'https://ecobazar-ruby.vercel.app/api';
 
-const response = await fetch(`${ECOBAZAR_API_URL}/user/login`,
-      
-      { 
+      const response = await fetch(`${ECOBAZAR_API_URL}/user/login`, { 
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
@@ -31,15 +38,14 @@ const response = await fetch(`${ECOBAZAR_API_URL}/user/login`,
       setUserData(data);
 
       if (data.status) {
-        alert(data.message);
-        navigate('/'); 
+        showAlert(data.message, true, () => navigate('/'));
       } else {
-        alert(data.message);
+        showAlert(data.message, false);
       }
 
     } catch (err) {
       console.error("Login Error:", err); 
-      alert("Something went wrong!");
+      showAlert("Something went wrong!", false);
     }
   };
 
@@ -50,6 +56,14 @@ const response = await fetch(`${ECOBAZAR_API_URL}/user/login`,
 
   return (
     <div className="signin-container neon-theme">
+      {alertConfig.show && (
+        <div className={`neon-alert ${alertConfig.isSuccess ? 'success' : 'error'}`}>
+          <div className="neon-alert-content">
+            {alertConfig.message}
+          </div>
+        </div>
+      )}
+
       <div className="auth-top-bar">
         <button className="back-portfolio-btn" onClick={() => navigate('/')}>
           <FiArrowLeft className="btn-icon" /> Back to Dashboard

@@ -228,3 +228,49 @@
 .btn-icon {
     font-size: 16px !important;
 }
+.neon-alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 25px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 14px;
+  z-index: 1000;
+  background: rgba(10, 10, 15, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  animation: slideInNeon 0.3s ease-out forwards;
+}
+
+.neon-alert.success {
+  border: 1px solid #00ffcc;
+  color: #00ffcc;
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.3), inset 0 0 10px rgba(0, 255, 204, 0.1);
+  text-shadow: 0 0 8px rgba(0, 255, 204, 0.5);
+}
+
+.neon-alert.error {
+  border: 1px solid #ff3366;
+  color: #ff3366;
+  box-shadow: 0 0 15px rgba(255, 51, 102, 0.3), inset 0 0 10px rgba(255, 51, 102, 0.1);
+  text-shadow: 0 0 8px rgba(255, 51, 102, 0.5);
+}
+
+.neon-alert-content {
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.5px;
+}
+
+@keyframes slideInNeon {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

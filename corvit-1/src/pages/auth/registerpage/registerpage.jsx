@@ -21,6 +21,17 @@ const RegistrationPage = () => {
         acceptTerms: false,
     });
 
+    const [alertConfig, setAlertConfig] = useState({ show: false, message: "", isSuccess: true });
+    const navigate = useNavigate();
+
+    const showAlert = (message, isSuccess, callback = null) => {
+        setAlertConfig({ show: true, message, isSuccess });
+        setTimeout(() => {
+            setAlertConfig({ show: false, message: "", isSuccess: true });
+            if (callback) callback();
+        }, 3000);
+    };
+
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         setFormData({
@@ -28,8 +39,6 @@ const RegistrationPage = () => {
             [name]: type === 'checkbox' ? checked : value,
         });
     };
-
-    const navigate = useNavigate();
 
     const navigateToLogin = (e) => {
         e.preventDefault(); 
@@ -40,14 +49,13 @@ const RegistrationPage = () => {
         e.preventDefault(); 
 
         if (formData.password !== formData.confirmPassword) {
-            alert("Passwords do not match!");
+            showAlert("Passwords do not match!", false);
             return;
         }
 
         try {
-            const ECOBAZAR_API_URL = import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:3000/api';
-const response = await fetch(`${ECOBAZAR_API_URL}/user/register`,
- {
+            const ECOBAZAR_API_URL = 'https://vercel.app';
+            const response = await fetch(`${ECOBAZAR_API_URL}/user/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -58,19 +66,26 @@ const response = await fetch(`${ECOBAZAR_API_URL}/user/register`,
             const result = await response.json();
 
             if (response.ok) {
-                alert("Account Created Successfully!");
-                navigate('/login');
+                showAlert("Account Created Successfully!", true, () => navigate('/login'));
             } else {
-                alert("Error: " + result.message);
+                showAlert("Error: " + result.message, false);
             }
         } catch (error) {
             console.error("API Error:", error);
-            alert("Could not connect to the server.");
+            showAlert("Could not connect to the server.", false);
         }
     };
 
     return (
         <div className="neon-auth-container">
+            {alertConfig.show && (
+                <div className={`neon-alert ${alertConfig.isSuccess ? 'success' : 'error'}`}>
+                    <div className="neon-alert-content">
+                        {alertConfig.message}
+                    </div>
+                </div>
+            )}
+
             <header className="neon-auth-top-bar">
                 <button className="neon-back-portfolio-btn" onClick={() => navigate('/')}>
                     <FiArrowLeft className="neon-btn-icon" /> Back to Dashboard
@@ -101,12 +116,9 @@ const response = await fetch(`${ECOBAZAR_API_URL}/user/register`,
                             </div>
                         </div>
 
-                        {/* 🚀 USERNAME FIELD IS FULLY RESTORED & VISIBLE */}
                         <div className="neon-input-group-wrapper">
                             <FiUser className="neon-input-icon-left" />
-                              <input type="text" placeholder='User Name' name='Username' onChange={handleChange} className="neon-input-field-element" />
-
-                            
+                            <input type="text" placeholder='User Name' name='Username' onChange={handleChange} className="neon-input-field-element" />
                         </div>
 
                         <div className="neon-input-group-wrapper">
