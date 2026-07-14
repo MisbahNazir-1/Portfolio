@@ -54,8 +54,8 @@ const RegistrationPage = () => {
         }
 
         try {
-            const ECOBAZAR_API_URL = 'https://ecobazar-ruby.vercel.app/api';
-            const response = await fetch(`${ECOBAZAR_API_URL}/user/register`, {
+            const ECOBAZAR_API_URL = 'https://ecobazar-ruby.vercel.app';
+            const response = await fetch(`${ECOBAZAR_API_URL}/user/login/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -63,9 +63,14 @@ const RegistrationPage = () => {
                 body: JSON.stringify(formData), 
             });
 
+            if (!response.ok) {
+                showAlert(`Server Error: ${response.status}`, false);
+                return;
+            }
+
             const result = await response.json();
 
-            if (response.ok) {
+            if (result.status || response.ok) {
                 showAlert("Account Created Successfully!", true, () => navigate('/login'));
             } else {
                 showAlert("Error: " + result.message, false);

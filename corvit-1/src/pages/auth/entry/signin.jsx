@@ -21,9 +21,9 @@ const Login = () => {
   const userLogin = async (e) => {
     e.preventDefault();
     try {
-      const ECOBAZAR_API_URL = 'https://ecobazar-ruby.vercel.app/api';
+      const ECOBAZAR_API_URL = 'https://ecobazar-ruby.vercel.app';
 
-      const response = await fetch(`${ECOBAZAR_API_URL}/user`, { 
+      const response = await fetch(`${ECOBAZAR_API_URL}/user/login`, { 
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
@@ -35,7 +35,7 @@ const Login = () => {
       });
 
       if (!response.ok) {
-        showAlert(`Server Error: ${response.status} (Route Not Found)`, false);
+        showAlert(`Server Error: ${response.status}`, false);
         return;
       }
 
