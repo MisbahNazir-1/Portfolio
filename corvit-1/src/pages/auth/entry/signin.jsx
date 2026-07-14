@@ -23,7 +23,7 @@ const Login = () => {
     try {
       const ECOBAZAR_API_URL = 'https://ecobazar-ruby.vercel.app/api';
 
-      const response = await fetch(`${ECOBAZAR_API_URL}/user/login`, { 
+      const response = await fetch(`${ECOBAZAR_API_URL}/user`, { 
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
@@ -33,6 +33,11 @@ const Login = () => {
           password: password 
         })
       });
+
+      if (!response.ok) {
+        showAlert(`Server Error: ${response.status} (Route Not Found)`, false);
+        return;
+      }
 
       const data = await response.json();
       setUserData(data);
@@ -45,7 +50,7 @@ const Login = () => {
 
     } catch (err) {
       console.error("Login Error:", err); 
-      showAlert("Something went wrong!", false);
+      showAlert("Could not connect to the server.", false);
     }
   };
 
@@ -88,6 +93,7 @@ const Login = () => {
                 type="email"
                 placeholder="Admin Email"
                 className="input-field-element"
+                value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
@@ -99,6 +105,7 @@ const Login = () => {
                 type="password"
                 placeholder="Security Password"
                 className="input-field-element"
+                value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
