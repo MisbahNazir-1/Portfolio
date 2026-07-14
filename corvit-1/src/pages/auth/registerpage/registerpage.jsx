@@ -55,7 +55,7 @@ const RegistrationPage = () => {
 
         try {
             const ECOBAZAR_API_URL = 'https://ecobazar-ruby.vercel.app';
-            const response = await fetch(`${ECOBAZAR_API_URL}/user/login/register`, {
+            const response = await fetch(`${ECOBAZAR_API_URL}/user/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
