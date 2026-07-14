@@ -23,7 +23,7 @@ const Login = () => {
     try {
       const ECOBAZAR_API_URL = 'https://ecobazar-ruby.vercel.app';
 
-      const response = await fetch(`${ECOBAZAR_API_URL}/user/login`, { 
+      const response = await fetch(`${ECOBAZAR_API_URL}/api/user/login`, { 
         method: 'POST',
         headers: {
           "Content-Type": "application/json",

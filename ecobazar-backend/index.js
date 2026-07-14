@@ -32,7 +32,10 @@ app.use(async (req, res, next) => {
 
 // API Routes
 app.use('/api/products', productRoutes);
-app.use('/api/user/login', loginRoutes);
+
+app.use('/api/user/login', loginRoutes);   
+app.use('/api/user/register', loginRoutes); 
+
 app.use('/api/cart', cartRoutes);
 
 if (process.env.NODE_ENV !== 'production') {
@@ -42,4 +45,4 @@ if (process.env.NODE_ENV !== 'production') {
     });
 }
 
-export default app; 
+export default app;
