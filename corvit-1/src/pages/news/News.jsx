@@ -8,14 +8,12 @@ function News() {
 
     const getNews = async () => {
         try {
-            // AAPKA PURANA URL (Wapas laga diya hai)
             const response = await fetch("https://newsdata.io/api/1/latest? apikey=pub_25eff2fe7bad47b0bd84a65e55433020");
             const data = await response.json();
             setNews(data);
             setIsLoading(false);
         } catch (error) {
             console.error("Error fetching news:", error);
-            // Agar API block ho bhi jaye, toh screen crash na ho
             setIsLoading(false); 
         }
     };
