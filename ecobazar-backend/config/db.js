@@ -10,7 +10,6 @@ if (!mongoURI) {
 }
 
 const connectDB = async () => {
-  // Agar pehle se connected hai toh dubara connect na karein
   if (mongoose.connection.readyState >= 1) {
     return mongoose.connection;
   }
