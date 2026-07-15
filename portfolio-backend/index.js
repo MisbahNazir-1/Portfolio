@@ -1,10 +1,9 @@
-// Node v22/v24 Windows DNS Bug Fix (Must be at the very top)
+
 const dns = require('node:dns');
 if (dns.setServers) {
   dns.setServers(['1.1.1.1', '8.8.8.8']);
 }
 
-// Baki ka aapka purana code yahan se shuru hoga...
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
