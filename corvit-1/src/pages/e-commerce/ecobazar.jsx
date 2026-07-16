@@ -13,7 +13,7 @@ import greenapple from '../../assets/ecobazar-imgs/greenapple.jpg'
 import brinjal from '../../assets/ecobazar-imgs/brinjal.png';
 import lettuce from '../../assets/ecobazar-imgs/lettuce.png';
 import cabbage from '../../assets/ecobazar-imgs/cabbage.png';
-import cauliflower from '../../assets/ecobazar-imgs/caulilower.png';
+import cauliflower from '../../assets/ecobazar-imgs/cauliflower.png';
 import girlimg from "../../assets/ecobazar-imgs/girl-img.jpg";
 import imggreen from '../../assets/ecobazar-imgs/img-3.jpg';
 import imggrey from '../../assets/ecobazar-imgs/img-2.jpg';
