@@ -947,13 +947,48 @@
 
 .auth-gate-placeholder {
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
   background: rgb(24, 23, 24);
-  color: plum;
+  color: var(--accent-glow-cyan);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 20px;
+  text-align: center;
 }
+
+.auth-gate-placeholder h1, 
+.auth-gate-placeholder .display-text {
+  font-size: 1.8rem;
+  line-height: 1.3;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.auth-gate-placeholder p, 
+.auth-gate-placeholder .sub-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.85;
+}
+
+@media (min-width: 768px) {
+  .auth-gate-placeholder h1, 
+  .auth-gate-placeholder .display-text {
+    font-size: 2.5rem;
+  }
+  
+  .auth-gate-placeholder p, 
+  .auth-gate-placeholder .sub-text {
+    font-size: 1.1rem;
+    max-width: 600px;
+  }
+}
+
 
 .communications-viewport {
   animation: fadeInViewport 0.5s cubic-bezier(0.4, 0, 0.2, 1);
