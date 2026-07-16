@@ -12,9 +12,9 @@ import logo from "../../assets/ecobazar-imgs/logo.png";
 import greenapple from '../../assets/ecobazar-imgs/greenapple.jpg'
 import brinjal from '../../assets/ecobazar-imgs/brinjal.png';
 import lettuce from '../../assets/ecobazar-imgs/lettuce.png';
-import rf from '../../assets/ecobazar-imgs/rf.jpg;'
-import ep from '../../assets/ecobazar-imgs/ep.jpg;'
-import dr from '../../assets/ecobazar-imgs/dr.jpg;'
+import rf from '../../assets/ecobazar-imgs/rf.jpg';
+import ep from '../../assets/ecobazar-imgs/ep.jpg';
+import dr from '../../assets/ecobazar-imgs/dr.jpg';
 import cabbage from '../../assets/ecobazar-imgs/cabbage.png';
 import cauliflower from '../../assets/ecobazar-imgs/cauliflower.png';
 import capsicum from '../../assets/ecobazar-imgs/capsicum.jpg';
