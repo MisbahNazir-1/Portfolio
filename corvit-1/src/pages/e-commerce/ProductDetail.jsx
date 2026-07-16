@@ -100,7 +100,8 @@ const ProductDetail = () => {
               <button onClick={() => setCount(count+1)} className="stepper-btn">+</button>
             </div>
 
-            <button className="product-detail-cart-cta" onclick="alert('Product added to cart successfully!')">              <span>Add to Cart</span>
+            <button className="product-detail-cart-cta" onClick={() => alert('Product added to cart successfully!')}>        
+                    <span>Add to Cart</span>
               <span>${(product.actualprice * count).toFixed(2)}</span>
             </button>
           </div>
