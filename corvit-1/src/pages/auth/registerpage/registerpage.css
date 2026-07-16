@@ -112,7 +112,6 @@
     flex: 1 !important;
 }
 
-/* 🚀 CORE FIX: Absolute stack calculations layer build */
 .neon-input-group-wrapper {
     position: relative !important;
     width: 100% !important;
@@ -120,7 +119,6 @@
     align-items: center !important;
 }
 
-/* 🚀 CORE FIX: Icons forced precisely to the left side center */
 .neon-input-icon-left {
     position: absolute !important;
     left: 14px !important;
@@ -130,11 +128,10 @@
     z-index: 10 !important;
 }
 
-/* 🚀 CORE FIX: Text starts precisely after 44px to prevent overlapping */
 .neon-input-field-element {
     width: 100% !important;
     box-sizing: border-box !important;
-    padding: 12px 16px 12px 44px !important; /* Fixed left alignment */
+    padding: 12px 16px 12px 44px !important;
     background-color: #0d1117 !important;
     border: 1px solid #1f293d !important;
     border-radius: 8px !important;
@@ -215,6 +212,7 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none !important; 
   margin: 0 !important; 
 }
+
 .neon-alert {
   position: fixed;
   top: 20px;
@@ -260,4 +258,33 @@ input[type=number]::-webkit-outer-spin-button {
     transform: translateX(0);
     opacity: 1;
   }
+}
+
+@media (max-width: 768px) {
+    .neon-auth-top-bar {
+        flex-direction: column !important;
+        gap: 12px !important;
+        text-align: center !important;
+        padding: 15px 20px !important;
+    }
+
+    .neon-back-portfolio-btn {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    .neon-system-badge-info {
+        width: 100% !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+    }
+
+    .neon-register-card-panel {
+        padding: 24px 16px !important;
+    }
+
+    .neon-form-grid-layout {
+        flex-direction: column !important;
+        gap: 16px !important;
+    }
 }

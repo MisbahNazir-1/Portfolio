@@ -106,7 +106,6 @@
     gap: 20px !important;
 }
 
-/* 🚀 FIX: Static alignment for icons */
 .input-group-wrapper {
     position: relative !important;
     width: 100% !important;
@@ -114,21 +113,19 @@
     align-items: center !important;
 }
 
-/* 🚀 FIX: Icons made exactly Neon Cyber Green */
 .input-icon-left {
     position: absolute !important;
     left: 14px !important;
-    color: #00ffcc !important; /* Cyber neon color matching register page */
+    color: #00ffcc !important;
     font-size: 18px !important;
     pointer-events: none !important;
     z-index: 10 !important;
 }
 
-/* 🚀 FIX: Text padding 44px to prevent overlapping */
 .input-field-element {
     width: 100% !important;
     box-sizing: border-box !important;
-    padding: 14px 16px 14px 44px !important; /* Balanced left space */
+    padding: 14px 16px 14px 44px !important;
     background-color: #0d1117 !important;
     border: 1px solid #1f293d !important;
     border-radius: 8px !important;
@@ -228,6 +225,7 @@
 .btn-icon {
     font-size: 16px !important;
 }
+
 .neon-alert {
   position: fixed;
   top: 20px;
@@ -273,4 +271,34 @@
     transform: translateX(0);
     opacity: 1;
   }
+}
+
+@media (max-width: 768px) {
+    .auth-top-bar {
+        flex-direction: column !important;
+        gap: 12px !important;
+        text-align: center !important;
+        padding: 15px 20px !important;
+    }
+
+    .back-portfolio-btn {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    .demo-credentials-info {
+        width: 100% !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+    }
+
+    .neon-card {
+        padding: 30px 20px !important;
+    }
+
+    .form-options {
+        flex-direction: column !important;
+        gap: 12px !important;
+        align-items: flex-start !important;
+    }
 }

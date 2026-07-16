@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react";
 import "./ecobazar.css";
+import { 
+  FaHeart, FaPhone, FaShoppingBag, FaTruck, FaShieldAlt, 
+  FaUndo, FaHeadset, FaShoppingCart 
+} from 'react-icons/fa';
+import { 
+  FiStar, FiLayers, FiUser, FiMessageSquare 
+} from 'react-icons/fi';
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/ecobazar-imgs/logo.png";
-// import girlimg from "../../assets/ecobazar-imgs/girl-img.png";
 import girlimg from "../../assets/ecobazar-imgs/girl-img.jpg";
-import {FaHeart, FaPhone, FaShoppingBag, FaTruck, FaShieldAlt, FaUndo, FaHeadset, FaShoppingCart} from 'react-icons/fa';
 import imggreen from '../../assets/ecobazar-imgs/img-3.jpg';
 import imggrey from '../../assets/ecobazar-imgs/img-2.jpg';
 import fruits from "../../assets/ecobazar-imgs/fresh-fruits.png";
@@ -17,28 +22,6 @@ import Bread from "../../assets/ecobazar-imgs/bread&bakery.png";
 import cooking from "../../assets/ecobazar-imgs/cooking.png";
 import food from "../../assets/ecobazar-imgs/Diabeticfood.png";
 import baking from "../../assets/ecobazar-imgs/bakingneeds.png";
-import greenapple from "../../assets/ecobazar-imgs/greenapple.jpg";
-import cabbage from "../../assets/ecobazar-imgs/cabbage.png";
-import lettuce from "../../assets/ecobazar-imgs/lettuce.png";
-import brinjal from "../../assets/ecobazar-imgs/brinjal.png";
-import corn from "../../assets/ecobazar-imgs/corn.png";
-import greenchilli from "../../assets/ecobazar-imgs/greenchilli.png";
-import cauliflower from "../../assets/ecobazar-imgs/cauliflower.png";
-import capsicum from "../../assets/ecobazar-imgs/capsicum.jpg";
-import orangeslice from "../../assets/ecobazar-imgs/orangeslice.png";
-import egg from "../../assets/ecobazar-imgs/egg.jpg";
-import salad from "../../assets/ecobazar-imgs/salad.png";
-import dr from "../../assets/ecobazar-imgs/dr.jpg";
-import ep from "../../assets/ecobazar-imgs/ep.jpg";
-import rf from "../../assets/ecobazar-imgs/rf.jpg";
-import insta1 from "../../assets/ecobazar-imgs/insta-1.jpg";
-import insta2 from "../../assets/ecobazar-imgs/insta-2.jpg";
-import insta3 from "../../assets/ecobazar-imgs/insta-3.jpg";
-import insta4 from "../../assets/ecobazar-imgs/insta-4.jpg";
-import insta5 from "../../assets/ecobazar-imgs/insta-5.jpg";
-import insta6 from "../../assets/ecobazar-imgs/insta-6.jpg";
-
-
 
 function Ecobazar() {
   const [news, setNews] = useState({ products: [] });
@@ -46,8 +29,7 @@ function Ecobazar() {
 
   const navigate = useNavigate();
 
-const imgbasedURL = (import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:3000/api').replace('/api', '');
-
+  const imgbasedURL = (import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:3000/api').replace('/api', '');
 
   const NavigateToProductDetail = (item) => {
     navigate(`/productdetail/${item.id}`, { state: { product: item } });
@@ -55,7 +37,7 @@ const imgbasedURL = (import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:
 
   const getNews = async () => {
     try {
-       const ECOBAZAR_API_URL ='https://ecobazar-ruby.vercel.app/api'
+      const ECOBAZAR_API_URL ='https://ecobazar-ruby.vercel.app/api';
       const response = await fetch(`${ECOBAZAR_API_URL}/products`);
       const data = await response.json();
       setNews(data);
@@ -80,7 +62,6 @@ const imgbasedURL = (import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:
 
   return (
     <>
-      {/* Header Section */}
       <header className="top-nav">
         <div className="logo">
           <img src={logo} alt="Logo.png" /> ECOBAZAR
@@ -102,25 +83,22 @@ const imgbasedURL = (import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:
         </ul>
         <div className="phone"><FaPhone/> (219) 555-0114</div>
       </nav>
-      {/* Hero/Banners Grid */}
       <section className="hero-container">
-        {/* Big Green Banner */}
         <div className="main-hero">
-          <h1 className="fs-bolder fx-6 ">
+          <h1 className="fs-bolder fx-6">
             <span className="line">Fresh & Healthy</span>
-             <span className="line">Organic Food</span>
+            <span className="line">Organic Food</span>
           </h1>
-          <span className="badge fs-bold">Sale up to <span className="text-orange ">30% OFF</span></span>
+          <span className="badge fs-bold">Sale up to <span className="text-orange">30% OFF</span></span>
           <p>Free shipping on all your orders.</p>
           <br />
           <button className="btn-white">Shop now →</button>
         </div>
-        {/* Right Side Banners */}
         <div className="side-banners">
           <div className="banner summer">
             <small>SUMMER SALE</small>
             <h3>75% OFF</h3>
-            <p>Only Fruit &  Vegetable</p>
+            <p>Only Fruit & Vegetable</p>
             <a href="#">Shop Now →</a>
           </div>
           <div className="banner deal">
@@ -132,10 +110,9 @@ const imgbasedURL = (import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:
           </div>
         </div>
       </section>
-      {/* Features Section */}
       <section className="features">
         <div className="feature-item">
-           <h4><FaTruck className="icon-style"/>Free Shipping</h4>
+          <h4><FaTruck className="icon-style"/>Free Shipping</h4>
           <p>Free shipping on all your order</p>
         </div>
         <div className="feature-item">
@@ -143,7 +120,7 @@ const imgbasedURL = (import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:
           <p>Instant access to support</p>
         </div>
         <div className="feature-item">
-          <h4> <FaShieldAlt className="icon-style"/>100% Secure Payment</h4>
+          <h4><FaShieldAlt className="icon-style"/>100% Secure Payment</h4>
           <p>We ensure your money is safe</p>
         </div>
         <div className="feature-item">
@@ -151,7 +128,6 @@ const imgbasedURL = (import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:
           <p>30 Days Money-Back Guarantee</p>
         </div>
       </section>
-      {/* Popular Categories */}
       <div className="section-header">
         <h2>Popular Categories</h2>
         <a href="#" className="view-all">
@@ -172,7 +148,7 @@ const imgbasedURL = (import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:
           <p>Meat & Fish</p>
         </div>
         <div className="category-card">
-          <img src={snacks}alt="Snacks" />
+          <img src={snacks} alt="Snacks" />
           <p>Snacks</p>
         </div>
         <div className="category-card">
@@ -183,25 +159,24 @@ const imgbasedURL = (import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:
           <img src={beauty} alt="Health" />
           <p>Beauty & Health</p>
         </div>
-         <div className="category-card">
+        <div className="category-card">
           <img src={baking} alt="Baking Needs" />
           <p>Baking Needs</p>
         </div>
-         <div className="category-card">
+        <div className="category-card">
           <img src={Bread} alt="Breads" />
           <p>Bread & Bakery</p>
         </div>
-         <div className="category-card">
+        <div className="category-card">
           <img src={cooking} alt="Cooking" />
           <p>Cooking</p>
         </div>
-         <div className="category-card">
+        <div className="category-card">
           <img src={food} alt="Food" />
           <p>Diabetic Food</p>
         </div>
       </div>
-      {/* Popular Products */}
-      <div style={{ padding: "0 10%" }}>
+          <div className="popular-products-wrapper">
         <div className="section-header">
           <h2>Popular Products</h2>
         </div>
@@ -212,7 +187,6 @@ const imgbasedURL = (import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:
               className="product-card"
               key={product.id}
               onClick={() => NavigateToProductDetail(product)} 
-              style={{ cursor: "pointer" }}
             >
               {product.discountprice > 0 && (
                 <span className="sale-badge">Sale</span>
@@ -226,20 +200,19 @@ const imgbasedURL = (import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:
               <p className="product-name">{product.producname}</p>
               <p className="price">${product.actualprice}</p>
 
-              <div className="rating">★★★★★</div>
+              <div className="rating">
+                {[...Array(5)].map((_, i) => (
+                  <FiStar key={i} className="star-filled" />
+                ))}
+              </div>
               <button className="cart-btn" onClick={(e) => e.stopPropagation()}>
-                🛒
+                <FaShoppingCart />
               </button>
             </div>
           ))}
         </div>
-
-        <div>
-        
-        </div>
-        
       </div>
-      {/* Top Promotion Banners */}
+
       <section className="promo-banners">
         <div className="promo-card blue">
           <small>BEST DEALS</small>
@@ -255,7 +228,7 @@ const imgbasedURL = (import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:
           <small>85% FAT FREE</small>
           <h3>Low-Fat Meat</h3>
           <p>
-            Started at <span style={{ color: "#FFB800" }}>$79.99</span>
+            Started at <span className="text-yellow">$79.99</span>
           </p>
           <a href="#" className="promo-btn">
             Shop Now →
@@ -272,33 +245,32 @@ const imgbasedURL = (import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:
           </a>
         </div>
       </section>
-      {/* Hot Deals Title */}
+
       <div className="section-header">
         <h2>Hot Deals</h2>
-        <a
-          href="#"
-          style={{ color: "var(--primary-green)", textDecoration: "none" }}
-        >
+        <a href="#" className="view-all-link">
           View All →
         </a>
       </div>
-      {/* Main Content Area */}
+
       <section className="deals-container">
-        {/* Featured Product  */}
         <div className="featured-product">
           <img src={greenapple} alt="Green Apples" />
           <button className="add-to-cart-btn">Add to Cart <FaShoppingCart/></button>
           <h3>Green Apple</h3>
-          <p className="price" style={{ fontSize: 20 }}>
+          <p className="price">
             <b>$12.00</b>{" "}
-            <span style={{ textDecoration: "line-through", color: "#999" }}>
+            <span className="old-price-text">
               $24.00
             </span>
           </p>
-          <div style={{ color: "#FFB800" }}>
-            ★★★★★ <span style={{ color: "#999" }}>(524 Feedback)</span>
+          <div className="feedback-stars">
+            {[...Array(5)].map((_, i) => (
+              <FiStar key={i} className="star-filled" />
+            ))}
+            <span className="feedback-count">(524 Feedback)</span>
           </div>
-          <p style={{ fontSize: 12, color: "#666", marginTop: 15 }}>
+          <p className="ends-text">
             Hurry up! Offer ends in:
           </p>
           <div className="timer-grid">
@@ -316,7 +288,7 @@ const imgbasedURL = (import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:
             </div>
           </div>
         </div>
-        {/* Small Items Grid */}
+
         <div className="product-grid">
           <div className="small-card">
             <img src={cabbage} alt="Cabbage" />
@@ -356,22 +328,19 @@ const imgbasedURL = (import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:
           </div>
         </div>
       </section>
-      {/* Latest News */}
+
       <div className="container">
         <h2 className="section-title">Latest News</h2>
         <div className="news-grid">
-          {/* News Item 1 */}
           <div className="news-card">
-            <div
-              className="news-image-1"
-            >
+            <div className="news-image-1">
               <div className="date-badge">
                 18 <span>Nov</span>
               </div>
             </div>
             <div className="news-content">
               <div className="news-meta">
-                <span>📂 Food</span> <span>👤 By Admin</span> <span>💬 65</span>
+                <span><FiLayers /> Food</span> <span><FiUser /> By Admin</span> <span><FiMessageSquare /> 65</span>
               </div>
               <h3>Curabitur porttitor orci eget neque accumsan venenatis.</h3>
               <a href="#" className="read-more">
@@ -379,18 +348,16 @@ const imgbasedURL = (import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:
               </a>
             </div>
           </div>
-          {/* Item 2 & 3 would follow same structure */}
-          <div className="news-card">
-            <div
-              className="news-image-2"
-            >
+
+                <div className="news-card">
+            <div className="news-image-2">
               <div className="date-badge">
                 29 <span>Jan</span>
               </div>
             </div>
             <div className="news-content">
               <div className="news-meta">
-                <span>📂 Food</span> <span>👤 By Admin</span> <span>💬 65</span>
+                <span><FiLayers /> Food</span> <span><FiUser /> By Admin</span> <span><FiMessageSquare /> 65</span>
               </div>
               <h3>Eget lobortis lorem lacinia. Vivamus pharetra semper.</h3>
               <a href="#" className="read-more">
@@ -399,16 +366,14 @@ const imgbasedURL = (import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:
             </div>
           </div>
           <div className="news-card">
-            <div
-              className="news-image-3"
-            >
+            <div className="news-image-3">
               <div className="date-badge">
                 21 <span>Feb</span>
               </div>
             </div>
             <div className="news-content">
               <div className="news-meta">
-                <span>📂 Food</span> <span>👤 By Admin</span> <span>💬 65</span>
+                <span><FiLayers /> Food</span> <span><FiUser /> By Admin</span> <span><FiMessageSquare /> 65</span>
               </div>
               <h3>Maecenas blandit risus elementum mauris malesuada.</h3>
               <a href="#" className="read-more">
@@ -418,34 +383,15 @@ const imgbasedURL = (import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:
           </div>
         </div>
       </div>
-      {/* Testimonials */}
+
       <section className="testimonial-section">
         <div className="testimonial-header">
           <h2>Client Testimonials</h2>
           <div className="nav-arrows">
-            <button
-              style={{
-                border: "1px solid #ddd",
-                background: "none",
-                borderRadius: "50%",
-                width: 40,
-                height: 40,
-                cursor: "pointer",
-              }}
-            >
+            <button className="nav-arrow-left">
               ←
             </button>
-            <button
-              style={{
-                background: "var(--primary-green)",
-                color: "white",
-                border: "none",
-                borderRadius: "50%",
-                width: 40,
-                height: 40,
-                cursor: "pointer",
-              }}
-            >
+            <button className="nav-arrow-right">
               →
             </button>
           </div>
@@ -466,10 +412,14 @@ const imgbasedURL = (import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:
                   <p>Customer</p>
                 </div>
               </div>
-              <div className="rating">★★★★★</div>
+              <div className="rating">
+                {[...Array(5)].map((_, i) => (
+                  <FiStar key={i} className="star-filled" />
+                ))}
+              </div>
             </div>
           </div>
-          {/* Repeat for other 2 clients */}
+          
           <div className="testimonial-card">
             <div className="quote-icon">“</div>
             <p className="testimonial-text">
@@ -485,7 +435,11 @@ const imgbasedURL = (import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:
                   <p>Customer</p>
                 </div>
               </div>
-              <div className="rating">★★★★★</div>
+              <div className="rating">
+                {[...Array(5)].map((_, i) => (
+                  <FiStar key={i} className="star-filled" />
+                ))}
+              </div>
             </div>
           </div>
           <div className="testimonial-card">
@@ -503,51 +457,54 @@ const imgbasedURL = (import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:
                   <p>Customer</p>
                 </div>
               </div>
-              <div className="rating">★★★★★</div>
+              <div className="rating">
+                {[...Array(5)].map((_, i) => (
+                  <FiStar key={i} className="star-filled" />
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
-      {/* Brand Logos */}
+
       <div className="brand-logos">
-        <div style={{ color: "#00B207" }}>steps</div>
+        <div className="brand-step-highlight">steps</div>
         <div>MANGO</div>
         <div>food</div>
         <div>FOOD</div>
         <div>BOOK OFF</div>
         <div>G Series</div>
       </div>
-      {/* Instagram Feed Section */}
+
       <div className="container insta-section">
         <h2>Follow us on Instagram</h2>
         <div className="insta-grid">
           <div
-            className="insta-img"
+            className="insta-img insta-img-1"
             style={{ backgroundImage: `url(${insta1})` }}
           />
           <div
-            className="insta-img"
+            className="insta-img insta-img-2"
             style={{ backgroundImage: `url(${insta2})` }}
           />
           <div
-            className="insta-img"
+            className="insta-img insta-img-3"
             style={{ backgroundImage: `url(${insta3})` }}
           />
           <div
-            className="insta-img"
+            className="insta-img insta-img-4"
             style={{ backgroundImage: `url(${insta4})` }}
           />
           <div
-            className="insta-img"
+            className="insta-img insta-img-5"
             style={{ backgroundImage: `url(${insta5})` }}
           />
           <div
-            className="insta-img"
+            className="insta-img insta-img-6"
             style={{ backgroundImage: `url(${insta6})` }}
           />
         </div>
       </div>
-      {/* Newsletter Bar */}
       <section className="newsletter-bar">
         <div className="newsletter-text">
           <h3>Subscribe our Newsletter</h3>
@@ -564,12 +521,12 @@ const imgbasedURL = (import.meta.env.VITE_ECOBAZAR_API_URL || 'http://localhost:
           <span>f</span> <span>t</span> <span>p</span> <span>i</span>
         </div>
       </section>
-      {/* Main Footer */}
+
       <footer>
         <div className="footer-grid">
           <div className="footer-about">
             <div className="footer-logo">
-              <span><img src={logo}/></span> Ecobazar
+              <span><img src={logo} alt="logo"/></span> Ecobazar
             </div>
             <p>
               Morbi cursus porttitor enim lobortis molestie. Duis gravida turpis

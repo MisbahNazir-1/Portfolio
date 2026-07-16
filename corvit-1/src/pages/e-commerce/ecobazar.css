@@ -9,74 +9,76 @@
      --dark-bg: #ffffff;
      --border-gray: #E6E6E6;
      --bg-light: #ffffff;
- }
+}
  
- .line {
+.line {
     display: block;
     font-size: 40px;
- }
+}
 
- body {
+body {
      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
      margin: 0;
      color: #1A1A1A !important;
      background-color: #ffffff !important;
- }
+}
 
- a {
+a {
      text-decoration: none;
      color: inherit !important;
- }
+}
 
- .top-nav {
+.top-nav {
      display: flex;
      justify-content: space-between;
      padding: 10px 10%;
      background: #ffffff !important;
      align-items: center;
      border-bottom: 1px solid #eee;
- }
+     gap: 20px;
+}
 
- .logo {
+.logo {
      font-size: 28px;
      font-weight: bold;
      color: #1A1A1A !important;
      display: flex;
      align-items: center;
- }
+     white-space: nowrap;
+}
 
- .logo span {
+.logo span {
      color: var(--primary-green);
      margin-right: 5px;
- }
+}
 
- .search-bar {
+.search-bar {
      display: flex;
      flex: 0.5;
      border: 1px solid #ddd;
      border-radius: 6px;
      overflow: hidden;
      background: #ffffff;
- }
+}
 
- .search-bar input {
+.search-bar input {
      border: none;
      padding: 10px;
      width: 100%;
      outline: none;
      background: #ffffff;
      color: #1A1A1A;
- }
+}
 
- .search-bar button {
+.search-bar button {
      background: var(--primary-green);
      color: white;
      border: none;
      padding: 0 20px;
      cursor: pointer;
- }
+}
 
- .main-nav {
+.main-nav {
      background: #ffffff !important;
      color: #1A1A1A !important;
      padding: 0 10%;
@@ -84,63 +86,76 @@
      justify-content: space-between;
      align-items: center;
      border-bottom: 1px solid var(--border-color);
- }
+}
 
- .nav-links {
+.nav-links {
      display: flex;
      list-style: none;
      padding: 0;
- }
+     margin: 0;
+     flex-wrap: wrap;
+}
 
- .nav-links li {
+.nav-links li {
      padding: 15px 20px;
      font-size: 14px;
      cursor: pointer;
      color: #1A1A1A !important;
- }
+}
 
- .nav-links li:hover {
+.nav-links li:hover {
      background: var(--primary-green);
      color: white !important;
- }
+}
 
- .hero-container {
+.phone {
+     white-space: nowrap;
+     font-size: 14px;
+}
+
+.hero-container {
      display: grid;
      grid-template-columns: 2fr 1fr;
      gap: 20px;
      padding: 30px 10%;
-     height: 500px;
+     min-height: 500px;
+     height: auto;
      background-color: #ffffff !important;
- }
+}
 
- .icon-style {
+.icon-style {
     color: var(--primary-green);
     font-size: 30px;
- }
+}
  
- .main-hero {
+.main-hero {
      background-image: url("../../assets/ecobazar-imgs/girl-img.jpg");
      background-size: cover;
+     background-position: center;
      border-radius: 10px;
      padding: 60px;
      color: #1A1A1A !important;
      position: relative;
      border: 1px solid var(--border-color);
- }
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: flex-start;
+}
 
- .text-orange {
+.text-orange {
     background-color: orange;
     color: #ffffff !important;
- }
+}
 
- .badge {
+.badge {
      padding: 5px 15px;
      border-radius: 20px;
      font-size: 20px;
      font-weight: bold;
- }
+}
 
- .btn-white {
+.btn-white {
      background: var(--primary-green) !important;
      color: white !important;
      padding: 12px 30px;
@@ -148,53 +163,111 @@
      border: none;
      font-weight: bold;
      cursor: pointer;
- }
+}
 
- .side-banners {
+.side-banners {
      display: flex;
      flex-direction: column;
      gap: 20px;
- }
+}
 
- .banner {
+.banner {
      border-radius: 10px;
      padding: 30px;
      position: relative;
      overflow: hidden;
+     min-height: 240px;
      height: 100%;
      border: 1px solid var(--border-color);
- }
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: flex-start;
+}
 
- .banner.summer {
+.banner.summer {
      background-image: url('../../assets/ecobazar-imgs/img-2.jpg') !important;
      background-size: cover;
+     background-position: center;
      color: #1A1A1A !important; 
- }
+}
 
- .banner.deal {
+.banner.deal {
      background-image: url(../../assets/ecobazar-imgs/img-3.jpg) !important;
      background-size: cover;
+     background-position: center;
      color: #fcf1f1 !important;
-     text-align: center;
- }
+}
 
- .banner h3 {
+.banner h3 {
      font-size: 24px;
      margin: 10px 0;
      color: inherit !important;
- }
+}
 
- .banner p {
+.banner p {
      color: inherit !important;
- }
+}
 
- .banner a {
+.banner a {
      color: var(--primary-green) !important;
      font-weight: bold;
      display: block;
      margin-top: 15px;
- }
+}
 
+@media (max-width: 1024px) {
+     .hero-container {
+          grid-template-columns: 1fr;
+          height: auto;
+     }
+     
+     .top-nav, .main-nav, .hero-container {
+          padding-left: 5%;
+          padding-right: 5%;
+     }
+}
+
+@media (max-width: 768px) {
+     .top-nav {
+          flex-direction: column;
+          gap: 15px;
+          text-align: center;
+     }
+
+     .search-bar {
+          width: 100%;
+          flex: none;
+     }
+
+     .main-nav {
+          flex-direction: column;
+          padding: 10px 5%;
+          gap: 15px;
+     }
+
+     .nav-links {
+          justify-content: center;
+          width: 100%;
+     }
+
+     .nav-links li {
+          padding: 10px 12px;
+          font-size: 13px;
+     }
+
+     .main-hero {
+          padding: 40px 20px;
+     }
+
+     .line {
+          font-size: 28px;
+     }
+
+     .badge {
+          font-size: 16px;
+     }
+}
  .features {
      display: grid;
      grid-template-columns: repeat(4, 1fr);
@@ -391,6 +464,56 @@
      margin-top: 30px;
  }
 
+@media (max-width: 1200px) {
+     .category-grid, .product-grid {
+          grid-template-columns: repeat(4, 1fr);
+     }
+}
+
+@media (max-width: 992px) {
+     .features {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+          padding: 20px;
+     }
+     
+     .feature-item {
+          border-right: none;
+     }
+
+     .category-grid, .product-grid {
+          grid-template-columns: repeat(3, 1fr);
+     }
+
+     .promo-banners {
+          grid-template-columns: repeat(2, 1fr);
+     }
+}
+
+@media (max-width: 768px) {
+     .features {
+          margin: 20px 5%;
+     }
+
+     .category-grid, .product-grid {
+          grid-template-columns: repeat(2, 1fr);
+     }
+
+     .promo-banners {
+          grid-template-columns: 1fr;
+     }
+}
+
+@media (max-width: 480px) {
+     .features {
+          grid-template-columns: 1fr;
+          gap: 15px;
+     }
+
+     .category-grid {
+          grid-template-columns: 1fr;
+     }
+}
  .promo-card {
      border-radius: 12px;
      height: 380px;
@@ -400,22 +523,27 @@
      display: flex;
      flex-direction: column;
      align-items: center;
+     justify-content: center;
      border: 1px solid var(--border-color);
+     box-sizing: border-box;
  }
 
  .promo-card.blue {
      background-image: url(../../assets/ecobazar-imgs/promo1.png) !important;
      background-size: cover;
+     background-position: center;
  }
 
  .promo-card.black {
     background-image: url(../../assets/ecobazar-imgs/promo2.png) !important;
     background-size: cover;
+    background-position: center;
  }
 
  .promo-card.yellow {
      background-image: url(../../assets/ecobazar-imgs/promo3.png) !important;
      background-size: cover;
+     background-position: center;
  }
 
  .blk-clr {
@@ -439,7 +567,6 @@
      margin-top: 15px;
  }
 
-
  .deals-container {
      display: grid;
      grid-template-columns: 1fr 3fr;
@@ -453,6 +580,7 @@
      padding: 20px;
      text-align: center;
      background-color: #ffffff !important;
+     box-sizing: border-box;
 }
 
 .featured-product img {
@@ -510,6 +638,31 @@
      color: inherit !important;
 }
 
+@media (max-width: 1200px) {
+     .deals-container {
+          grid-template-columns: 1fr;
+     }
+
+     .featured-product {
+          max-width: 100%;
+     }
+}
+
+@media (max-width: 768px) {
+     .product-grid {
+          grid-template-columns: repeat(2, 1fr);
+     }
+
+     .promo-card h3 {
+          font-size: 26px;
+     }
+}
+
+@media (max-width: 480px) {
+     .product-grid {
+          grid-template-columns: 1fr;
+     }
+}
 .small-card img {
      width: 100%;
      height: auto;
@@ -725,6 +878,8 @@
      opacity: 0.8;
      background-color: #ffffff !important;
      color: inherit !important;
+     flex-wrap: wrap;
+     gap: 20px;
 }
 
 .brand-logos div {
@@ -775,6 +930,45 @@
      color: inherit !important;
 }
 
+@media (max-width: 1024px) {
+     .news-grid, .testimonial-grid {
+          grid-template-columns: repeat(2, 1fr);
+     }
+
+     .insta-grid {
+          grid-template-columns: repeat(3, 1fr);
+     }
+
+     .newsletter-bar {
+          flex-direction: column;
+          gap: 24px;
+          text-align: center;
+     }
+}
+
+@media (max-width: 768px) {
+     .news-grid, .testimonial-grid {
+          grid-template-columns: 1fr;
+     }
+
+     .brand-logos {
+          justify-content: center;
+     }
+
+     .section-title {
+          font-size: 24px;
+     }
+
+     .testimonial-section {
+          padding: 40px 5%;
+     }
+}
+
+@media (max-width: 480px) {
+     .insta-grid {
+          grid-template-columns: repeat(2, 1fr);
+     }
+}
 .newsletter-text p {
      margin: 0;
      color: inherit !important;
@@ -898,9 +1092,51 @@ footer {
      font-size: 13px;
 }
 
+@media (max-width: 1024px) {
+     .newsletter-input {
+          margin: 0;
+          width: 100%;
+     }
+
+     .footer-grid {
+          grid-template-columns: repeat(3, 1fr);
+     }
+}
+
+@media (max-width: 768px) {
+     footer {
+          padding: 40px 5% 20px 5%;
+     }
+
+     .footer-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 30px;
+     }
+
+     .footer-bottom {
+          flex-direction: column;
+          gap: 15px;
+          text-align: center;
+          margin-top: 40px;
+     }
+}
+
+@media (max-width: 480px) {
+     .footer-grid {
+          grid-template-columns: 1fr;
+     }
+}
 .payment-methods {
      display: flex;
      gap: 10px;
      font-size: 24px;
      color: inherit !important;
+}
+
+@media (max-width: 768px) {
+     .payment-methods {
+          justify-content: center;
+          flex-wrap: wrap;
+          font-size: 20px;
+     }
 }

@@ -5,22 +5,17 @@ import axios from 'axios';
 import { 
   FiLayout, FiBriefcase, FiCpu, FiMail, FiLogOut, FiDownload, 
   FiGithub, FiLinkedin, FiExternalLink, FiArrowUpRight, FiLock,
-     FiUser, FiHash, FiPhone, FiMapPin ,FiAward, FiZap,FiMenu, FiLayers, FiX
+  FiUser, FiHash, FiPhone, FiMapPin ,FiAward, FiZap,FiMenu, FiLayers, FiX
 } from 'react-icons/fi';
 import { LuArrowRight } from "react-icons/lu";
 import './dashboard.css';
 
-
-// Dynamically resolves icon component from database string identifiers
 const DynamicIcon = ({ name, size }) => {
   const IconComponent = Icons[name];
   if (!IconComponent) return <Icons.FiGlobe size={size} />;
   return <IconComponent size={size} />;
 };
 
-
-
-// Application gateway card module with configuration mapping handles
 const AppCard = ({ title, tag, iconName, glowColor, imageUrl, onClick }) => (
   <div 
     className="gateway-card" 
@@ -47,34 +42,27 @@ function Dashboard() {
   
   const [activeTab, setActiveTab] = useState('dashboard');
   const [isLoggedOut, setIsLoggedOut] = useState(false);
-const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const navigate = useNavigate;
-   const [frontendDesigns, setFrontendDesigns] = useState([]);
+  const [frontendDesigns, setFrontendDesigns] = useState([]);
 
-  // Dynamic portfolio cluster state contexts
   const [appsData, setAppsData] = useState([]);
   const [experienceData, setExperienceData] = useState([]);
   const [showcaseProjects, setShowcaseProjects] = useState([]);
   const [techStack, setTechStack] = useState([]);
-   const [resumeLink, setResumeLink] = useState('#')
+  const [resumeLink, setResumeLink] = useState('#')
   const [loading, setLoading] = useState(true);
 
   const imageBaseURL =import.meta.env.VITE_PORTFOLIO_API_URL .replace('/api', '');
 
   const imgbasedURL = (import.meta.env.VITE_PORTFOLIO_API_URL || 'http://localhost:5000/api').replace('/api', '');
 
+  const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
 
-
-  // API services gateway root routing string
-const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
-
-
-  // Synchronizes aggregate portfolio assets from server instance
   useEffect(() => {
     const fetchPortfolioData = async () => {
       try {
         setLoading(true);
-        // Added resume fetch call in parallel cluster
         const [appsRes, expRes, projRes, skillRes, resumeRes] = await Promise.all([
           fetch(`${API_BASE_URL}/apps`),
           fetch(`${API_BASE_URL}/experience`),
@@ -99,15 +87,14 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
     fetchPortfolioData();
   }, []);
 
-   useEffect(() => {
+  useEffect(() => {
     axios.get(`${API_BASE_URL}/designs`)
       .then(res => setFrontendDesigns(res.data))
       .catch(err => console.log(err));
   }, []);
 
-
   if (loading) {
-    return <div className="auth-gate-placeholder"><h1>Loading Digital Portfolio ...</h1></div>;
+    return <div className="auth-gate-placeholder"><h1>Crafting Digital Experience ...</h1></div>;
   }
 
   return (
@@ -132,7 +119,6 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
     {isSidebarOpen ? <FiX /> : <FiMenu />}
   </button>
 </div>
-
 
     <aside className={`sidebar-container ${isSidebarOpen ? 'mobile-show' : ''}`}>
       <div className="sidebar-top-brand">
@@ -164,14 +150,9 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
         </a>
       </nav>
     </aside>
-
-
-      {/* RECEPTIVE CENTRAL VIEWPORT WRAPPER */}
       <main className="main-viewport-content">
-        {/* RUNTIME VIEWPORT: CENTRAL CORE DASHBOARD */}
         {activeTab === 'dashboard' && (
           <>
-            {/* COMPONENT: PROFESSIONAL PROFILE CONTEXT HIGHLIGHT */}
             <header className="hero-branding-section">
               <div className="hero-left-profile">
                 <span className="greeting-pill">Welcome to my Digital Space</span>
@@ -191,7 +172,6 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
            </div>
 
            <div class="hero-metrics-container">
-  {/* <!-- 1. Experience --> */}
   <div class="metric-item">
     <span class="metric-number">1+</span>
     <span class="metric-label">Years Experience</span>
@@ -199,7 +179,6 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
   
   <div class="metric-divider"></div>
 
-  {/* <!-- 2. Projects --> */}
   <div class="metric-item">
     <span class="metric-number">10+</span>
     <span class="metric-label">Projects Delivered</span>
@@ -207,7 +186,6 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
 
   <div class="metric-divider"></div>
 
-  {/* <!-- 3. Agile Workflow --> */}
   <div class="metric-item">
     <span class="metric-number">100%</span>
     <span class="metric-label">Agile Workflow</span>
@@ -233,11 +211,8 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
   </div>
 </div>
 
-
             </header>
 
-            {/* COMPONENT: DYNAMIC MICRO SERVICES DEPLOYMENT INTEGRATION */}
-         
 <section className="dashboard-section-wrapper">
   <h2 className="section-heading">Application Central Gateway</h2>
   <div className="apps-gateway-grid">
@@ -257,7 +232,7 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
           </Link>
 
           <Link to={app.repolink} className='gateway-repo-btn'>
-          Respository<FiGithub className='button-icon'/>
+          Repository<FiGithub className='button-icon'/>
           </Link>
           
         </div>
@@ -267,14 +242,12 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
   </div>
 </section>
 
-            {/* COMPONENT: MULTI COMPILER LIVE ARCHITECTURE SYSTEMS CONTROLS */}
           <div className="split-showcase-layout">
               <section className="showcase-column-full">
                 <h2 className="section-heading">Deployed Architectures</h2>
                 <div className="projects-display-stack">
                   {showcaseProjects.map((proj) => (
                     <div key={proj._id} className="project-glass-card">
-                      {/* 🚀 IMAGE TAG INJECTED ACCORDING TO YOUR SCHEMA KEY */}
                       {proj.imgURL && <img src={proj.imgURL} alt={proj.title} className="project-card-thumbnail" />}
                       
                       <h4>{proj.title}</h4>
@@ -294,8 +267,6 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
             </div>
           </>
         )}
-
-
 {activeTab === 'dashboard' && (
   <>
     <h2 className="section-heading">Client-side Architectures</h2>
@@ -303,7 +274,6 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
       {frontendDesigns.map((design) => (
         <div key={design._id} className="portfolio-card">
           
-          {/* Thumbnail and Title Section */}
           <div className="card-top-content">
             <div className="card-image-wrapper">
               <img 
@@ -318,7 +288,6 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
               </div>
             </div>
 
-            {/* Text Content */}
             <div className="card-text-content">
               <div className="card-header-row">
                 <div className="card-icon-indicator"><FiLayers/></div>
@@ -330,7 +299,6 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
             </div>
           </div>
 
-          {/* Action Buttons Container */}
           <div className="card-action-buttons">
             <a 
               href={design.liveLink} 
@@ -354,138 +322,114 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
     </div>
   </>
 )}
-{/* About Me section */}
+
 {activeTab === 'about' && (
-  <section style={{ padding: '40px 30px', color: '#e2e8f0', width: '100%', maxWidth: '1200px', boxSizing: 'border-box' }}>
-    
-   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '35px', width: '100%' }}>
-   <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-        <span style={{ width: '4px', height: '26px', backgroundColor: '#00f2fe', borderRadius: '2px' }}></span>
-        <h2 style={{ fontSize: '26px', fontWeight: '600', margin: 0, color: '#ffffff' }}>About Me</h2>
+  <section className="about-me-section">
+    <div className="about-header-row">
+      <div className="about-title-block">
+        <span className="about-title-indicator"></span>
+        <h2 className="about-main-heading">About Me</h2>
       </div>
       <img 
         src={`${imgbasedURL}/uploads/logo.jpeg`} 
         alt="Misbah Nazir" 
-        style={{ 
-             width: '110px', 
-    height: '110px', 
-    borderRadius: '50%', 
-    border: '3px solid #00f2fe', 
-    objectFit: 'cover',
-    objectPosition: 'top', /* Isse aapka face circle ke center mein aa jayega */
-    boxShadow: '0 0 20px rgba(0, 242, 254, 0.35)',
-    display: 'block'
-        }} 
+        className="about-avatar-img"
       />
     </div>
-  <div style={{ display: 'flex', gap: '40px', flexWrap: 'wrap', alignItems: 'start' }}>
-    <div style={{ flex: '1 1 500px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
-        <p style={{ fontSize: '18px', lineHeight: '1.7', color: '#f8fafc', margin: 0 }}>
-          Hi, I am <span style={{ color: '#00f2fe', fontWeight: '600' }}>Misbah Nazir</span>, a passionate Full-Stack MERN Developer based in Lahore, Pakistan. I don’t just write code; I focus on understanding your business goals and translating complex challenges into seamless, high-performing digital solutions.
+    
+    <div className="about-content-grid">
+      <div className="about-text-column">
+        <p className="about-text-lead">
+          Hi, I am <span className="text-highlight">Misbah Nazir</span>, a passionate Full-Stack MERN Developer based in Lahore, Pakistan. I don’t just write code; I focus on understanding your business goals and translating complex challenges into seamless, high-performing digital solutions.
         </p>
-        <p style={{ fontSize: '16px', lineHeight: '1.7', color: '#94a3b8', margin: 0 }}>
+        <p className="about-text-body">
           What makes my approach unique is my diverse background. Currently pursuing a Bachelor’s degree in International Relations from LCWU, I have developed strong critical thinking, global perspective, and cross-cultural communication skills.
         </p>
-        <p style={{ fontSize: '16px', lineHeight: '1.7', color: '#94a3b8', margin: 0 }}>
+        <p className="about-text-body">
           Combined with my professional MERN Stack certifications and industry internship experience at Decode Labs and Wolves Tech Solution, I bring a unique blend of technical expertise and strategic thinking to the table.
         </p>
       </div>
 
-      {/* Right Column: All Cards Stacked Seamlessly */}
-      <div style={{ flex: '1 1 350px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
-        
-        {/* Card 1 */}
-        <div style={{ background: '#1e293b', border: '1px solid rgba(255, 255, 255, 0.08)', padding: '20px', borderRadius: '14px', boxShadow: '0 4px 20px rgba(0,0,0,0.2)' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
-            <FiAward style={{ color: '#00f2fe', fontSize: '20px' }} />
-            <h4 style={{ color: '#00f2fe', margin: 0, fontSize: '16px', fontWeight: '600' }}>Education Blend</h4>
+      <div className="about-cards-column">
+        <div className="about-stat-card">
+          <div className="stat-card-header">
+            <FiAward className="stat-card-icon" />
+            <h4 className="stat-card-title">Education Blend</h4>
           </div>
-          <p style={{ color: '#94a3b8', fontSize: '14px', margin: 0, lineHeight: '1.5' }}>BS International Relations (LCWU) + MERN Certified</p>
+          <p className="stat-card-desc">BS International Relations (LCWU) + MERN Certified</p>
         </div>
 
-        {/* Card 2 */}
-        <div style={{ background: '#1e293b', border: '1px solid rgba(255, 255, 255, 0.08)', padding: '20px', borderRadius: '14px', boxShadow: '0 4px 20px rgba(0,0,0,0.2)' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
-            <FiZap style={{ color: '#00f2fe', fontSize: '20px' }} />
-            <h4 style={{ color: '#00f2fe', margin: 0, fontSize: '16px', fontWeight: '600' }}>Core Superpower</h4>
+        <div className="about-stat-card">
+          <div className="stat-card-header">
+            <FiZap className="stat-card-icon" />
+            <h4 className="stat-card-title">Core Superpower</h4>
           </div>
-          <p style={{ color: '#94a3b8', fontSize: '14px', margin: 0, lineHeight: '1.5' }}>Natural multitasker who thrives under high-pressure Agile workflows</p>
+          <p className="stat-card-desc">Natural multitasker who thrives under high-pressure Agile workflows</p>
         </div>
 
-        {/* Card 3 */}
-        <div style={{ background: '#1e293b', border: '1px solid rgba(255, 255, 255, 0.08)', padding: '20px', borderRadius: '14px', boxShadow: '0 4px 20px rgba(0,0,0,0.2)' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
-            <FiBriefcase style={{ color: '#00f2fe', fontSize: '20px' }} />
-            <h4 style={{ color: '#00f2fe', margin: 0, fontSize: '16px', fontWeight: '600' }}>Industry Ready</h4>
+        <div className="about-stat-card">
+          <div className="stat-card-header">
+            <FiBriefcase className="stat-card-icon" />
+            <h4 className="stat-card-title">Industry Ready</h4>
           </div>
-          <p style={{ color: '#94a3b8', fontSize: '14px', margin: 0, lineHeight: '1.5' }}>Hands-on experience building scalable E-commerce & secure systems</p>
+          <p className="stat-card-desc">Hands-on experience building scalable E-commerce & secure systems</p>
         </div>
-
       </div>
-
     </div>
   </section>
 )}
 
+{activeTab === 'experience' && (
+  <section className="dashboard-section-wrapper">
+    <h2 className="section-heading">Professional Experience History</h2>
+    <div className="experience-timeline-stack">
+      {experienceData.map((exp) => (
+        <div key={exp._id} className="experience-glass-card">
+          <div className="exp-card-header">
+            <h4>{exp.role} <span className="exp-company-highlight">@ {exp.company}</span></h4>
+            <span className="duration-tag">{exp.duration}</span>
+          </div>
+          <p className="exp-desc">{exp.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+)}
 
+{activeTab === 'tech' && (
+  <section className="dashboard-section-wrapper skill-matrix-viewport">
+    <div className="section-header-cluster">
+      <span className="context-pill-indicator">Capability Matrix</span>
+      <h2 className="section-heading modern-heading-style">Skills & Technology Stack</h2>
+      <p className="contact-section-subtitle premium-subtitle">
+        A rigorous compilation of full-stack engineering tools, modular state frameworks, cloud databases, and core language ecosystems.
+      </p>
+    </div>
 
+    <div className="tech-stack-badges-grid matrix-interactive-grid">
+      {techStack.map((skill) => (
+        <div key={skill._id || skill} className="tech-badge tech-badge-large structural-matrix-pill">
+          <div className="pill-backdrop-blur"></div>
+          <div className="pill-pulse-dot"></div>
+          <span className="skill-text-node">{skill.name || skill}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+)} 
 
-        {/* RUNTIME VIEWPORT: CORPORATE TIMELINE RECORD VIEWS */}
-        {activeTab === 'experience' && (
-          <section className="dashboard-section-wrapper">
-            <h2 className="section-heading">Professional Experience History</h2>
-            <div className="experience-timeline-stack">
-              {experienceData.map((exp) => (
-                <div key={exp._id} className="experience-glass-card">
-                  <div className="exp-card-header">
-                    <h4>{exp.role} <span className="exp-company-highlight">@ {exp.company}</span></h4>
-                    <span className="duration-tag">{exp.duration}</span>
-                  </div>
-                  <p className="exp-desc">{exp.desc}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
-
-               {/* RUNTIME VIEWPORT: COMPREHENSIVE TECHNOLOGY CAPABILITY SEGMENTS */}
-        {activeTab === 'tech' && (
-          <section className="dashboard-section-wrapper skill-matrix-viewport">
-            <div className="section-header-cluster">
-              <span className="context-pill-indicator">Capability Matrix</span>
-              <h2 className="section-heading modern-heading-style">Skills & Technology Stack</h2>
-              <p className="contact-section-subtitle premium-subtitle">
-                A rigorous compilation of full-stack engineering tools, modular state frameworks, cloud databases, and core language ecosystems.
-              </p>
-            </div>
-
-            <div className="tech-stack-badges-grid matrix-interactive-grid">
-              {techStack.map((skill) => (
-                <div key={skill._id || skill} className="tech-badge tech-badge-large structural-matrix-pill">
-                  <div className="pill-backdrop-blur"></div>
-                  <div className="pill-pulse-dot"></div>
-                  <span className="skill-text-node">{skill.name || skill}</span>
-                </div>
-              ))}
-            </div>
-          </section>
-        )} 
-
-        
-       {/* RUNTIME VIEWPORT: TARGET OUTBOUND CONNECTIVITY CHANNELS FORM */}
-        {activeTab === 'contact' && (
-          <section  className="dashboard-section-wrapper communications-viewport" >
-            <div className="section-header-cluster">
-              <span className="context-pill-indicator">Enterprise Hub</span>
-              <h2 className="section-heading modern-heading-style">Get In Touch</h2>
-              <p className="contact-section-subtitle premium-subtitle">
-                Initiate a dynamic communication instance for enterprise architecture collaborations, technical inquiries, or production pipeline discussions.
-              </p>
-            </div>
-            
-            <div className="contact-info-grid interactive-cluster-grid">
-              
-              {/* CHANNEL: OFFICIAL EMAIL SECURE GATEWAY */}
+{activeTab === 'contact' && (
+  <section  className="dashboard-section-wrapper communications-viewport" >
+    <div className="section-header-cluster">
+      <span className="context-pill-indicator">Enterprise Hub</span>
+      <h2 className="section-heading modern-heading-style">Get In Touch</h2>
+      <p className="contact-section-subtitle premium-subtitle">
+        Initiate a dynamic communication instance for enterprise architecture collaborations, technical inquiries, or production pipeline discussions.
+      </p>
+    </div>
+    
+    <div className="contact-info-grid interactive-cluster-grid">
+      
 <a 
   href="#copy-email"
   onClick={(e) => {
@@ -508,48 +452,42 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
   </div>
 </a>
 
+      <a href="https://github.com/MisbahNazir-1" target="_blank" rel="noreferrer" className="contact-anchor-card framework-elevation-link">
+        <div className="contact-card-frame github-card-glow enterprise-card-spec">
+          <div className="card-dynamic-backdrop"></div>
+          <div className="contact-icon-wrapper github-icon-bg structural-icon-node">
+            <FiGithub size={24} className="vector-pulse-node" />
+          </div>
+          <div className="contact-card-text communication-meta-block">
+            <h4 className="meta-label-tag">Version Control Node</h4>
+            <span className="contact-link-value github-text-color interface-string-highlight">Misbah Nazir-1</span>
+            <span className="action-trigger-hint">Review Repositories ↗</span>
+          </div>
+        </div>
+      </a>
 
-              {/* CHANNEL: GITHUB REPOSITORY DOCK */}
-              <a href="https://github.com/MisbahNazir-1" target="_blank" rel="noreferrer" className="contact-anchor-card framework-elevation-link">
-                <div className="contact-card-frame github-card-glow enterprise-card-spec">
-                  <div className="card-dynamic-backdrop"></div>
-                  <div className="contact-icon-wrapper github-icon-bg structural-icon-node">
-                    <FiGithub size={24} className="vector-pulse-node" />
-                  </div>
-                  <div className="contact-card-text communication-meta-block">
-                    <h4 className="meta-label-tag">Version Control Node</h4>
-                    <span className="contact-link-value github-text-color interface-string-highlight">Misbah Nazir-1</span>
-                    <span className="action-trigger-hint">Review Repositories ↗</span>
-                  </div>
-                </div>
-              </a>
+      <a href="https://www.linkedin.com/in/misbah-nazir-developer" target="_blank" rel="noreferrer" className="contact-anchor-card framework-elevation-link">
+        <div className="contact-card-frame linkedin-card-glow enterprise-card-spec">
+          <div className="card-dynamic-backdrop"></div>
+          <div className="contact-icon-wrapper linkedin-icon-bg structural-icon-node">
+            <FiLinkedin size={24} className="vector-pulse-node" />
+          </div>
+          <div className="contact-card-text communication-meta-block">
+            <h4 className="meta-label-tag">Corporate Identity Dock</h4>
+            <span className="contact-link-value linkedin-text-color interface-string-highlight">Misbah Nazir Developer</span>
+            <span className="action-trigger-hint">Connect Profile ↗</span>
+          </div>
+        </div>
+      </a>
 
-              {/* CHANNEL: LINKEDIN PROFESSIONAL MATRIX */}
-              <a href="https://www.linkedin.com/in/misbah-nazir-developer" target="_blank" rel="noreferrer" className="contact-anchor-card framework-elevation-link">
-                <div className="contact-card-frame linkedin-card-glow enterprise-card-spec">
-                  <div className="card-dynamic-backdrop"></div>
-                  <div className="contact-icon-wrapper linkedin-icon-bg structural-icon-node">
-                    <FiLinkedin size={24} className="vector-pulse-node" />
-                  </div>
-                  <div className="contact-card-text communication-meta-block">
-                    <h4 className="meta-label-tag">Corporate Identity Dock</h4>
-                    <span className="contact-link-value linkedin-text-color interface-string-highlight">Misbah Nazir Developer</span>
-                    <span className="action-trigger-hint">Connect Profile ↗</span>
-                  </div>
-                </div>
-              </a>
-
-            </div>
-          </section>
-        )}
-
-{/* Auth Live Demo  */}
+    </div>
+  </section>
+)}
 {activeTab === 'auth-demo' && (
   <section className="dashboard-section-wrapper">
     <h2 className="section-heading">Authentication Security Modules</h2>
     <div className="apps-gateway-grid">
       
-      {/* CARD 1: LOGIN MODULE */}
       <div className="gateway-card-container">
         <AppCard 
           title="Admin Security Authentication"
@@ -562,19 +500,17 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
           <Link to="/login" className="gateway-live-btn">
             Open Module <FiArrowUpRight className="button-icon" />
           </Link>
-          {/* Active GitHub Link */}
           <a 
-            href="https://github.com/MisbahNazir-1/Portfolio/tree/f190bf9c639b469e363e280493682bf9ccfd4930/corvit-1/src/pages/auth/entry" // 👈 Apna GitHub Repo Link yahan paste karen
+            href="https://github.com/MisbahNazir-1/Portfolio/tree/f190bf9c639b469e363e280493682bf9ccfd4930/corvit-1/src/pages/auth/entry" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="gateway-repo-btn" // 👈 'disabled-btn' class hata di hai
+            className="gateway-repo-btn" 
           >
             Repository <FiGithub className="button-icon" />
           </a>
         </div>
       </div>
 
-      {/* CARD 2: REGISTER MODULE */}
       <div className="gateway-card-container">
         <AppCard 
           title="New User Registration"
@@ -587,7 +523,6 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
           <Link to="/register" className="gateway-live-btn">
             Open Module <FiArrowUpRight className="button-icon" />
           </Link>
-          {/* Active GitHub Link */}
           <a 
             href="https://github.com/MisbahNazir-1/Portfolio/tree/f190bf9c639b469e363e280493682bf9ccfd4930/corvit-1/src/pages/auth/registerpage" 
             target="_blank" 
@@ -611,4 +546,3 @@ const API_BASE_URL = 'https://portfolio-eight-indol-95.vercel.app/api'
 }
 
 export default Dashboard;
-  

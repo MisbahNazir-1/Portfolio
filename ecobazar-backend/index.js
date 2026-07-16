@@ -6,8 +6,7 @@ import path from 'node:path';
 import productRoutes from "./routes/productRoutes.js";
 import loginRoutes from "./routes/loginRoutes.js";
 import cartRoutes from "./routes/cartRoutes.js";
-import connectDB from "./config/db.js"; // Importing connectDB function instead of static connection instance
-
+import connectDB from "./config/db.js"; 
 dotenv.config(); 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -20,7 +19,6 @@ app.use(cors());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(express.json());
 
-// Middleware to ensure database is connected before handling any requests
 app.use(async (req, res, next) => {
     try {
         await connectDB();

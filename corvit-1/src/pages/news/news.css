@@ -1,12 +1,27 @@
 .container-1 {
     display: grid;
-    /* Turns on CSS Grid */
-    /* Creates 3 columns of equal width, using fractional units (fr) */
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    /* Adds equal space between all grid items */
 }
 
 .part{
     padding-top: 30px;
+}
+
+@media (max-width: 992px) {
+    .container-1 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container-1 {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .part{
+        padding-top: 16px;
+    }
 }

@@ -40,7 +40,7 @@ if (!MONGO_URI) {
 
 // Connect to MongoDB with Advanced Options
 mongoose.connect(MONGO_URI, {
-  serverSelectionTimeoutMS: 30000, // Wait 30 seconds instead of 10
+  serverSelectionTimeoutMS: 30000, 
   socketTimeoutMS: 45000,
 })
   .then(() => console.log('🚀 MongoDB Connected Successfully!'))
@@ -64,8 +64,8 @@ app.post('/api/apps', async (req, res) => {
 app.delete('/api/apps/:id', async (req, res) => {
   try { 
     const deletedApp = await AppCard.findByIdAndDelete(req.params.id);
-    if (!deletedApp) return res.status(404).json({ error: "Data nahi mila" });
-    res.json({ message: "Data successfully delete ho gaya hai!" }); 
+    if (!deletedApp) return res.status(404).json({ error: "Data not found" });
+    res.json({ message: "Data deleted successfully!" }); 
   } catch (err) { 
     res.status(500).json({ error: err.message }); 
   }
@@ -186,10 +186,6 @@ app.post('/api/resume', async (req, res) => {
     res.status(400).json({ error: err.message }); 
   }
 });
-
-
-
-
 
 // Start Server (Keep Process Alive)
 app.listen(PORT, () => {

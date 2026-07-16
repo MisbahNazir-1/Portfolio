@@ -12,7 +12,7 @@ const TempBasedIcon = ({ temp, size = 60 }) => {
 };
 
 const ForecastCard = ({ date, maxTemp }) => (
-  <div className="bg-color p-3 m-1 text-white text-center" style={{ minWidth: '85px', borderRadius: '8px' }}>
+  <div className="forecast-card-node">
     <p className="mb-1">{new Date(date).toLocaleDateString("en-US", { weekday: "short" })}</p>
     <div className="my-2">
       <TempBasedIcon temp={maxTemp} size={35} />
@@ -63,29 +63,28 @@ function WeatherApp() {
     getWeather(coords.lat, coords.lon);
   }, [coords]);
 
-  if (isLoading) return <div className="text-white text-center mt-5"><h3>Loading Weather Data...</h3></div>;
+  if (isLoading) return <div className="loader-placeholder-node"><h3>Loading Weather Data...</h3></div>;
 
   return (
-    <main className="header-bg p-4" style={{ minHeight: "100vh" }}>
-      <div className="weather-container" style={{ display: "flex", gap: "20px" }}>
+    <main className="weather-root-frame">
+      <div className="weather-main-layout">
         
-        {/* Left Side (Current Weather Structural Sidebar) */}
-        <section className="box p-4 left-weather-sidebar">
+        <section className="left-weather-sidebar">
           <form onSubmit={(e) => { e.preventDefault(); getCoordinates(inputCity); setInputCity(""); }}>
             <input 
-              className="input-field w-100" 
+              className="input-field-element" 
               placeholder="Search City..." 
               value={inputCity} 
               onChange={(e) => setInputCity(e.target.value)} 
             />
           </form>
 
-          <div className="text-center sidebar-center-content">
+          <div className="sidebar-center-content">
             <TempBasedIcon temp={weather?.current?.temperature_2m} size={130} />
-            <h1 className="text-white temp-text-large my-2">{Math.round(weather?.current?.temperature_2m)}°C</h1>
-            <div className="d-flex justify-content-between align-items-center mt-3 px-2">
-              <h3 className="text-white m-0" style={{ fontSize: "22px", fontWeight: "600" }}>{searchCity}</h3>
-              <h4 className="text-muted m-0" style={{ fontSize: "15px", fontWeight: "400" }}>
+            <h1 className="temp-text-large">{Math.round(weather?.current?.temperature_2m)}°C</h1>
+            <div className="sidebar-meta-row">
+              <h3 className="city-title-text">{searchCity}</h3>
+              <h4 className="day-subtitle-text">
                 {new Date().toLocaleDateString('en-US', { weekday: 'long' })}
               </h4>
             </div>
@@ -95,20 +94,19 @@ function WeatherApp() {
 
           <div className="sidebar-bottom-meta">
             <div className="info-row-item">
-              <p className="m-0">Humidity</p>
+              <p>Humidity</p>
               <span>{weather?.current?.relative_humidity_2m}%</span>
             </div>
             <div className="info-row-item">
-              <p className="m-0">Wind Speed</p>
+              <p>Wind Speed</p>
               <span>{weather?.current?.wind_speed_10m} km/h</span>
             </div>
           </div>
         </section>
 
-        {/* Right Side (7 Days Forecast) */}
-        <section className="box-1 p-4" style={{ width: "70%" }}>
-          <h4 className="text-white mb-3">7 Days Forecast</h4>
-          <div className="d-flex mb-4" style={{ overflowX: "auto" }}>
+        <section className="right-weather-dashboard">
+          <h4 className="section-heading-text">7 Days Forecast</h4>
+          <div className="forecast-scroll-row">
             {weather?.daily?.time.map((date, i) => (
               <ForecastCard 
                 key={date} 
@@ -118,33 +116,28 @@ function WeatherApp() {
             ))}
           </div>
 
-          <h4 className="text-white mb-3">Today's Overview</h4>
+          <h4 className="section-heading-text">Today's Overview</h4>
           
-          <div className="container-1">
-            {/* UV Index Card */}
-            <div className="items-1">
+          <div className="overview-cards-grid">
+            <div className="overview-item-card">
               <p>UV Index</p>
-              <div className="my-2">
+              <div className="icon-wrapper-node">
                 <WiDaySunny size={45} color="#FF8C00" />
               </div>
               <h4>{weather?.daily?.uv_index_max?.[0] ?? "N/A"}</h4>
             </div>
 
-            {/* Pressure Card */}
-            <div className="items-1">
+            <div className="overview-item-card">
               <p>Pressure</p>
-              <div className="my-2">
+              <div className="icon-wrapper-node">
                 <WiBarometer size={45} color="#00BFFF" />
               </div>
               <h4>{weather?.current?.surface_pressure} hPa</h4>
             </div>
-          </div>
 
-          <div className="overview-row-one">
-            {/* Precipitation Card */}
-            <div className="card-item">
+            <div className="overview-item-card">
               <p>Precipitation</p>
-              <div className="my-2">
+              <div className="icon-wrapper-node">
                 <WiRaindrop size={45} color="#00BFFF" />
               </div>
               <h4>
@@ -154,10 +147,9 @@ function WeatherApp() {
               </h4>
             </div>
 
-            {/* Sunrise Card */}
-            <div className="card-item">
+            <div className="overview-item-card">
               <p>Sunrise</p>
-              <div className="my-2">
+              <div className="icon-wrapper-node">
                 <WiSunrise size={45} color="#FFD700" />
               </div>
               <h4>
@@ -167,10 +159,9 @@ function WeatherApp() {
               </h4>
             </div>
 
-            {/* Sunset Card */}
-            <div className="card-item">
+            <div className="overview-item-card">
               <p>Sunset</p>
-              <div className="my-2">
+              <div className="icon-wrapper-node">
                 <WiSunset size={45} color="#FF8C00" />
               </div>
               <h4>

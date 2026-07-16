@@ -1,4 +1,5 @@
 import './news1.css';
+import { FiStar } from 'react-icons/fi';
 
 function News1() {
   const places = [
@@ -69,13 +70,11 @@ function News1() {
 
   return (
     <div className="custom-app-container">
-      {/* Header wrapper section */}
       <div className="custom-header-wrapper">
         <h2 className="custom-heading">Trending Places</h2>
         <button className="custom-btn-view-all">View All Places</button>
       </div>
 
-      {/* Grid container wrapper */}
       <div className="custom-flex-grid">
         {places.map((place) => (
           <div className="custom-card-wrapper" key={place.id}>
@@ -101,11 +100,9 @@ function News1() {
 
                 <div className="custom-card-footer">
                   <div className="custom-rating-stars">
-                    <i className="bi bi-star-fill" />
-                    <i className="bi bi-star-fill" />
-                    <i className="bi bi-star-fill" />
-                    <i className="bi bi-star-fill" />
-                    <i className="bi bi-star-half" />
+                    {[...Array(5)].map((_, i) => (
+                      <FiStar key={i} className="star-icon-filled" />
+                    ))}
                   </div>
                   <a href="#" className="custom-read-more">Read More →</a>
                 </div>
