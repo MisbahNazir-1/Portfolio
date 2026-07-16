@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import logo from "../../assets/ecobazar-imgs/logo.png";
 import greenapple from '../../assets/ecobazar-imgs/greenapple.jpg'
 import brinjal from '../../assets/ecobazar-imgs/brinjal.png'
+import lettuce from '../../assets/ecobazar-imgs/lettuce.png'
 import cabbage from '../../assets/ecobazar-imgs/cabbage.png'
 import girlimg from "../../assets/ecobazar-imgs/girl-img.jpg";
 import imggreen from '../../assets/ecobazar-imgs/img-3.jpg';
