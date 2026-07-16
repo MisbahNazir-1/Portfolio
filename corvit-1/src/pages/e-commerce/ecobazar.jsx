@@ -9,6 +9,7 @@ import {
 } from 'react-icons/fi';
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/ecobazar-imgs/logo.png";
+import greenapple from '../../assets/ecobazar-imgs/greenapple.jpg'
 import girlimg from "../../assets/ecobazar-imgs/girl-img.jpg";
 import imggreen from '../../assets/ecobazar-imgs/img-3.jpg';
 import imggrey from '../../assets/ecobazar-imgs/img-2.jpg';
