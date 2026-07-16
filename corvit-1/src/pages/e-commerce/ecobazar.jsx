@@ -15,6 +15,7 @@ import lettuce from '../../assets/ecobazar-imgs/lettuce.png';
 import cabbage from '../../assets/ecobazar-imgs/cabbage.png';
 import cauliflower from '../../assets/ecobazar-imgs/cauliflower.png';
 import capsicum from '../../assets/ecobazar-imgs/capsicum.jpg';
+import greenchilli from '../../assets/ecobazar-imgs/greenchilli.png';
 import girlimg from "../../assets/ecobazar-imgs/girl-img.jpg";
 import imggreen from '../../assets/ecobazar-imgs/img-3.jpg';
 import imggrey from '../../assets/ecobazar-imgs/img-2.jpg';
