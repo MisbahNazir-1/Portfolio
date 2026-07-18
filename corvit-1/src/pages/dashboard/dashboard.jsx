@@ -5,8 +5,9 @@ import axios from 'axios';
 import { 
   FiLayout, FiBriefcase, FiCpu, FiMail, FiLogOut, FiDownload, 
   FiGithub, FiLinkedin, FiExternalLink, FiArrowUpRight, FiLock,
-  FiUser, FiHash, FiPhone, FiMapPin ,FiAward, FiZap,FiMenu, FiLayers, FiX, FaSun, FaMoon
+  FiUser, FiHash, FiPhone, FiMapPin ,FiAward, FiZap,FiMenu, FiLayers, FiX
 } from 'react-icons/fi';
+import {FaMoon, FaSun} from 'react-icons/fi';
 import { LuArrowRight } from "react-icons/lu";
 import './dashboard.css';
 
