@@ -1716,26 +1716,87 @@
   .card-image-wrapper {
     height: 140px;
   }
-}.dashboard-root-frame.dark-theme {
-    --bg-app: #0d1117;
-    --bg-sidebar: #161b22;
+}/* 🌓 Theme Variable Definitions */
+.dashboard-root-frame.dark-theme {
+    --bg-app: #0b0f17;
+    --bg-sidebar: #111622;
     --text-primary: #ffffff;
-    --text-secondary: #8b949e;
+    --text-secondary: #94a3b8;
     --border-ui: rgba(255, 255, 255, 0.08);
+    --bg-active-tab: rgba(0, 255, 204, 0.1);
 }
 
 .dashboard-root-frame.light-theme {
-    --bg-app: #f8f9fa;
-    --bg-sidebar: #ffffff;
-    --text-primary: #000000;
-    --text-secondary: #495057;
-    --border-ui: rgba(0, 0, 0, 0.1);
+    --bg-app: #f4f6f9;               /* Screen soft off-white */
+    --bg-sidebar: #ffffff;           /* Sidebar clean white */
+    --text-primary: #000000;         /* Main text absolute black */
+    --text-secondary: #495057;       /* Subtitles / p text dark grey */
+    --border-ui: rgba(0, 0, 0, 0.1); /* Darker borders for contrast */
+    --bg-active-tab: rgba(13, 110, 253, 0.08);
 }
 
+/* 🧱 Global Color Overrides Based on Variables */
+.dashboard-root-frame {
+    background-color: var(--bg-app) !important;
+    color: var(--text-primary) !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Sidebar context wrapper auto-switch */
+.dashboard-root-frame aside, 
+.dashboard-root-frame .sidebar-container {
+    background-color: var(--bg-sidebar) !important;
+    border-right: 1px solid var(--border-ui) !important;
+    transition: background-color 0.3s ease;
+}
+
+/* Text styles inversion selectors */
+.dashboard-root-frame .hero-subtitle,
+.dashboard-root-frame p {
+    color: var(--text-secondary) !important;
+}
+
+.dashboard-root-frame h1,
+.dashboard-root-frame h2,
+.dashboard-root-frame h3,
+.dashboard-root-frame h4,
+.dashboard-root-frame .brand-text {
+    color: var(--text-primary) !important;
+}
+
+/* ⚡ Misbah Nazir Name Gradient Safe Lock Protection */
 .hero-title span {
-  background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  display: inline-block;
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    display: inline-block;
+}
+
+/* 🔘 Sleek Sidebar Toggle Button Layout */
+.sidebar-theme-footer {
+    padding: 1rem 1.2rem;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.portfolio-theme-toggle-btn {
+    width: 100%;
+    padding: 0.65rem 1rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-ui);
+    background-color: transparent;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.portfolio-theme-toggle-btn:hover {
+    background-color: rgba(128, 128, 128, 0.1);
+    transform: translateY(-1px);
 }
