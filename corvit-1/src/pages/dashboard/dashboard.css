@@ -1814,6 +1814,7 @@
     color: #495057 !important;
 }
 
+/* Light mode me headings aur titles ko visibility clear contrast dena */
 .dashboard-root-frame.light-theme .card h5,
 .dashboard-root-frame.light-theme .card h4,
 .dashboard-root-frame.light-theme .card-title {
@@ -1824,16 +1825,14 @@
     color: #212529 !important;
     border-color: rgba(0, 0, 0, 0.15) !important;
 }
-/* ⚡ Light Mode Gateway Action Row & Buttons Alignment Fix */
 .dashboard-root-frame.light-theme .gateway-card-container {
-    background-color: #ffffff !important;
+    background-color: #f1f3f5 !important;
     border: 1px solid rgba(0, 0, 0, 0.08) !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02) !important;
 }
 
 .dashboard-root-frame.light-theme .gateway-action-row {
-    background-color: #f8f9fa !important;
-    background: #f8f9fa !important;
+    background-color: #e9ecef !important;
     border-top: 1px solid rgba(0, 0, 0, 0.06) !important;
     padding: 0.75rem 1rem !important;
     border-radius: 0 0 12px 12px !important;
@@ -1847,7 +1846,7 @@
 }
 
 .dashboard-root-frame.light-theme .gateway-repo-btn:hover {
-    background-color: #e9ecef !important;
+    background-color: #f8f9fa !important;
     color: #000000 !important;
 }
 
@@ -1856,11 +1855,61 @@
     fill: #1e293b !important;
 }
 
-/* Typography contrast overrides inside Gateway cards */
 .dashboard-root-frame.light-theme .gateway-card-container h3,
 .dashboard-root-frame.light-theme .gateway-card-container h4,
 .dashboard-root-frame.light-theme .gateway-card-container p {
     color: #212529 !important;
 }
 
+.dashboard-root-frame.light-theme .portfolio-card {
+    background-color: #f1f3f5 !important; 
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02) !important;
+}
 
+
+.dashboard-root-frame.light-theme .card-text-content {
+    background-color: #f1f3f5 !important; 
+}
+
+.dashboard-root-frame.light-theme .card-action-buttons {
+    background-color: #e9ecef !important; 
+    border-top: 1px solid rgba(0, 0, 0, 0.06) !important;
+    padding: 0.75rem 1rem !important;
+}
+
+.dashboard-root-frame.light-theme .btn-repository {
+    background-color: #ffffff !important;
+    color: #1e293b !important;
+    border: 1px solid rgba(0, 0, 0, 0.15) !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    transition: all 0.2s ease !important;
+}
+
+.dashboard-root-frame.light-theme .btn-repository:hover {
+    background-color: #f8f9fa !important;
+    color: #000000 !important;
+}
+
+.dashboard-root-frame.light-theme .btn-repository svg {
+    color: #1e293b !important;
+    fill: #1e293b !important;
+}
+
+.dashboard-root-frame.light-theme .card-main-title {
+    color: #000000 !important;
+}
+
+.dashboard-root-frame.light-theme .card-sub-description {
+    color: #495057 !important;
+}
+
+.dashboard-root-frame.light-theme .card-icon-indicator {
+    color: #0d6efd !important;
+    background-color: rgba(13, 110, 253, 0.08) !important;
+}
