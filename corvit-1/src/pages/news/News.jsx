@@ -3,10 +3,10 @@ import { FaSun, FaMoon, FaRegClock, FaArrowRight, FaBolt, FaSearch, FaGithub, Fa
 import './news.css';
 
 const backupNews = [
-    { title: "Next-Gen AI Models Revolutionize Software Engineering Paradigms Worldwide", link: "https://google.com", image_url: "https://unsplash.com", pubDate: "2026-07-18 18:00:00", category: ["technology"] },
-    { title: "Global Sports Championship Finals Draw Record-Breaking Stadium Audiences", link: "https://google.com", image_url: "https://unsplash.com", pubDate: "2026-07-18 17:15:00", category: ["sports"] },
-    { title: "International Markets Experience Surge in Green Technology Ventures", link: "https://google.com", image_url: "https://unsplash.com", pubDate: "2026-07-18 16:30:00", category: ["business"] },
-    { title: "Deep Space Telescope Uncovers Ancient Star Systems on Milky Way Edge", link: "https://google.com", image_url: "https://unsplash.com", pubDate: "2026-07-18 15:45:00", category: ["science"] }
+    { title: "Next-Gen AI Models Revolutionize Software Engineering Paradigms Worldwide", link: "#", image_url: "https://unsplash.com", pubDate: "2026-07-18 18:00:00", category: ["technology"] },
+    { title: "Global Sports Championship Finals Draw Record-Breaking Stadium Audiences", link: "#", image_url: "https://unsplash.com", pubDate: "2026-07-18 17:15:00", category: ["sports"] },
+    { title: "International Markets Experience Surge in Green Technology Ventures", link: "#", image_url: "https://unsplash.com", pubDate: "2026-07-18 16:30:00", category: ["business"] },
+    { title: "Deep Space Telescope Uncovers Ancient Star Systems on Milky Way Edge", link: "#", image_url: "https://unsplash.com", pubDate: "2026-07-18 15:45:00", category: ["science"] }
 ];
 
 const DEFAULT_IMAGE = "https://unsplash.com";
@@ -156,7 +156,7 @@ function News() {
                     {filteredNews.length > 0 ? (
                         filteredNews.map((article, index) => (
                             <div className="grid-item-col" key={index}>
-                                <div className={`news-card ${darkMode ? 'dark-card' : 'light-card'}`} onClick={() => { if(article.link) window.open(article.link, '_blank', 'noopener,noreferrer'); }}>
+                                <div className={`news-card ${darkMode ? 'dark-card' : 'light-card'}`} onClick={() => { if(article.link && article.link !== '#') window.open(article.link, '_blank', 'noopener,noreferrer'); }}>
                                     <div className="card-image-wrapper">
                                         <img src={article.image_url || DEFAULT_IMAGE} className="news-card-img" alt="News Cover" onError={(e) => { e.target.onerror = null; e.target.src = DEFAULT_IMAGE; }} />
                                         <span className="live-badge">LIVE</span>
@@ -230,3 +230,4 @@ function News() {
 }
 
 export default News;
+
