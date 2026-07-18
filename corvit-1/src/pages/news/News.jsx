@@ -9,7 +9,7 @@ function News() {
 
     const getNews = async () => {
         try {
-            const response = await fetch("https://newsdata.io/api/1/latest?apikey=pub_25eff2fe7bad47b0bd84a65e55433020");
+            const response = await fetch("https://newsdata.io");
             const data = await response.json();
             setNews(data);
             setIsLoading(false);
@@ -37,7 +37,6 @@ function News() {
 
     return (
         <div className={`news-app-wrapper ${darkMode ? 'dark-theme' : 'light-theme'}`}>
-            {/* Main Modern Navbar */}
             <nav className={`custom-navbar sticky-top shadow-sm ${darkMode ? 'dark-navbar' : 'light-navbar'}`}>
                 <div className="navbar-container">
                     <span className="navbar-logo">
@@ -49,7 +48,6 @@ function News() {
                 </div>
             </nav>
 
-            {/* Sub-header Heading Section */}
             <div className="container mt-4 pt-2">
                 <div className="section-header border-bottom mb-4">
                     <div className="section-title">
@@ -59,14 +57,14 @@ function News() {
                     <button className={`btn btn-sm ${darkMode ? 'btn-outline-light' : 'btn-outline-dark'}`}>View All</button>
                 </div>
 
-                {/* News Grid Section */}
-                <div className="row g-4">
+                <div className="row g-5">
                     {news && news.results ? (
                         news.results.map((article, index) => (
                             <div className="col-12 col-md-6 col-lg-4 col-xl-3" key={index}>
-                                <div className={`news-card h-100 ${darkMode ? 'dark-card' : 'light-card'}`}>
-                                    
-                                    {/* News Thumbnail Cover Container */}
+                                <div 
+                                    className={`news-card h-100 ${darkMode ? 'dark-card' : 'light-card'}`}
+                                    onClick={() => { if(article.link) window.open(article.link, '_blank', 'noopener,noreferrer'); }}
+                                >
                                     <div className="card-image-wrapper">
                                         <img
                                             src={article.image_url || 'https://placeholder.com'}
@@ -76,11 +74,10 @@ function News() {
                                         <span className="live-badge">LIVE</span>
                                     </div>
 
-                                    {/* Card Inner Content Body */}
                                     <div className="card-body-content">
                                         <div className="card-text-main">
                                             <p className="news-date">
-                                                <FaRegClock className="date-icon" /> {article.pubDate?.split(' ')[0] || article.pubDate}
+                                                <FaRegClock className="date-icon" /> {article.pubDate?.split(' ') || article.pubDate}
                                             </p>
                                             <h5 className="news-title">
                                                 {article.title}
@@ -91,9 +88,6 @@ function News() {
                                             <span className="read-more-text">Read Article <FaArrowRight className="arrow-icon" /></span>
                                             <span className="category-badge">News</span>
                                         </div>
-
-                                        {/* Seamless Card Click Feature */}
-                                        <a href={article.link} target="_blank" rel="noreferrer" className="stretched-link"></a>
                                     </div>
                                 </div>
                             </div>
