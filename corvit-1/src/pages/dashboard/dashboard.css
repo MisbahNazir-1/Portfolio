@@ -1800,3 +1800,30 @@
     background-color: rgba(128, 128, 128, 0.1);
     transform: translateY(-1px);
 }
+/* Light mode me saare card containers ko automatic switch karne ke liye */
+.dashboard-root-frame.light-theme .card,
+.dashboard-root-frame.light-theme [class*="card-"],
+.dashboard-root-frame.light-theme [class*="project-card"] {
+    background-color: #ffffff !important;
+    color: #1e293b !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+.dashboard-root-frame.light-theme .card p,
+.dashboard-root-frame.light-theme .card-body p,
+.dashboard-root-frame.light-theme .card-text {
+    color: #495057 !important;
+}
+
+/* Light mode me headings aur titles ko visibility clear contrast dena */
+.dashboard-root-frame.light-theme .card h5,
+.dashboard-root-frame.light-theme .card h4,
+.dashboard-root-frame.light-theme .card-title {
+    color: #000000 !important;
+}
+
+/* Repository button ke text color aur border styling setup overrides */
+.dashboard-root-frame.light-theme [class*="repository"],
+.dashboard-root-frame.light-theme [class*="btn-outline"] {
+    color: #212529 !important;
+    border-color: rgba(0, 0, 0, 0.15) !important;
+}
