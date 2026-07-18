@@ -1716,80 +1716,26 @@
   .card-image-wrapper {
     height: 140px;
   }
-}/* 🌓 Custom Inverted Color Matrix Definition */
-.dashboard-root-frame.dark-theme {
-    --bg-app: #1e222b;
-    --bg-sidebar: #161a23;
+}.dashboard-root-frame.dark-theme {
+    --bg-app: #0d1117;
+    --bg-sidebar: #161b22;
     --text-primary: #ffffff;
-    --text-secondary: #94a3b8;
+    --text-secondary: #8b949e;
     --border-ui: rgba(255, 255, 255, 0.08);
 }
 
 .dashboard-root-frame.light-theme {
-    --bg-app: #000000 !important;
-    --bg-sidebar: #0a0a0a !important;
-    --text-primary: #ffffff !important;
-    --text-secondary: #8a8a8a !important;
-    --border-ui: rgba(255, 255, 255, 0.15) !important;
+    --bg-app: #f8f9fa;
+    --bg-sidebar: #ffffff;
+    --text-primary: #000000;
+    --text-secondary: #495057;
+    --border-ui: rgba(0, 0, 0, 0.1);
 }
 
-/* 🧱 Global Real-time Automation Blocks */
-.dashboard-root-frame {
-    background-color: var(--bg-app) !important;
-    color: var(--text-primary) !important;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.dashboard-root-frame aside, 
-.dashboard-root-frame .sidebar-container {
-    background-color: var(--bg-sidebar) !important;
-    border-right: 1px solid var(--border-ui) !important;
-}
-
-.dashboard-root-frame h1,
-.dashboard-root-frame h2,
-.dashboard-root-frame h3,
-.dashboard-root-frame .brand-text {
-    color: var(--text-primary) !important;
-}
-
-.dashboard-root-frame p,
-.dashboard-root-frame .hero-subtitle {
-    color: var(--text-secondary) !important;
-}
-
-/* ⚡ Misbah Nazir Gradient Safe Lock Protection Override */
 .hero-title span {
   background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%) !important;
   -webkit-background-clip: text !important;
   background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   display: inline-block;
-}
-
-/* 🔘 Footer Toggle Alignment inside template */
-.sidebar-theme-footer {
-    padding: 1rem 1.2rem;
-    width: 100%;
-    margin-top: auto;
-}
-
-.portfolio-theme-toggle-btn {
-    width: 100%;
-    padding: 0.65rem 1rem;
-    border-radius: 12px;
-    border: 1px solid var(--border-ui);
-    background-color: transparent;
-    color: var(--text-primary);
-    font-size: 0.85rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.portfolio-theme-toggle-btn:hover {
-    background-color: rgba(128, 128, 128, 0.1);
 }
