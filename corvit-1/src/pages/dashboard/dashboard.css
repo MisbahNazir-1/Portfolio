@@ -1827,3 +1827,25 @@
     color: #212529 !important;
     border-color: rgba(0, 0, 0, 0.15) !important;
 }
+
+.dashboard-root-frame.light-theme .card-footer,
+.dashboard-root-frame.light-theme [class*="-footer"],
+.dashboard-root-frame.light-theme .d-flex.gap-2.mt-3 {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+}
+
+/* 🔗 Repository Outline Button Typography & Visibility overrides */
+.dashboard-root-frame.light-theme button[class*="outline"],
+.dashboard-root-frame.light-theme a[class*="outline"],
+.dashboard-root-frame.light-theme [class*="repo"] {
+    background-color: #f8f9fa !important;
+    color: #1e293b !important;
+    border: 1px solid rgba(0, 0, 0, 0.15) !important;
+}
+.dashboard-root-frame.light-theme [class*="repo"] svg,
+.dashboard-root-frame.light-theme button[class*="outline"] svg {
+    color: #1e293b !important;
+    fill: #1e293b !important;
+}
+
