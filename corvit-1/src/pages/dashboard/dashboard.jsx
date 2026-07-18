@@ -5,7 +5,7 @@ import axios from 'axios';
 import { 
   FiLayout, FiBriefcase, FiCpu, FiMail, FiLogOut, FiDownload, 
   FiGithub, FiLinkedin, FiExternalLink, FiArrowUpRight, FiLock,
-  FiUser, FiHash, FiPhone, FiMapPin ,FiAward, FiZap,FiMenu, FiLayers, FiX
+  FiUser, FiHash, FiPhone, FiMapPin ,FiAward, FiZap,FiMenu, FiLayers, FiX, FaSun, FaMoon
 } from 'react-icons/fi';
 import { LuArrowRight } from "react-icons/lu";
 import './dashboard.css';
@@ -40,6 +40,7 @@ const AppCard = ({ title, tag, iconName, glowColor, imageUrl, onClick }) => (
 
 function Dashboard() {
   
+  const [darkMode, setDarkMode] = useState(true);
   const [activeTab, setActiveTab] = useState('dashboard');
   const [isLoggedOut, setIsLoggedOut] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -52,6 +53,11 @@ function Dashboard() {
   const [techStack, setTechStack] = useState([]);
   const [resumeLink, setResumeLink] = useState('#')
   const [loading, setLoading] = useState(true);
+
+const toggleTheme = () => {
+    setDarkMode(!darkMode);
+};
+
 
   const imageBaseURL =import.meta.env.VITE_PORTFOLIO_API_URL .replace('/api', '');
 
@@ -93,12 +99,14 @@ function Dashboard() {
       .catch(err => console.log(err));
   }, []);
 
+
+
   if (loading) {
     return <div className="auth-gate-placeholder"><h1>Crafting Digital Experience ...</h1></div>;
   }
 
   return (
-  <div className="dashboard-root-frame">
+    <div className={`dashboard-root-frame ${darkMode ? 'dark-theme' : 'light-theme'}`}>
    <div className="mobile-header-bar">
   <div style={{ width: '24px' }} className="mobile-spacer"></div> 
   
@@ -148,6 +156,19 @@ function Dashboard() {
         <a href={resumeLink} download className="nav-item download-resume-btn" onClick={() => setIsSidebarOpen(false)}>
           <FiDownload /> <span>Download Executive CV</span>
         </a>
+        <div className="sidebar-theme-footer">
+    <button 
+        className="portfolio-theme-toggle-btn" 
+        onClick={() => setDarkMode(!darkMode)}
+    >
+        {darkMode ? (
+            <><FaSun style={{ marginRight: '8px' }} /> Light Mode</>
+        ) : (
+            <><FaMoon style={{ marginRight: '8px' }} /> Dark Mode</>
+        )}
+    </button>
+</div>
+
       </nav>
     </aside>
       <main className="main-viewport-content">
