@@ -104,7 +104,7 @@ function Dashboard() {
   
   <div className="mobile-brand-centered">
     <img 
-      src="https://i.postimg.cc/MK8VHhqk/logo.jpg" 
+      src="https://i.postimg.cc/Jzdx00Ny/logo.png" 
       style={{ width: '35px', height: '35px', borderRadius: '8px', objectFit: 'cover' }} 
       alt="logo" 
     />
@@ -122,7 +122,7 @@ function Dashboard() {
 
     <aside className={`sidebar-container ${isSidebarOpen ? 'mobile-show' : ''}`}>
       <div className="sidebar-top-brand">
-        <img src="https://i.postimg.cc/MK8VHhqk/logo.jpg" className="brand-neon-logo" alt="logo" />
+        <img src="https://i.postimg.cc/Jzdx00Ny/logo.png" className="brand-neon-logo" alt="logo" />
         <span className="brand-text">Misbah Developer</span>
       </div>
 
