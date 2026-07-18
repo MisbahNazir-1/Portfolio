@@ -7,7 +7,7 @@ import {
   FiGithub, FiLinkedin, FiExternalLink, FiArrowUpRight, FiLock,
   FiUser, FiHash, FiPhone, FiMapPin ,FiAward, FiZap,FiMenu, FiLayers, FiX
 } from 'react-icons/fi';
-import {FaMoon, FaSun} from 'react-icons/fi';
+import {FaMoon, FaSun} from 'react-icons/fa';
 import { LuArrowRight } from "react-icons/lu";
 import './dashboard.css';
 
