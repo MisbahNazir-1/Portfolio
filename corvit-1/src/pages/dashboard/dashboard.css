@@ -143,8 +143,13 @@
 }
 
 .hero-title span {
-  background: linear-gradient(to right, var(--accent-cyber-green), var(--accent-glow-cyan));
+  background: linear-gradient(to right, #00f2fe, #4facfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
 }
+
 
 .hero-subtitle {
   color: var(--text-muted-gray);
