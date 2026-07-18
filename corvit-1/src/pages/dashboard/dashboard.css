@@ -1716,60 +1716,62 @@
   .card-image-wrapper {
     height: 140px;
   }
-}
-/* 🌓 Theme Variable Definitions */
+}/* 🌓 Custom Inverted Color Matrix Definition */
 .dashboard-root-frame.dark-theme {
-    --bg-app: #0b0f17;
-    --bg-sidebar: #111622;
+    --bg-app: #1e222b;
+    --bg-sidebar: #161a23;
     --text-primary: #ffffff;
     --text-secondary: #94a3b8;
     --border-ui: rgba(255, 255, 255, 0.08);
-    --bg-active-tab: rgba(0, 255, 204, 0.1);
 }
 
 .dashboard-root-frame.light-theme {
-    --bg-app: #f4f6f9;
-    --bg-sidebar: #ffffff;
-    --text-primary: #1e293b;
-    --text-secondary: #64748b;
-    --border-ui: rgba(0, 0, 0, 0.08);
-    --bg-active-tab: rgba(13, 110, 253, 0.08);
+    --bg-app: #000000 !important;
+    --bg-sidebar: #0a0a0a !important;
+    --text-primary: #ffffff !important;
+    --text-secondary: #8a8a8a !important;
+    --border-ui: rgba(255, 255, 255, 0.15) !important;
 }
 
-/* 🧱 Global Color Overrides Based on Variables */
+/* 🧱 Global Real-time Automation Blocks */
 .dashboard-root-frame {
     background-color: var(--bg-app) !important;
     color: var(--text-primary) !important;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Sidebar context wrapper auto-switch */
 .dashboard-root-frame aside, 
 .dashboard-root-frame .sidebar-container {
     background-color: var(--bg-sidebar) !important;
     border-right: 1px solid var(--border-ui) !important;
-    transition: background-color 0.3s ease;
-}
-
-/* Text styles inversion selectors */
-.dashboard-root-frame .hero-subtitle,
-.dashboard-root-frame p {
-    color: var(--text-secondary) !important;
 }
 
 .dashboard-root-frame h1,
 .dashboard-root-frame h2,
 .dashboard-root-frame h3,
-.dashboard-root-frame h4,
 .dashboard-root-frame .brand-text {
     color: var(--text-primary) !important;
 }
 
-/* 🔘 Sleek Sidebar Toggle Button Layout */
+.dashboard-root-frame p,
+.dashboard-root-frame .hero-subtitle {
+    color: var(--text-secondary) !important;
+}
+
+/* ⚡ Misbah Nazir Gradient Safe Lock Protection Override */
+.hero-title span {
+  background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  display: inline-block;
+}
+
+/* 🔘 Footer Toggle Alignment inside template */
 .sidebar-theme-footer {
     padding: 1rem 1.2rem;
     width: 100%;
-    margin-top: 1rem;
+    margin-top: auto;
 }
 
 .portfolio-theme-toggle-btn {
@@ -1790,5 +1792,4 @@
 
 .portfolio-theme-toggle-btn:hover {
     background-color: rgba(128, 128, 128, 0.1);
-    transform: translateY(-1px);
 }
