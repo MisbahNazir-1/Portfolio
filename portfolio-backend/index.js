@@ -15,6 +15,7 @@ const Skill = require('./models/skill');
 const AppCard = require('./models/appcard');
 const Resume = require('./models/resume');
 const Design = require('./models/design')
+const InternProject = require('./models/internProject');
 
 
 dotenv.config();
@@ -120,8 +121,6 @@ app.delete('/api/designs/:id', async (req, res) => {
   }
 });
 
-
-
 // ==================== 3. EXPERIENCE APIs ====================
 app.get('/api/experience', async (req, res) => {
   try { res.json(await Experience.find()); } catch (err) { res.status(500).json({ error: err.message }); }
@@ -140,9 +139,6 @@ app.delete('/api/experience/:id', async (req, res) => {
     res.status(500).json({ error: err.message }); 
   }
 });
-
-
-
  
 // ==================== 4. PROJECT APIs ====================
 app.get('/api/projects', async (req, res) => {
@@ -182,6 +178,7 @@ app.delete('/api/skills/:id', async (req, res) => {
     res.status(500).json({ error: err.message }); 
   }
 });
+
 // ==================== 6. EXECUTIVE CV APIs ====================
 app.get('/api/resume', async (req, res) => {
   try { 
@@ -191,7 +188,6 @@ app.get('/api/resume', async (req, res) => {
     res.status(500).json({ error: err.message }); 
   }
 });
-
 app.post('/api/resume', async (req, res) => {
   try { 
     res.status(201).json(await new Resume(req.body).save()); 
@@ -199,6 +195,37 @@ app.post('/api/resume', async (req, res) => {
     res.status(400).json({ error: err.message }); 
   }
 });
+
+
+// ==================== 3. INTERNPROJECT APIs ====================
+app.route('/api/intern-projects')
+  .get(async (req, res) => {
+    try {
+      const projects = await InternProject.find();
+      res.status(200).json(projects);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  })
+  .post(async (req, res) => {
+    try {
+      const newProject = new InternProject(req.body);
+      const savedProject = await newProject.save();
+      res.status(201).json(savedProject);
+    } catch (err) {
+      res.status(400).json({ error: err.message });
+    }
+  });
+app.delete('/api/intern-projects/:id', async (req, res) => {
+  try {
+    const deleted = await InternProject.findByIdAndDelete(req.params.id);
+    if (!deleted) return res.status(404).json({ error: "Intern project not found" });
+    res.status(200).json({ message: "Intern project deleted successfully" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 
 if (process.env.NODE_ENV !== 'production') {
   app.listen(PORT, () => {
