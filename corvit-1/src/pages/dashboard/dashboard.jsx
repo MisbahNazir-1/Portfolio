@@ -54,8 +54,7 @@ function Dashboard() {
   const [techStack, setTechStack] = useState([]);
   const [resumeLink, setResumeLink] = useState('#')
   const [loading, setLoading] = useState(true);
-  const [internProjects, setInternProjects] = useState([]); 
-  const [showInternProjects, setShowInternProjects] = useState(false);
+
 
 const toggleTheme = () => {
     setDarkMode(!darkMode);
@@ -101,16 +100,6 @@ const toggleTheme = () => {
       .then(res => setFrontendDesigns(res.data))
       .catch(err => console.log(err));
   }, []);
-
-  useEffect(() => {
-    fetch('http://localhost:5000/api/intern-projects') 
-      .then(res => res.json())
-      .then(data => {
-        setInternProjects(data); 
-      })
-      .catch(err => console.error("Error fetching projects:", err));
-  }, []);
-
 
 
   if (loading) {
@@ -413,6 +402,7 @@ const toggleTheme = () => {
     </div>
   </section>
 )}
+
 {activeTab === 'experience' && (
   <section className="dashboard-section-wrapper">
     <h2 className="section-heading">Professional Experience History</h2>
@@ -421,43 +411,19 @@ const toggleTheme = () => {
         <div key={exp._id} className="experience-glass-card">
           <div className="exp-card-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <h4>{exp.role} <span className="exp-company-highlight">@ {exp.company}</span></h4>
-            
-            {/* DecodeLabs ke liye Side-by-Side button */}
-            {exp.company === "DecodeLabs" && (
-              <button 
-                className="view-intern-projects-btn" 
-                onClick={() => setShowInternProjects(!showInternProjects)}
-                style={{ padding: '5px 15px', cursor: 'pointer', borderRadius: '5px' }}
-              >
-                {showInternProjects ? "Hide Projects" : "View Projects"}
-              </button>
-            )}
+            {/* Present tag moved to the right side */}
+            <span className="present-tag" style={{ 
+              fontSize: '11px', 
+              background: 'rgba(0, 255, 204, 0.1)', 
+              color: '#00ffcc', 
+              padding: '4px 8px', 
+              borderRadius: '4px' 
+            }}>
+              Present
+            </span>
           </div>
           
-          <span className="duration-tag">{exp.duration}</span>
-          <p className="exp-desc">{exp.desc}</p>
-
-          {/* Internship Projects Grid */}
-          {exp.company === "DecodeLabs" && showInternProjects && (
-            <div className="apps-gateway-grid" style={{ marginTop: '20px', borderTop: '1px solid #333', paddingTop: '20px' }}>
-              {internProjects.map((project) => (
-                <div key={project._id} className="gateway-card-container">
-                  <AppCard 
-                    title={project.title}
-                    tag="Internship Project"
-                    iconName="FiBriefcase" 
-                    glowColor="#ffcc00" 
-                    imageUrl={project.imageLink}
-                  />
-                  <div className="gateway-action-row">
-                    <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="gateway-repo-btn">
-                      Repository <FiGithub className='button-icon'/>
-                    </a>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
+          <p className="exp-desc" style={{ marginTop: '10px' }}>{exp.desc}</p>
         </div>
       ))}
     </div>
