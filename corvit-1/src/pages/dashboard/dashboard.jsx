@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import * as Icons from "react-icons/fi";
 import axios from "axios";
+import Links from "react-router-dom";
 import {
   FiLayout,
   FiBriefcase,
@@ -123,15 +124,6 @@ function Dashboard() {
       .get(`${API_BASE_URL}/designs`)
       .then((res) => setFrontendDesigns(res.data))
       .catch((err) => console.log(err));
-  }, []);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/api/intern-projects")
-      .then((res) => res.json())
-      .then((data) => {
-        setInternProjects(data);
-      })
-      .catch((err) => console.error("Error fetching projects:", err));
   }, []);
 
   if (loading) {
@@ -590,64 +582,10 @@ function Dashboard() {
                         @ {exp.company}
                       </span>
                     </h4>
-
-                    {/* DecodeLabs ke liye Side-by-Side button */}
-                    {exp.company === "DecodeLabs" && (
-                      <button
-                        className="view-intern-projects-btn"
-                        onClick={() =>
-                          setShowInternProjects(!showInternProjects)
-                        }
-                        style={{
-                          padding: "5px 15px",
-                          cursor: "pointer",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        {showInternProjects ? "Hide Projects" : "View Projects"}
-                      </button>
-                    )}
                   </div>
 
                   <span className="duration-tag">{exp.duration}</span>
                   <p className="exp-desc">{exp.desc}</p>
-
-                  {/* Internship Projects Grid */}
-                  {exp.company === "DecodeLabs" && showInternProjects && (
-                    <div
-                      className="apps-gateway-grid"
-                      style={{
-                        marginTop: "20px",
-                        borderTop: "1px solid #333",
-                        paddingTop: "20px",
-                      }}
-                    >
-                      {internProjects.map((project) => (
-                        <div
-                          key={project._id}
-                          className="gateway-card-container"
-                        >
-                          <AppCard
-                            title={project.title}
-                            tag="Internship Project"
-                            iconName="FiBriefcase"
-                            glowColor="#ffcc00"
-                            imageUrl={project.imageLink}
-                          />
-                          <div className="gateway-action-row">
-                            <a
-                              href={project.githubLink}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="gateway-repo-btn"
-                            >
-                              Repository <FiGithub className="button-icon" />
-                            </a>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
                 </div>
               ))}
             </div>
