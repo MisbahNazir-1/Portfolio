@@ -784,25 +784,6 @@ transform:scale(1.08);
   flex-direction: column;
 }
 
-.split-showcase-layout,
-.showcase-column-full {
-  width: 100% !important;
-  max-width: 100% !important;
-}
-
-.projects-display-stack {
-  width: 100% !important;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-}
-
-@media screen and (min-width: 992px) {
-  .projects-display-stack {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 30px; 
-  }
-}
 
 
 
