@@ -775,11 +775,27 @@ transform:scale(1.08);
   flex-direction: column;
 }
 
-.experience-timeline-stack, .projects-display-stack {
-  display: flex;
-  flex-direction: column;
+.experience-timeline-stack, 
+.projects-display-stack {
   gap: 15px;
 }
+.experience-timeline-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.projects-display-stack {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media screen and (min-width: 992px) {
+  .projects-display-stack {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 25px; 
+  }
+}
+
 
 .experience-glass-card, .project-glass-card {
   background: var(--bg-card-glass);
