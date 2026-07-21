@@ -384,7 +384,7 @@ function Dashboard() {
               <h2 className="section-heading">Deployed Architectures</h2>
               <div className="app-gateway-grid">
                 {showcaseProjects.map((proj) => (
-                  <div key={proj._id} className="project-glass-card">
+                  <div key={proj._id} className="gateway-card-container">
                     {proj.imgURL && (
                       <img
                         src={proj.imgURL}
