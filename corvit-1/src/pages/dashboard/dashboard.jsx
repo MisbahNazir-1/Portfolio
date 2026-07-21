@@ -380,52 +380,50 @@ function Dashboard() {
               </div>
             </section>
 
-            <div className="split-showcase-layout">
-              <section className="showcase-column-full">
-                <h2 className="section-heading">Deployed Architectures</h2>
-                <div className="app-gateway-grid">
-                  {showcaseProjects.map((proj) => (
-                    <div key={proj._id} className="project-glass-card">
-                      {proj.imgURL && (
-                        <img
-                          src={proj.imgURL}
-                          alt={proj.title}
-                          className="project-card-thumbnail"
-                        />
-                      )}
+            <section className="dashboard-section-wrapper">
+              <h2 className="section-heading">Deployed Architectures</h2>
+              <div className="app-gateway-grid">
+                {showcaseProjects.map((proj) => (
+                  <div key={proj._id} className="project-glass-card">
+                    {proj.imgURL && (
+                      <img
+                        src={proj.imgURL}
+                        alt={proj.title}
+                        className="project-card-thumbnail"
+                      />
+                    )}
 
-                      <h4>{proj.title}</h4>
-                      <div className="project-tags-row">
-                        {proj.tags &&
-                          proj.tags.map((tag, tIdx) => (
-                            <span key={tIdx} className="tech-badge">
-                              {tag}
-                            </span>
-                          ))}
-                      </div>
-                      <div className="project-actions-row">
-                        <a
-                          href={proj.liveLink}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="action-link live-btn"
-                        >
-                          <FiExternalLink /> Live Link
-                        </a>
-                        <a
-                          href={proj.githubLink}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="action-link repo-btn"
-                        >
-                          <FiGithub /> Repository
-                        </a>
-                      </div>
+                    <h4>{proj.title}</h4>
+                    <div className="project-tags-row">
+                      {proj.tags &&
+                        proj.tags.map((tag, tIdx) => (
+                          <span key={tIdx} className="tech-badge">
+                            {tag}
+                          </span>
+                        ))}
                     </div>
-                  ))}
-                </div>
-              </section>
-            </div>
+                    <div className="project-actions-row">
+                      <a
+                        href={proj.liveLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="action-link live-btn"
+                      >
+                        <FiExternalLink /> Live Link
+                      </a>
+                      <a
+                        href={proj.githubLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="action-link repo-btn"
+                      >
+                        <FiGithub /> Repository
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
           </>
         )}
 
