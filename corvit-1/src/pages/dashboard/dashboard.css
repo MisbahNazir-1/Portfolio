@@ -256,6 +256,7 @@
   border: 3px solid #00f2fe;
   object-fit: 'cover';
   object-position: 'top';
+transform:scale(1.08);
   box-shadow: 0 0 20px rgba(0, 242, 254, 0.35);
   display: block;
 }
@@ -1542,7 +1543,9 @@
   object-fit: cover;
   object-position: center;
 }
-
+.about-justify{
+    text-align: justify;
+}
 .card-image-overlay {
   position: absolute;
   inset: 0;
@@ -1912,4 +1915,314 @@
 .dashboard-root-frame.light-theme .card-icon-indicator {
     color: #0d6efd !important;
     background-color: rgba(13, 110, 253, 0.08) !important;
+}
+/* ==========================================================
+   LIGHT MODE OVERRIDES & GRID ATTACHMENT
+   Paste at the VERY END of dashboard.css
+   ========================================================== */
+
+/* ==========================================================
+   1. GLOBAL LIGHT THEME
+   ========================================================== */
+
+body.light-theme,
+[data-theme="light"],
+.dashboard-root-frame.light-theme {
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* Main application surfaces */
+
+body.light-theme .dashboard-root-frame,
+[data-theme="light"] .dashboard-root-frame,
+.dashboard-root-frame.light-theme {
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* Primary typography */
+
+body.light-theme h1,
+body.light-theme h2,
+body.light-theme h3,
+body.light-theme h4,
+body.light-theme h5,
+body.light-theme h6,
+body.light-theme p,
+body.light-theme span,
+body.light-theme li,
+body.light-theme label,
+body.light-theme small,
+body.light-theme strong,
+
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4,
+[data-theme="light"] h5,
+[data-theme="light"] h6,
+[data-theme="light"] p,
+[data-theme="light"] span,
+[data-theme="light"] li,
+[data-theme="light"] label,
+[data-theme="light"] small,
+[data-theme="light"] strong,
+
+.dashboard-root-frame.light-theme h1,
+.dashboard-root-frame.light-theme h2,
+.dashboard-root-frame.light-theme h3,
+.dashboard-root-frame.light-theme h4,
+.dashboard-root-frame.light-theme h5,
+.dashboard-root-frame.light-theme h6,
+.dashboard-root-frame.light-theme p,
+.dashboard-root-frame.light-theme span,
+.dashboard-root-frame.light-theme li,
+.dashboard-root-frame.light-theme label,
+.dashboard-root-frame.light-theme small,
+.dashboard-root-frame.light-theme strong {
+    color: #000000 !important;
+}
+
+/* Hero subtitle only */
+
+body.light-theme .hero-subtitle,
+[data-theme="light"] .hero-subtitle,
+.dashboard-root-frame.light-theme .hero-subtitle {
+    color: #2f3742 !important;
+}
+
+/* Preserve cyan gradient highlight */
+
+body.light-theme .hero-title span,
+[data-theme="light"] .hero-title span,
+.dashboard-root-frame.light-theme .hero-title span {
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+/* ==========================================================
+   UNIFIED LIGHT CARD APPEARANCE
+   ========================================================== */
+
+body.light-theme :is(
+.gateway-card,
+.portfolio-card,
+.architecture-display-card,
+.experience-glass-card,
+.project-glass-card,
+.about-stat-card,
+.enterprise-card-spec,
+.hero-branding-section,
+.tech-stack-marquee-dock),
+
+[data-theme="light"] :is(
+.gateway-card,
+.portfolio-card,
+.architecture-display-card,
+.experience-glass-card,
+.project-glass-card,
+.about-stat-card,
+.enterprise-card-spec,
+.hero-branding-section,
+.tech-stack-marquee-dock),
+
+.dashboard-root-frame.light-theme :is(
+.gateway-card,
+.portfolio-card,
+.architecture-display-card,
+.experience-glass-card,
+.project-glass-card,
+.about-stat-card,
+.enterprise-card-spec,
+.hero-branding-section,
+.tech-stack-marquee-dock) {
+
+    background: #eceff3 !important;
+    background-image: none !important;
+    backdrop-filter: none !important;
+
+    color: #000000 !important;
+
+    border: 1px solid #d8dee6 !important;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,.05) !important;
+}
+
+/* Card text */
+
+body.light-theme :is(
+.card-main-title,
+.card-sub-description,
+.card-text,
+.card-text-content,
+.card-text h3,
+.project-actions-row,
+.exp-card-header,
+.experience-glass-card p,
+.stat-card-title,
+.stat-card-desc,
+.meta-label-tag,
+.interface-string-highlight,
+.modern-heading-style,
+.premium-subtitle,
+.tech-pill-name,
+.metric-label,
+.metric-number,
+.app-tag),
+
+[data-theme="light"] :is(
+.card-main-title,
+.card-sub-description,
+.card-text,
+.card-text-content,
+.card-text h3,
+.project-actions-row,
+.exp-card-header,
+.experience-glass-card p,
+.stat-card-title,
+.stat-card-desc,
+.meta-label-tag,
+.interface-string-highlight,
+.modern-heading-style,
+.premium-subtitle,
+.tech-pill-name,
+.metric-label,
+.metric-number,
+.app-tag),
+
+.dashboard-root-frame.light-theme :is(
+.card-main-title,
+.card-sub-description,
+.card-text,
+.card-text-content,
+.card-text h3,
+.project-actions-row,
+.exp-card-header,
+.experience-glass-card p,
+.stat-card-title,
+.stat-card-desc,
+.meta-label-tag,
+.interface-string-highlight,
+.premium-subtitle,
+.tech-pill-name,
+.metric-label,
+.metric-number,
+.app-tag) {
+
+    color: #000000 !important;
+}
+
+/* ==========================================================
+   2. SIDEBAR ACTIVE LINK FIX
+   ========================================================== */
+
+body.light-theme .nav-item.active,
+[data-theme="light"] .nav-item.active,
+.dashboard-root-frame.light-theme .nav-item.active {
+
+    background: rgba(0, 163, 255, .12) !important;
+
+    color: #008cff !important;
+
+    font-weight: 700 !important;
+
+    border-left: 4px solid #00a2ff !important;
+
+    box-shadow: none !important;
+}
+
+body.light-theme .nav-item.active *,
+[data-theme="light"] .nav-item.active *,
+.dashboard-root-frame.light-theme .nav-item.active * {
+
+    color: #008cff !important;
+
+    fill: currentColor !important;
+
+    opacity: 1 !important;
+}
+
+body.light-theme .nav-item:hover,
+[data-theme="light"] .nav-item:hover,
+.dashboard-root-frame.light-theme .nav-item:hover {
+
+    color: #0077d9 !important;
+}
+
+/* ==========================================================
+   3. RESPONSIVE GRID OVERLAY
+   ========================================================== */
+
+/* Desktop */
+
+@media (min-width:768px){
+
+    .apps-gateway-grid,
+    .portfolio-grid-container,
+    .architecture-twin-grid{
+
+        display:grid !important;
+
+        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+
+        gap:24px !important;
+    }
+
+}
+
+/* Mobile */
+
+@media (max-width:767px){
+
+    .apps-gateway-grid,
+    .portfolio-grid-container,
+    .architecture-twin-grid{
+
+        display:grid !important;
+
+        grid-template-columns:1fr !important;
+
+        gap:20px !important;
+    }
+
+}
+
+/* ==========================================================
+   4. CONTACT LAYOUT
+   ========================================================== */
+
+/* Desktop */
+
+@media (min-width:992px){
+
+    .interactive-cluster-grid{
+
+        display:grid !important;
+
+        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+
+        align-items:stretch !important;
+
+        gap:24px !important;
+    }
+
+}
+
+/* Mobile */
+
+@media (max-width:991px){
+
+    .interactive-cluster-grid{
+
+        display:grid !important;
+
+        grid-template-columns:1fr !important;
+
+        gap:20px !important;
+    }
+
 }

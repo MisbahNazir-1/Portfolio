@@ -1,19 +1,31 @@
 import { useState, useEffect } from "react";
-import { WiDaySunny, WiCloudy, WiSnow, WiRaindrop, WiSunrise, WiSunset, WiBarometer } from 'react-icons/wi';
-import './weather.css';
+import {
+  WiDaySunny,
+  WiCloudy,
+  WiSnow,
+  WiRaindrop,
+  WiSunrise,
+  WiSunset,
+  WiBarometer,
+} from "react-icons/wi";
+import "./weather.css";
 
 const TempBasedIcon = ({ temp, size = 60 }) => {
   const currentTemp = Number(temp);
   if (currentTemp >= 35) return <WiDaySunny size={size} color="#FF4500" />;
-  if (currentTemp >= 25 && currentTemp < 35) return <WiDaySunny size={size} color="#FFD700" />;
-  if (currentTemp >= 15 && currentTemp < 25) return <WiCloudy size={size} color="#B0C4DE" />;
+  if (currentTemp >= 25 && currentTemp < 35)
+    return <WiDaySunny size={size} color="#FFD700" />;
+  if (currentTemp >= 15 && currentTemp < 25)
+    return <WiCloudy size={size} color="#B0C4DE" />;
   if (currentTemp < 15) return <WiSnow size={size} color="#E0FFFF" />;
   return <WiDaySunny size={size} color="#FFD700" />;
 };
 
 const ForecastCard = ({ date, maxTemp }) => (
   <div className="forecast-card-node">
-    <p className="mb-1">{new Date(date).toLocaleDateString("en-US", { weekday: "short" })}</p>
+    <p className="mb-1">
+      {new Date(date).toLocaleDateString("en-US", { weekday: "short" })}
+    </p>
     <div className="my-2">
       <TempBasedIcon temp={maxTemp} size={35} />
     </div>
@@ -31,7 +43,9 @@ function WeatherApp() {
   const getCoordinates = async (city) => {
     if (!city.trim()) return;
     try {
-      const response = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}`);
+      const response = await fetch(
+        `https://geocoding-api.open-meteo.com/v1/search?name=${city}`,
+      );
       const data = await response.json();
       if (data.results && data.results.length > 0) {
         const { latitude, longitude, name } = data.results[0];
@@ -63,29 +77,41 @@ function WeatherApp() {
     getWeather(coords.lat, coords.lon);
   }, [coords]);
 
-  if (isLoading) return <div className="loader-placeholder-node"><h3>Loading Weather Data...</h3></div>;
+  if (isLoading)
+    return (
+      <div className="loader-placeholder-node">
+        <h3>Loading Weather Data...</h3>
+      </div>
+    );
 
   return (
     <main className="weather-root-frame">
       <div className="weather-main-layout">
-        
         <section className="left-weather-sidebar">
-          <form onSubmit={(e) => { e.preventDefault(); getCoordinates(inputCity); setInputCity(""); }}>
-            <input 
-              className="input-field-element" 
-              placeholder="Search City..." 
-              value={inputCity} 
-              onChange={(e) => setInputCity(e.target.value)} 
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              getCoordinates(inputCity);
+              setInputCity("");
+            }}
+          >
+            <input
+              className="input-field-element"
+              placeholder="Search City..."
+              value={inputCity}
+              onChange={(e) => setInputCity(e.target.value)}
             />
           </form>
 
           <div className="sidebar-center-content">
             <TempBasedIcon temp={weather?.current?.temperature_2m} size={130} />
-            <h1 className="temp-text-large">{Math.round(weather?.current?.temperature_2m)}°C</h1>
+            <h1 className="temp-text-large">
+              {Math.round(weather?.current?.temperature_2m)}°C
+            </h1>
             <div className="sidebar-meta-row">
               <h3 className="city-title-text">{searchCity}</h3>
               <h4 className="day-subtitle-text">
-                {new Date().toLocaleDateString('en-US', { weekday: 'long' })}
+                {new Date().toLocaleDateString("en-US", { weekday: "long" })}
               </h4>
             </div>
           </div>
@@ -108,16 +134,16 @@ function WeatherApp() {
           <h4 className="section-heading-text">7 Days Forecast</h4>
           <div className="forecast-scroll-row">
             {weather?.daily?.time.map((date, i) => (
-              <ForecastCard 
-                key={date} 
-                date={date} 
-                maxTemp={weather.daily.temperature_2m_max[i]} 
+              <ForecastCard
+                key={date}
+                date={date}
+                maxTemp={weather.daily.temperature_2m_max[i]}
               />
             ))}
           </div>
 
           <h4 className="section-heading-text">Today's Overview</h4>
-          
+
           <div className="overview-cards-grid">
             <div className="overview-item-card">
               <p>UV Index</p>
@@ -141,8 +167,9 @@ function WeatherApp() {
                 <WiRaindrop size={45} color="#00BFFF" />
               </div>
               <h4>
-                {weather?.daily?.precipitation_probability_max?.[0] !== undefined 
-                  ? `${weather.daily.precipitation_probability_max[0]}%` 
+                {weather?.daily?.precipitation_probability_max?.[0] !==
+                undefined
+                  ? `${weather.daily.precipitation_probability_max[0]}%`
                   : "N/A"}
               </h4>
             </div>
@@ -153,8 +180,11 @@ function WeatherApp() {
                 <WiSunrise size={45} color="#FFD700" />
               </div>
               <h4>
-                {weather?.daily?.sunrise?.[0] 
-                  ? new Date(weather.daily.sunrise[0]).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) 
+                {weather?.daily?.sunrise?.[0]
+                  ? new Date(weather.daily.sunrise[0]).toLocaleTimeString([], {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })
                   : "N/A"}
               </h4>
             </div>
@@ -165,14 +195,16 @@ function WeatherApp() {
                 <WiSunset size={45} color="#FF8C00" />
               </div>
               <h4>
-                {weather?.daily?.sunset?.[0] 
-                  ? new Date(weather.daily.sunset[0]).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) 
+                {weather?.daily?.sunset?.[0]
+                  ? new Date(weather.daily.sunset[0]).toLocaleTimeString([], {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })
                   : "N/A"}
               </h4>
             </div>
           </div>
         </section>
-
       </div>
     </main>
   );
