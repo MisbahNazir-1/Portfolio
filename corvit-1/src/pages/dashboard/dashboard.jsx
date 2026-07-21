@@ -357,7 +357,7 @@ function Dashboard() {
               <h2 className="section-heading">Application Central Gateway</h2>
               <div className="apps-gateway-grid">
                 {appsData.map((app) => (
-                  <div key={app._id} className="gateway-card-container">
+                  <div key={app._id} className="projects-display-stack">
                     <AppCard
                       title={app.title}
                       tag={app.tag}
@@ -434,7 +434,7 @@ function Dashboard() {
             <h2 className="section-heading">Client-side Architectures</h2>
             <div className="portfolio-grid-container">
               {frontendDesigns.map((design) => (
-                <div key={design._id} className="portfolio-card">
+                <div key={design._id} className="projects-display-stack">
                   <div className="card-top-content">
                     <div className="card-image-wrapper">
                       <img
