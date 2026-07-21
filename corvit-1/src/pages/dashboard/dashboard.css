@@ -757,15 +757,18 @@ transform:scale(1.08);
 
 .split-showcase-layout {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: 1fr;
   gap: 30px;
   margin-bottom: 40px;
 }
-@media (min-width: 1024px) {
+
+@media screen and (min-width: 992px) {
   .split-showcase-layout {
-    grid-template-columns: repeat(2, 1fr);
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 }
+
 
 .showcase-column {
   display: flex;
