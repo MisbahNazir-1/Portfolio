@@ -62,7 +62,6 @@ function Dashboard() {
   const [activeTab, setActiveTab] = useState("dashboard");
   const [isLoggedOut, setIsLoggedOut] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const navigate = useNavigate;
   const [frontendDesigns, setFrontendDesigns] = useState([]);
 
   const [appsData, setAppsData] = useState([]);
