@@ -761,7 +761,6 @@ transform:scale(1.08);
   gap: 30px;
   margin-bottom: 40px;
 }
-
 @media (min-width: 1024px) {
   .split-showcase-layout {
     grid-template-columns: repeat(2, 1fr);
