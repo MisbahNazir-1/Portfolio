@@ -775,17 +775,11 @@ transform:scale(1.08);
   flex-direction: column;
 }
 
-.experience-timeline-stack, 
-.projects-display-stack {
-  gap: 15px;
-}
-.experience-timeline-stack {
+.experience-timeline-stack, .projects-display-stack {
   display: flex;
   flex-direction: column;
+  gap: 15px;
 }
-
-
-
 
 .experience-glass-card, .project-glass-card {
   background: var(--bg-card-glass);
