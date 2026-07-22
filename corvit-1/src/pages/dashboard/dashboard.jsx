@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import * as Icons from "react-icons/fi";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import {
   FiLayout,
   FiBriefcase,
   FiCpu,
   FiMail,
-  FiLogOut,
   FiDownload,
   FiGithub,
   FiLinkedin,
@@ -15,13 +13,9 @@ import {
   FiArrowUpRight,
   FiLock,
   FiUser,
-  FiHash,
-  FiPhone,
-  FiMapPin,
   FiAward,
   FiZap,
   FiMenu,
-  FiLayers,
   FiX,
 } from "react-icons/fi";
 import { FaMoon, FaSun } from "react-icons/fa";
@@ -62,51 +56,40 @@ const AppCard = ({ title, tag, iconName, glowColor, imageUrl, onClick }) => (
 function Dashboard() {
   const [darkMode, setDarkMode] = useState(true);
   const [activeTab, setActiveTab] = useState("dashboard");
-  const [isLoggedOut, setIsLoggedOut] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [frontendDesigns, setFrontendDesigns] = useState([]);
-
   const [appsData, setAppsData] = useState([]);
   const [experienceData, setExperienceData] = useState([]);
   const [showcaseProjects, setShowcaseProjects] = useState([]);
   const [techStack, setTechStack] = useState([]);
   const [resumeLink, setResumeLink] = useState("#");
   const [loading, setLoading] = useState(true);
-  const [internProjects, setInternProjects] = useState([]);
-  const [showInternProjects, setShowInternProjects] = useState(false);
-
-  const toggleTheme = () => {
-    setDarkMode(!darkMode);
-  };
-
-  const imageBaseURL = import.meta.env.VITE_PORTFOLIO_API_URL.replace(
-    "/api",
-    "",
-  );
 
   const imgbasedURL = (
     import.meta.env.VITE_PORTFOLIO_API_URL || "http://localhost:5000/api"
   ).replace("/api", "");
 
-  const API_BASE_URL = "https://portfolio-eight-indol-95.vercel.app/api";
+  const API_BASE_URL = "https://vercel.app";
 
   useEffect(() => {
     const fetchPortfolioData = async () => {
       try {
         setLoading(true);
-        const [appsRes, expRes, projRes, skillRes, resumeRes] =
+        const [appsRes, expRes, projRes, skillRes, resumeRes, designsRes] =
           await Promise.all([
             fetch(`${API_BASE_URL}/apps`),
             fetch(`${API_BASE_URL}/experience`),
             fetch(`${API_BASE_URL}/projects`),
             fetch(`${API_BASE_URL}/skills`),
             fetch(`${API_BASE_URL}/resume`),
+            fetch(`${API_BASE_URL}/designs`),
           ]);
 
         setAppsData(await appsRes.json());
         setExperienceData(await expRes.json());
         setShowcaseProjects(await projRes.json());
         setTechStack(await skillRes.json());
+        setFrontendDesigns(await designsRes.json());
 
         const resumeData = await resumeRes.json();
         setResumeLink(resumeData.resumeUrl || "#");
@@ -119,13 +102,6 @@ function Dashboard() {
     fetchPortfolioData();
   }, []);
 
-  useEffect(() => {
-    axios
-      .get(`${API_BASE_URL}/designs`)
-      .then((res) => setFrontendDesigns(res.data))
-      .catch((err) => console.log(err));
-  }, []);
-
   if (loading) {
     return (
       <div className="auth-gate-placeholder">
@@ -133,17 +109,15 @@ function Dashboard() {
       </div>
     );
   }
-
   return (
     <div
       className={`dashboard-root-frame ${darkMode ? "dark-theme" : "light-theme"}`}
     >
       <div className="mobile-header-bar">
-        <div style={{ width: "24px" }} className="mobile-spacer"></div>
-
+        <div className="mobile-spacer" style={{ width: "24px" }}></div>
         <div className="mobile-brand-centered">
           <img
-            src="https://i.postimg.cc/Jzdx00Ny/logo.png"
+            src="https://postimg.cc"
             style={{
               width: "35px",
               height: "35px",
@@ -159,19 +133,9 @@ function Dashboard() {
             Misbah Developer
           </span>
         </div>
-
         <button
           className="mobile-menu-toggle"
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          style={{
-            background: "transparent",
-            border: "none",
-            color: "#00ffcc",
-            fontSize: "24px",
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-          }}
         >
           {isSidebarOpen ? <FiX /> : <FiMenu />}
         </button>
@@ -182,7 +146,7 @@ function Dashboard() {
       >
         <div className="sidebar-top-brand">
           <img
-            src="https://i.postimg.cc/Jzdx00Ny/logo.png"
+            src="https://postimg.cc"
             className="brand-neon-logo"
             alt="logo"
           />
@@ -252,23 +216,24 @@ function Dashboard() {
           >
             <FiDownload /> <span>Download Executive CV</span>
           </a>
-          <div className="sidebar-theme-footer">
-            <button
-              className="portfolio-theme-toggle-btn"
-              onClick={() => setDarkMode(!darkMode)}
-            >
-              {darkMode ? (
-                <>
-                  <FaSun style={{ marginRight: "8px" }} /> Light Mode
-                </>
-              ) : (
-                <>
-                  <FaMoon style={{ marginRight: "8px" }} /> Dark Mode
-                </>
-              )}
-            </button>
-          </div>
         </nav>
+
+        <div className="sidebar-theme-footer">
+          <button
+            className="portfolio-theme-toggle-btn"
+            onClick={() => setDarkMode(!darkMode)}
+          >
+            {darkMode ? (
+              <>
+                <FaSun style={{ marginRight: "8px" }} /> Light Mode
+              </>
+            ) : (
+              <>
+                <FaMoon style={{ marginRight: "8px" }} /> Dark Mode
+              </>
+            )}
+          </button>
+        </div>
       </aside>
       <main className="main-viewport-content">
         {activeTab === "dashboard" && (
@@ -287,7 +252,7 @@ function Dashboard() {
                 </p>
                 <div className="hero-social-dock">
                   <a
-                    href="https://github.com/MisbahNazir-1"
+                    href="https://github.com"
                     target="_blank"
                     rel="noreferrer"
                     className="social-icon-btn"
@@ -295,7 +260,7 @@ function Dashboard() {
                     <FiGithub />
                   </a>
                   <a
-                    href="https://www.linkedin.com/in/misbah-nazir-developer"
+                    href="https://linkedin.com"
                     target="_blank"
                     rel="noreferrer"
                     className="social-icon-btn"
@@ -303,9 +268,7 @@ function Dashboard() {
                     <FiLinkedin />
                   </a>
                   <a
-                    onClick={() => {
-                      setActiveTab("contact");
-                    }}
+                    onClick={() => setActiveTab("contact")}
                     className="neon-cta-btn"
                   >
                     <span>Let's Build Your App</span>
@@ -313,24 +276,20 @@ function Dashboard() {
                   </a>
                 </div>
 
-                <div class="hero-metrics-container">
-                  <div class="metric-item">
-                    <span class="metric-number">1+</span>
-                    <span class="metric-label">Years Experience</span>
+                <div className="hero-metrics-container">
+                  <div className="metric-item">
+                    <span className="metric-number">1+</span>
+                    <span className="metric-label">Years Experience</span>
                   </div>
-
-                  <div class="metric-divider"></div>
-
-                  <div class="metric-item">
-                    <span class="metric-number">10+</span>
-                    <span class="metric-label">Projects Delivered</span>
+                  <div className="metric-divider"></div>
+                  <div className="metric-item">
+                    <span className="metric-number">10+</span>
+                    <span className="metric-label">Projects Delivered</span>
                   </div>
-
-                  <div class="metric-divider"></div>
-
-                  <div class="metric-item">
-                    <span class="metric-number">100%</span>
-                    <span class="metric-label">Agile Workflow</span>
+                  <div className="metric-divider"></div>
+                  <div className="metric-item">
+                    <span className="metric-number">100%</span>
+                    <span className="metric-label">Agile Workflow</span>
                   </div>
                 </div>
               </div>
@@ -339,7 +298,7 @@ function Dashboard() {
                   <div className="avatar-core-display">
                     <img
                       src={`${imgbasedURL}/uploads/logo.jpeg`}
-                      alt=""
+                      alt="Profile Avatar"
                       style={{
                         width: "100%",
                         height: "100%",
@@ -369,32 +328,26 @@ function Dashboard() {
                       <Link to={app.route} className="gateway-live-btn">
                         Open Module <FiArrowUpRight className="button-icon" />
                       </Link>
-
                       <Link to={app.repolink} className="gateway-repo-btn">
-                        Repository
-                        <FiGithub className="button-icon" />
+                        Repository <FiGithub className="button-icon" />
                       </Link>
                     </div>
                   </div>
                 ))}
               </div>
             </section>
-
-            <div className="split-showcase-layout">
-              <section className="showcase-column-full">
-                <h2 className="section-heading">Deployed Architectures</h2>
-                <div className="projects-display-stack">
-                  {showcaseProjects.map((proj) => (
-                    <div key={proj._id} className="project-glass-card">
+            <section className="dashboard-section-wrapper">
+              <h2 className="section-heading">Deployed Architectures</h2>
+              <div className="apps-gateway-grid">
+                {showcaseProjects.map((proj) => (
+                  <div key={proj._id} className="projects-display-stack">
+                    <div className="card-image-preview">
                       {proj.imgURL && (
-                        <img
-                          src={proj.imgURL}
-                          alt={proj.title}
-                          className="project-card-thumbnail"
-                        />
+                        <img src={proj.imgURL} alt={proj.title} />
                       )}
-
-                      <h4>{proj.title}</h4>
+                    </div>
+                    <div className="card-content-static">
+                      <h3>{proj.title}</h3>
                       <div className="project-tags-row">
                         {proj.tags &&
                           proj.tags.map((tag, tIdx) => (
@@ -403,88 +356,69 @@ function Dashboard() {
                             </span>
                           ))}
                       </div>
-                      <div className="project-actions-row">
-                        <a
-                          href={proj.liveLink}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="action-link live-btn"
-                        >
-                          <FiExternalLink /> Live Link
-                        </a>
-                        <a
-                          href={proj.githubLink}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="action-link repo-btn"
-                        >
-                          <FiGithub /> Repository
-                        </a>
-                      </div>
                     </div>
-                  ))}
-                </div>
-              </section>
-            </div>
-          </>
-        )}
-
-        {activeTab === "dashboard" && (
-          <>
-            <h2 className="section-heading">Client-side Architectures</h2>
-            <div className="portfolio-grid-container">
-              {frontendDesigns.map((design) => (
-                <div key={design._id} className="projects-display-stack">
-                  <div className="card-top-content">
-                    <div className="card-image-wrapper">
-                      <img
-                        src={design.image}
-                        alt={design.title}
-                        className="card-thumbnail-img"
-                      />
-                      <div className="card-image-overlay">
-                        <span className="card-category-badge">
-                          {design.category || "Frontend"}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="card-text-content">
-                      <div className="card-header-row">
-                        <div className="card-icon-indicator">
-                          <FiLayers />
-                        </div>
-                        <div>
-                          <h3 className="card-main-title">{design.title}</h3>
-                          <p className="card-sub-description">
-                            {design.description}
-                          </p>
-                        </div>
-                      </div>
+                    <div className="gateway-action-row">
+                      <a
+                        href={proj.liveLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="gateway-live-btn"
+                      >
+                        Live Link <FiExternalLink className="button-icon" />
+                      </a>
+                      <a
+                        href={proj.githubLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="gateway-repo-btn"
+                      >
+                        Repository <FiGithub className="button-icon" />
+                      </a>
                     </div>
                   </div>
+                ))}
+              </div>
+            </section>
 
-                  <div className="card-action-buttons">
-                    <a
-                      href={design.liveLink}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="btn-open-module"
-                    >
-                      Open Module <FiExternalLink />
-                    </a>
-                    <a
-                      href={design.githubLink}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="btn-repository"
-                    >
-                      Repository <FiGithub />
-                    </a>
+            <section className="dashboard-section-wrapper">
+              <h2 className="section-heading">Client-side Architectures</h2>
+              <div className="apps-gateway-grid">
+                {frontendDesigns.map((design) => (
+                  <div key={design._id} className="projects-display-stack">
+                    <div className="card-image-preview">
+                      <img src={design.image} alt={design.title} />
+                    </div>
+                    <div className="card-content-static">
+                      <h3>{design.title}</h3>
+                      <p className="app-description-text">
+                        {design.description}
+                      </p>
+                      <span className="card-category-badge">
+                        {design.category || "Frontend"}
+                      </span>
+                    </div>
+                    <div className="gateway-action-row">
+                      <a
+                        href={design.liveLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="gateway-live-btn"
+                      >
+                        Open Module <FiExternalLink className="button-icon" />
+                      </a>
+                      <a
+                        href={design.githubLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="gateway-repo-btn"
+                      >
+                        Repository <FiGithub className="button-icon" />
+                      </a>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            </section>
           </>
         )}
 
@@ -495,11 +429,23 @@ function Dashboard() {
                 <span className="about-title-indicator"></span>
                 <h2 className="about-main-heading">About Me</h2>
               </div>
-              <img
-                src={`${imgbasedURL}/uploads/logo.jpeg`}
-                alt="Misbah Nazir"
-                className="about-avatar-img"
-              />
+              <div className="hero-right-avatar-box profile-image-sync">
+                <div className="cyber-avatar-ring">
+                  <div className="avatar-core-display">
+                    <img
+                      src={`${imgbasedURL}/uploads/logo.jpeg`}
+                      alt="Misbah Nazir Profile"
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        objectPosition: "center 12%",
+                        borderRadius: "50%",
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div className="about-content-grid">
@@ -536,7 +482,6 @@ function Dashboard() {
                     BS International Relations (LCWU) + MERN Certified
                   </p>
                 </div>
-
                 <div className="about-stat-card">
                   <div className="stat-card-header">
                     <FiZap className="stat-card-icon" />
@@ -547,7 +492,6 @@ function Dashboard() {
                     workflows
                   </p>
                 </div>
-
                 <div className="about-stat-card">
                   <div className="stat-card-header">
                     <FiBriefcase className="stat-card-icon" />
@@ -565,27 +509,24 @@ function Dashboard() {
         {activeTab === "experience" && (
           <section className="dashboard-section-wrapper">
             <h2 className="section-heading">Professional Experience History</h2>
-            <div className="experience-timeline-stack">
+            <div className="experience-timeline-container">
               {experienceData.map((exp) => (
-                <div key={exp._id} className="experience-glass-card">
-                  <div
-                    className="exp-card-header"
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                    }}
-                  >
-                    <h4>
+                <div key={exp._id} className="experience-timeline-card">
+                  <div className="experience-icon-marker">
+                    <FiBriefcase />
+                  </div>
+                  <div className="experience-card-content">
+                    <h3 className="experience-title">
                       {exp.role}{" "}
                       <span className="exp-company-highlight">
                         @ {exp.company}
                       </span>
-                    </h4>
+                    </h3>
+                    <span className="experience-duration">{exp.duration}</span>
+                    <p className="experience-desc">
+                      {exp.desc || exp.description}
+                    </p>
                   </div>
-
-                  <span className="duration-tag">{exp.duration}</span>
-                  <p className="exp-desc">{exp.desc}</p>
                 </div>
               ))}
             </div>
@@ -593,27 +534,21 @@ function Dashboard() {
         )}
 
         {activeTab === "tech" && (
-          <section className="dashboard-section-wrapper skill-matrix-viewport">
-            <div className="section-header-cluster">
-              <span className="context-pill-indicator">Capability Matrix</span>
-              <h2 className="section-heading modern-heading-style">
-                Skills & Technology Stack
-              </h2>
-              <p className="contact-section-subtitle premium-subtitle">
-                A rigorous compilation of full-stack engineering tools, modular
-                state frameworks, cloud databases, and core language ecosystems.
-              </p>
-            </div>
-
-            <div className="tech-stack-badges-grid matrix-interactive-grid">
+          <section className="dashboard-section-wrapper">
+            <span className="greeting-pill">Capability Matrix</span>
+            <h2 className="section-heading">Skills & Technology Stack</h2>
+            <p className="section-subheading-text">
+              A rigorous compilation of full-stack engineering tools, modular
+              state frameworks, cloud databases, and core language ecosystems.
+            </p>
+            <div className="tech-stack-badges-grid">
               {techStack.map((skill) => (
-                <div
-                  key={skill._id || skill}
-                  className="tech-badge tech-badge-large structural-matrix-pill"
-                >
-                  <div className="pill-backdrop-blur"></div>
-                  <div className="pill-pulse-dot"></div>
-                  <span className="skill-text-node">{skill.name || skill}</span>
+                <div key={skill._id || skill} className="tech-stack-badge-item">
+                  <span
+                    className="tech-dot-indicator"
+                    style={{ backgroundColor: skill.color || "#00ffcc" }}
+                  ></span>
+                  <span className="tech-badge-name">{skill.name || skill}</span>
                 </div>
               ))}
             </div>
@@ -621,114 +556,88 @@ function Dashboard() {
         )}
 
         {activeTab === "contact" && (
-          <section className="dashboard-section-wrapper communications-viewport">
-            <div className="section-header-cluster">
-              <span className="context-pill-indicator">Enterprise Hub</span>
-              <h2 className="section-heading modern-heading-style">
-                Get In Touch
-              </h2>
-              <p className="contact-section-subtitle premium-subtitle">
-                Initiate a dynamic communication instance for enterprise
-                architecture collaborations, technical inquiries, or production
-                pipeline discussions.
-              </p>
-            </div>
-
-            <div className="contact-info-grid interactive-cluster-grid">
+          <section className="dashboard-section-wrapper">
+            <span className="greeting-pill">Enterprise Hub</span>
+            <h2 className="section-heading">Get In Touch</h2>
+            <p className="section-subheading-text">
+              Initiate a dynamic communication instance for enterprise
+              architecture collaborations, technical inquiries, or production
+              pipeline discussions.
+            </p>
+            <div className="contact-methods-grid">
               <a
-                href="#copy-email"
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigator.clipboard.writeText(
-                    "misbahnazirdeveloper@gmail.com",
-                  );
-                  alert("Email copied to clipboard! 📋");
-                }}
-                className="contact-anchor-card framework-elevation-link"
+                href="mailto:misbahnazirdeveloper@gmail.com"
+                className="contact-action-card-link"
               >
-                <div className="contact-card-frame email-card-glow enterprise-card-spec">
-                  <div className="card-dynamic-backdrop"></div>
-                  <div className="contact-icon-wrapper email-icon-bg structural-icon-node">
-                    <FiMail size={24} className="vector-pulse-node" />
-                  </div>
-                  <div className="contact-card-text communication-meta-block">
-                    <h4 className="meta-label-tag">Secure Mail Gateway</h4>
-                    <span className="contact-link-value email-text-color interface-string-highlight">
-                      misbahnazirdeveloper@gmail.com
-                    </span>
-                    <span className="action-trigger-hint">
-                      Click to Copy Email ↗
-                    </span>
-                  </div>
+                <div className="contact-icon-wrapper-block">
+                  <FiMail />
+                </div>
+                <div className="contact-card-text-details">
+                  <span className="contact-meta-label">
+                    Secure Mail Gateway
+                  </span>
+                  <h4 className="contact-main-value">
+                    misbahnazirdeveloper@gmail.com
+                  </h4>
+                  <span className="contact-action-hint">
+                    Click to Compose Email ↗
+                  </span>
                 </div>
               </a>
-
               <a
-                href="https://github.com/MisbahNazir-1"
+                href="https://github.com"
                 target="_blank"
                 rel="noreferrer"
-                className="contact-anchor-card framework-elevation-link"
+                className="contact-action-card-link"
               >
-                <div className="contact-card-frame github-card-glow enterprise-card-spec">
-                  <div className="card-dynamic-backdrop"></div>
-                  <div className="contact-icon-wrapper github-icon-bg structural-icon-node">
-                    <FiGithub size={24} className="vector-pulse-node" />
-                  </div>
-                  <div className="contact-card-text communication-meta-block">
-                    <h4 className="meta-label-tag">Version Control Node</h4>
-                    <span className="contact-link-value github-text-color interface-string-highlight">
-                      Misbah Nazir-1
-                    </span>
-                    <span className="action-trigger-hint">
-                      Review Repositories ↗
-                    </span>
-                  </div>
+                <div className="contact-icon-wrapper-block">
+                  <FiGithub />
+                </div>
+                <div className="contact-card-text-details">
+                  <span className="contact-meta-label">
+                    Version Control Node
+                  </span>
+                  <h4 className="contact-main-value">Misbah Nazir-1</h4>
                 </div>
               </a>
-
               <a
-                href="https://www.linkedin.com/in/misbah-nazir-developer"
+                href="https://linkedin.com"
                 target="_blank"
                 rel="noreferrer"
-                className="contact-anchor-card framework-elevation-link"
+                className="contact-action-card-link"
               >
-                <div className="contact-card-frame linkedin-card-glow enterprise-card-spec">
-                  <div className="card-dynamic-backdrop"></div>
-                  <div className="contact-icon-wrapper linkedin-icon-bg structural-icon-node">
-                    <FiLinkedin size={24} className="vector-pulse-node" />
-                  </div>
-                  <div className="contact-card-text communication-meta-block">
-                    <h4 className="meta-label-tag">Corporate Identity Dock</h4>
-                    <span className="contact-link-value linkedin-text-color interface-string-highlight">
-                      Misbah Nazir Developer
-                    </span>
-                    <span className="action-trigger-hint">
-                      Connect Profile ↗
-                    </span>
-                  </div>
+                <div className="contact-icon-wrapper-block">
+                  <FiLinkedin />
+                </div>
+                <div className="contact-card-text-details">
+                  <span className="contact-meta-label">
+                    Corporate Identity Dock
+                  </span>
+                  <h4 className="contact-main-value">Misbah Nazir Developer</h4>
                 </div>
               </a>
             </div>
           </section>
         )}
+
         {activeTab === "auth-demo" && (
           <section className="dashboard-section-wrapper">
             <h2 className="section-heading">Authentication Security Modules</h2>
             <div className="apps-gateway-grid">
-              <div className="gateway-card-container">
+              <div className="projects-display-stack">
                 <AppCard
                   title="Admin Security Authentication"
                   tag="User Login / JWT Session Gate"
                   iconName="FiLock"
                   glowColor="#00ffcc"
-                  imageUrl="https://i.postimg.cc/63NxRRKv/login.png"
+                  imageUrl="https://postimg.cc"
                 />
                 <div className="gateway-action-row">
                   <Link to="/login" className="gateway-live-btn">
                     Open Module <FiArrowUpRight className="button-icon" />
                   </Link>
                   <a
-                    href="https://github.com/MisbahNazir-1/Portfolio/tree/f190bf9c639b469e363e280493682bf9ccfd4930/corvit-1/src/pages/auth/entry"
+                    href="https://github.com/Portfolio/tree/f190bf9c639b469e363e280493682bf9ccfd4930/corvit-1/src/pages/auth/entry"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="gateway-repo-btn"
@@ -738,20 +647,20 @@ function Dashboard() {
                 </div>
               </div>
 
-              <div className="gateway-card-container">
+              <div className="projects-display-stack">
                 <AppCard
                   title="New User Registration"
                   tag="Admin Enrollment / Schema Setup"
                   iconName="FiUser"
                   glowColor="#00ffcc"
-                  imageUrl="https://i.postimg.cc/rpjNC22q/register.png"
+                  imageUrl="https://postimg.cc"
                 />
                 <div className="gateway-action-row">
                   <Link to="/register" className="gateway-live-btn">
                     Open Module <FiArrowUpRight className="button-icon" />
                   </Link>
                   <a
-                    href="https://github.com/MisbahNazir-1/Portfolio/tree/f190bf9c639b469e363e280493682bf9ccfd4930/corvit-1/src/pages/auth/registerpage"
+                    href="https://github.com/Portfolio/tree/f190bf9c639b469e363e280493682bf9ccfd4930/corvit-1/src/pages/auth/registerpage"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="gateway-repo-btn"
