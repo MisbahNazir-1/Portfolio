@@ -27,6 +27,58 @@
   box-sizing: border-box !important;
 }
 
+/* ==========================================================================
+   6. PREMIUM LOADING GATEWAY PLACEHOLDER STYLING (API FIXED)
+   ========================================================================== */
+.auth-gate-placeholder {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #0b0f19 !important; /* Deep blackish-grey dashboard theme background */
+  color: var(--accent-glow-cyan) !important; /* Premium crisp cyan text branding color */
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important; /* Absolute vertical & horizontal center anchoring */
+  padding: 40px;
+  text-align: center !important;
+  box-sizing: border-box;
+}
+
+.auth-gate-placeholder h1, 
+.auth-gate-placeholder .display-text {
+  font-size: 1.8rem;
+  line-height: 1.3;
+  margin: 0 0 15px 0;
+  font-weight: 700;
+  color: var(--accent-glow-cyan) !important; /* Complete cyan typography enforcement */
+  letter-spacing: -0.5px;
+}
+
+.auth-gate-placeholder p, 
+.auth-gate-placeholder .sub-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--accent-glow-cyan) !important;
+  opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  .auth-gate-placeholder h1, 
+  .auth-gate-placeholder .display-text {
+    font-size: 2.6rem;
+  }
+  
+  .auth-gate-placeholder p, 
+  .auth-gate-placeholder .sub-text {
+    font-size: 1.1rem;
+    max-width: 650px;
+  }
+}
+
+
 .dashboard-root-frame {
   display: flex;
   background-color: var(--bg-deep-midnight);
@@ -526,6 +578,143 @@
     justify-content: center;
   }
 }
+
+/* ==========================================================================
+   2. RE-ENGINEERED ABOUT ME TWIN COLUMN GRID & ALIGNMENTS RESTORED
+   ========================================================================== */
+.about-me-section {
+  padding: 20px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.about-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+  width: 100%;
+}
+
+.about-title-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.about-title-indicator {
+  width: 4px;
+  height: 26px;
+  background-color: #00f2fe;
+  border-radius: 2px;
+}
+
+.profile-image-sync {
+  transform: scale(1.08);
+}
+
+/* Original Horizontal Layout Grid Split Restore point */
+.about-content-grid {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: start;
+  width: 100%;
+}
+
+.about-text-column {
+  flex: 1 1 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-text-lead {
+  font-size: 17px;
+  line-height: 1.7;
+  margin: 0;
+  text-align: justify !important; /* Perfect left-right equal margin alignment */
+}
+
+.text-highlight {
+  color: #00f2fe;
+  font-weight: 600;
+}
+
+.about-text-body {
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0;
+  text-align: justify !important;
+}
+
+/* Sidebar Feature Column Setup Row */
+.about-cards-column {
+  flex: 1 1 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-stat-card {
+  background: rgba(17, 24, 39, 0.6);
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--border-neon-glow);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+
+/* Strict Solid Gray Uniform Color Overhaul for Light Theme */
+.dashboard-root-frame.light-theme .about-stat-card {
+  background: var(--light-bg-card) !important;
+  border: 1px solid var(--light-border) !important;
+  backdrop-filter: none !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04) !important;
+}
+
+.stat-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.stat-card-icon {
+  color: #00f2fe;
+  font-size: 22px;
+}
+
+.stat-card-title {
+  color: #00f2fe;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* Dynamic color configuration based on current global variables states mapping */
+.dashboard-root-frame.light-theme .stat-card-title {
+  color: #0077d9 !important; /* Premium corporate clear contrast label color */
+}
+
+.stat-card-desc {
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 992px) {
+  .about-content-grid {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .about-cards-column {
+    width: 100%;
+    flex: 1 1 100%;
+  }
+}
+
 /* ==========================================================================
    4. CLASS NORMALIZATION SYSTEM, RESPONSIVE GRIDS & UNIFIED CARDS
    ========================================================================== */
@@ -728,16 +917,6 @@
   font-size: 15px;
 }
 
-/* --- About Me Structural Matrix Overhaul (Strict Justification Rules) --- */
-.about-main-heading {
-  font-size: 26px;
-  font-weight: 600;
-  margin: 0;
-}
-
-.about-text-column p {
-  text-align: justify !important; /* Forces perfect equal width left-right justification */
-}
 
 @media (max-width: 480px) {
   .gateway-action-row {

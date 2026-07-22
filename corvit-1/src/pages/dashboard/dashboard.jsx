@@ -252,7 +252,7 @@ function Dashboard() {
                 </p>
                 <div className="hero-social-dock">
                   <a
-                    href="https://github.com"
+                    href="https://github.com/MisbahNazir-1"
                     target="_blank"
                     rel="noreferrer"
                     className="social-icon-btn"
@@ -260,7 +260,7 @@ function Dashboard() {
                     <FiGithub />
                   </a>
                   <a
-                    href="https://linkedin.com"
+                    href="https://www.linkedin.com/in/misbah-nazir-developer"
                     target="_blank"
                     rel="noreferrer"
                     className="social-icon-btn"
@@ -421,7 +421,6 @@ function Dashboard() {
             </section>
           </>
         )}
-
         {activeTab === "about" && (
           <section className="about-me-section">
             <div className="about-header-row">
@@ -482,6 +481,7 @@ function Dashboard() {
                     BS International Relations (LCWU) + MERN Certified
                   </p>
                 </div>
+
                 <div className="about-stat-card">
                   <div className="stat-card-header">
                     <FiZap className="stat-card-icon" />
@@ -492,6 +492,7 @@ function Dashboard() {
                     workflows
                   </p>
                 </div>
+
                 <div className="about-stat-card">
                   <div className="stat-card-header">
                     <FiBriefcase className="stat-card-icon" />
