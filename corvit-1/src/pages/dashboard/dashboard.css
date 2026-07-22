@@ -381,6 +381,7 @@
 }
 
 .greeting-pill {
+  display: inline-block;
   background: rgba(0, 255, 204, 0.08);
   border: 1px solid rgba(0, 255, 204, 0.2);
   color: var(--accent-cyber-green);
@@ -390,7 +391,8 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: 4px;
+  margin-bottom: 4px !important; /* Strict downward separation rule */
+  width: max-content;
 }
 
 .hero-title {
@@ -587,6 +589,9 @@
   padding: 20px 0;
   width: 100%;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; 
 }
 
 .about-header-row {
@@ -658,28 +663,44 @@
 }
 
 .about-stat-card {
-  background: rgba(84, 99, 133, 0.6);
-  backdrop-filter: blur(15px);
-  border: 1px solid var(--border-neon-glow);
-  padding: 24px;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-  transition: all 0.3s ease;
+  /* --- Dark mode premium structural glass look restored --- */
+  background: linear-gradient(135deg, rgba(20, 20, 25, 0.7), rgba(10, 10, 12, 0.9)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important; 
+  padding: 28px 24px !important;
+  min-height: 110px !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25) !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Strict Solid Gray Uniform Color Overhaul for Light Theme */
+/* Subtle hover pop highlight effect for dark theme */
+.about-stat-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 242, 254, 0.35) !important; 
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 242, 254, 0.05) !important;
+}
+
+/* --- Light mode solid flat grey overhaul alignment (Strictly Protected) --- */
 .dashboard-root-frame.light-theme .about-stat-card {
   background: var(--light-bg-card) !important;
+  background-image: none !important;
   border: 1px solid var(--light-border) !important;
   backdrop-filter: none !important;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.04) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03) !important;
 }
 
+.dashboard-root-frame.light-theme .about-stat-card:hover {
+  border-color: #008cff !important; 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
+}
 .stat-card-header {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 10px;
+  margin-bottom: 12px !important; 
 }
 
 .stat-card-icon {
@@ -719,14 +740,15 @@
 /* ==========================================================================
    4. CLASS NORMALIZATION SYSTEM, RESPONSIVE GRIDS & UNIFIED CARDS
    ========================================================================== */
+
 .section-heading {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 700;
-  margin-bottom: 20px;
+  line-height: 1.3 !important; 
+  margin: 8px 0 12px 0 !important; 
   letter-spacing: -0.3px;
   position: relative;
   padding-left: 12px;
-  margin: 8px 0 12px 0;
 }
 
 .section-heading::before {
