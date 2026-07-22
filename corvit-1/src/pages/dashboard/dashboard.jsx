@@ -635,10 +635,14 @@ function Dashboard() {
               </p>
 
               <div className="github-graph-display">
-                {/* Dynamically pulls the precise grid block metrics directly from GitHub server without tokens */}
+                {/* Fixed production ready dynamic source rendering directly via public server cache */}
                 <img
                   src="https://rshah.org"
-                  alt="Misbah Nazir's GitHub Contributions Calendar Graph Chart"
+                  alt="Misbah Nazir's GitHub Contributions Calendar"
+                  onError={(e) => {
+                    // Fallback configuration scheme if primary proxy experiences lag matrix overrides link
+                    e.target.src = "https://herokuapp.com";
+                  }}
                 />
               </div>
             </div>
