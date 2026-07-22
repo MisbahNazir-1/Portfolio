@@ -524,7 +524,7 @@ function Dashboard() {
                     </h3>
                     <span className="experience-duration">{exp.duration}</span>
                     <p className="experience-desc">
-                      {exp.desc || exp.description}
+                      {exp.description || exp.desc}
                     </p>
                   </div>
                 </div>
@@ -548,7 +548,9 @@ function Dashboard() {
                     className="tech-dot-indicator"
                     style={{ backgroundColor: skill.color || "#00ffcc" }}
                   ></span>
-                  <span className="tech-badge-name">{skill.name || skill}</span>
+                  <span className="tech-badge-name">
+                    {skill.name || skill.title || skill}
+                  </span>
                 </div>
               ))}
             </div>
