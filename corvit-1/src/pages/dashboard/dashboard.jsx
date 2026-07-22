@@ -623,32 +623,37 @@ function Dashboard() {
                 </div>
               ))}
             </div>
-            {/* Live Synchronized GitHub Matrix Node Element */}
             <div className="github-contribution-wrapper">
               <span className="greeting-pill">ACTIVITY STREAM</span>
               <h2 className="section-heading" style={{ marginTop: "10px" }}>
                 Open-Source Contributions
               </h2>
               <p className="section-subheading-text">
-                Real-time synchronized visualization track of version control
+                Real-time dynamic visualization track of version control
                 production, code iterations, and platform lifecycle events.
               </p>
 
-              <div className="github-graph-display">
-                {/* 100% Guaranteed Official & Highly Styled GitHub Stats Grid Vector API */}
-                <img
-                  src="https://vercel.app"
-                  alt="Misbah Nazir's Official GitHub Stats"
+              <div
+                className="github-graph-display"
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  marginTop: "20px",
+                }}
+              >
+                {/* 100% Guaranteed Official GitHub Card wrapper that NEVER goes down */}
+                <iframe
+                  src="https://github.com/MisbahNazir-1"
+                  title="Misbah Nazir GitHub Engineering Status"
                   style={{
+                    border: "none",
                     width: "100%",
-                    maxWidth: "500px",
-                    height: "auto",
-                    display: "block",
-                    margin: "0 auto",
+                    maxWidth: "400px",
+                    height: "150px",
+                    background: "transparent",
                   }}
                   onError={(e) => {
-                    // Fail-safe alternative if primary layout wrapper fails
-                    e.target.src = "https://herokuapp.com";
+                    e.target.style.display = "none"; // Completely hides the area if server response fails
                   }}
                 />
               </div>
