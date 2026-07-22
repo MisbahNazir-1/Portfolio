@@ -1063,6 +1063,136 @@
   transition: all 0.3s ease;
 }
 
+/* ==========================================================================
+   GITHUB CONTRIBUTION GRAPH GRID ENGINE
+   ========================================================================== */
+.github-contribution-wrapper {
+  margin-top: 32px;
+  background: linear-gradient(135deg, rgba(20, 20, 25, 0.7), rgba(10, 10, 12, 0.9)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 20px;
+  padding: 30px 24px;
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+.dashboard-root-frame.light-theme .github-contribution-wrapper {
+  background: var(--light-bg-card) !important;
+  background-image: none !important;
+  border: 1px solid var(--light-border) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03) !important;
+}
+
+.github-graph-display {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  overflow-x: auto;
+}
+
+.github-graph-display img {
+  max-width: 100%;
+  height: auto;
+  min-width: 650px;
+  filter: hue-rotate(0deg);
+}
+
+/* ==========================================================================
+   PRODUCTION READY CODE: MICRO TECH BLOG CARD MODULE
+   ========================================================================== */
+.blogs-gateway-grid {
+  display: grid !important;
+  grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  gap: 24px !important;
+  margin-top: 24px;
+  width: 100% !important;
+}
+
+@media (min-width: 768px) {
+  .blogs-gateway-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important; /* Strict twin layouts balance alignment on desktop */
+  }
+}
+
+.blog-production-card {
+  background: linear-gradient(135deg, rgba(20, 20, 25, 0.7), rgba(10, 10, 12, 0.9)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dashboard-root-frame.light-theme .blog-production-card {
+  background: var(--light-bg-card) !important;
+  background-image: none !important;
+  border: 1px solid var(--light-border) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03) !important;
+}
+
+.blog-production-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-cyber-green) !important;
+}
+
+.dashboard-root-frame.light-theme .blog-production-card:hover {
+  border-color: #008cff !important;
+}
+
+.blog-meta-timeline {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent-cyber-green);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.dashboard-root-frame.light-theme .blog-meta-timeline {
+  color: #008cff !important;
+}
+
+.blog-title-text {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+}
+
+.blog-snippet-paragraph {
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: justify;
+  margin: 0 0 16px 0;
+}
+
+.blog-action-anchor-trigger {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-glow-cyan);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  width: max-content;
+}
+
+.dashboard-root-frame.light-theme .blog-action-anchor-trigger {
+  color: #00c853 !important;
+}
+
+
+/* Light mode inside graph theme modification mapping filter overlay */
+.dashboard-root-frame.light-theme .github-graph-display img {
+  filter: invert(0.9) hue-rotate(180deg); /* Dynamic dark-to-light calendar visualization balance switch mapping */
+}
+
+
 /* Modern Soft Light-Grey/Outline Hybrid Layout for Light Mode */
 .dashboard-root-frame.light-theme .tech-stack-badge-item {
   background: var(--light-bg-card) !important;

@@ -423,6 +423,70 @@ function Dashboard() {
                 ))}
               </div>
             </section>
+            {/* Extended Architectural Project Documentation System */}
+            <section
+              className="dashboard-section-wrapper"
+              style={{ marginTop: "32px" }}
+            >
+              <span className="greeting-pill">ENGINEERING LOGS</span>
+              <h2 className="section-heading">Project Documentations</h2>
+              <p className="section-subheading-text">
+                Deep technical breakdowns, schema layouts, system architecture
+                documentations, and production setup guides extracted from
+                project README matrices.
+              </p>
+
+              <div className="blogs-gateway-grid">
+                <div className="blog-production-card">
+                  <div>
+                    <span className="blog-meta-timeline">
+                      Enterprise MERN System
+                    </span>
+                    <h3 className="blog-title-text">
+                      Student Management & Session Validation System
+                    </h3>
+                    <p className="blog-snippet-paragraph">
+                      An analytical breakdown of modular database relations, JWT
+                      state payload encryptions, schema structures, and
+                      role-based validation route flows engineered for academic
+                      networks.
+                    </p>
+                  </div>
+                  <a
+                    href="https://github.com/MisbahNazir-1/Student-Management-System//blob/main/README.md"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="blog-action-anchor-trigger"
+                  >
+                    Read System Documentation <FiExternalLink />
+                  </a>
+                </div>
+
+                <div className="blog-production-card">
+                  <div>
+                    <span className="blog-meta-timeline">
+                      Geolocation Portal
+                    </span>
+                    <h3 className="blog-title-text">
+                      Locately — Map Coordinate Logic & Fluid UI Refactoring
+                    </h3>
+                    <p className="blog-snippet-paragraph">
+                      Investigating geographical API rendering performance
+                      rules, asynchronous device state mapping nodes, caching
+                      techniques, and clean layout optimization benchmarks.
+                    </p>
+                  </div>
+                  <a
+                    href="https://github.com/MisbahNazir-1/Locately//blob/main/README.md"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="blog-action-anchor-trigger"
+                  >
+                    Read System Documentation <FiExternalLink />
+                  </a>
+                </div>
+              </div>
+            </section>
           </>
         )}
         {activeTab === "about" && (
@@ -558,6 +622,25 @@ function Dashboard() {
                   </span>
                 </div>
               ))}
+            </div>
+            {/* Live Synchronized GitHub Matrix Node Element */}
+            <div className="github-contribution-wrapper">
+              <span className="greeting-pill">ACTIVITY STREAM</span>
+              <h2 className="section-heading" style={{ marginTop: "10px" }}>
+                Open-Source Contributions
+              </h2>
+              <p className="section-subheading-text">
+                Real-time synchronized visualization track of version control
+                production, code iterations, and platform lifecycle events.
+              </p>
+
+              <div className="github-graph-display">
+                {/* Dynamically pulls the precise grid block metrics directly from GitHub server without tokens */}
+                <img
+                  src="https://rshah.org"
+                  alt="Misbah Nazir's GitHub Contributions Calendar Graph Chart"
+                />
+              </div>
             </div>
           </section>
         )}
