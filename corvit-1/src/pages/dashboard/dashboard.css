@@ -390,6 +390,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
+  margin-bottom: 4px;
 }
 
 .hero-title {
@@ -657,7 +658,7 @@
 }
 
 .about-stat-card {
-  background: rgba(17, 24, 39, 0.6);
+  background: rgba(84, 99, 133, 0.6);
   backdrop-filter: blur(15px);
   border: 1px solid var(--border-neon-glow);
   padding: 24px;
@@ -725,6 +726,7 @@
   letter-spacing: -0.3px;
   position: relative;
   padding-left: 12px;
+  margin: 8px 0 12px 0;
 }
 
 .section-heading::before {

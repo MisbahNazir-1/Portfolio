@@ -146,7 +146,7 @@ function Dashboard() {
       >
         <div className="sidebar-top-brand">
           <img
-            src="https://postimg.cc"
+            src="https://i.postimg.cc/Jzdx00Ny/logo.png"
             className="brand-neon-logo"
             alt="logo"
           />
@@ -588,7 +588,7 @@ function Dashboard() {
                 </div>
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/MisbahNazir-1"
                 target="_blank"
                 rel="noreferrer"
                 className="contact-action-card-link"
@@ -604,7 +604,7 @@ function Dashboard() {
                 </div>
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/misbah-nazir-developer"
                 target="_blank"
                 rel="noreferrer"
                 className="contact-action-card-link"
