@@ -69,7 +69,7 @@ function Dashboard() {
     import.meta.env.VITE_PORTFOLIO_API_URL || "http://localhost:5000/api"
   ).replace("/api", "");
 
-  const API_BASE_URL = "https://vercel.app";
+  const API_BASE_URL = "https://portfolio-eight-indol-95.vercel.app/api";
 
   useEffect(() => {
     const fetchPortfolioData = async () => {
