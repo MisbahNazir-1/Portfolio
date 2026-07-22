@@ -125,8 +125,7 @@
 .dashboard-root-frame .card-sub-description,
 .dashboard-root-frame .stat-card-desc,
 .dashboard-root-frame .premium-subtitle,
-.dashboard-root-frame .experience-duration,
-.dashboard-root-frame .contact-meta-label {
+.dashboard-root-frame .experience-duration {
   color: var(--text-muted-gray);
   transition: color 0.3s ease;
 }
@@ -1083,17 +1082,21 @@
   font-weight: 600;
 }
 
-/* --- Get In Touch Enterprise Architecture Nodes Grid --- */
+/* ==========================================================================
+   PRODUCTION READY SYSTEM OVERHAUL: GET IN TOUCH CONTACT ENVIRONMENT
+   ========================================================================== */
 .contact-methods-grid {
   display: grid !important;
   grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
   gap: 24px !important;
   margin-top: 28px;
+  width: 100% !important;
 }
 
+/* Master grid balance validation query layer */
 @media (min-width: 992px) {
   .contact-methods-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important; /* Forces strict dual-column layout on desktop */
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important; /* Strict 2 columns line block tracking on desktop viewports */
     align-items: stretch !important;
   }
 }
@@ -1102,76 +1105,86 @@
   display: flex !important;
   align-items: center !important;
   gap: 20px !important;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--border-neon-glow);
-  border-radius: 16px;
-  padding: 24px;
-  text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(135deg, rgba(20, 20, 25, 0.7), rgba(10, 10, 12, 0.9)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 16px !important;
+  padding: 24px !important;
+  text-decoration: none !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-/* Uniform Grey Overhaul for Contact Nodes */
+/* Strict premium light mode flat gray assignment trigger overlays */
 .dashboard-root-frame.light-theme .contact-action-card-link {
   background: var(--light-bg-card) !important;
+  background-image: none !important;
   border: 1px solid var(--light-border) !important;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.04) !important;
+  backdrop-filter: none !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03) !important;
 }
 
 .contact-action-card-link:hover {
-  transform: translateY(-3px);
-  border-color: var(--accent-cyber-green);
+  transform: translateY(-3px) !important;
+  border-color: var(--accent-cyber-green) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 255, 204, 0.05) !important;
 }
 
 .dashboard-root-frame.light-theme .contact-action-card-link:hover {
   border-color: #008cff !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
 }
 
 .contact-icon-wrapper-block {
-  padding: 16px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.04);
-  font-size: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--accent-cyber-green);
+  padding: 16px !important;
+  border-radius: 12px !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  font-size: 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: var(--accent-cyber-green) !important;
+  width: 56px !important;
+  height: 56px !important;
+  flex-shrink: 0 !important;
 }
 
 .dashboard-root-frame.light-theme .contact-icon-wrapper-block {
   background: #ffffff !important;
   color: #008cff !important;
-  border: 1px solid var(--light-border);
+  border: 1px solid var(--light-border) !important;
 }
 
 .contact-card-text-details {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+  flex-grow: 1 !important;
 }
 
 .contact-meta-label {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 700;
-  opacity: 0.6;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  font-weight: 700 !important;
+  opacity: 0.6 !important;
 }
 
 .contact-main-value {
-  font-size: 16px;
-  font-weight: 600;
-  margin: 0;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  margin: 0 !important;
 }
 
 .contact-action-hint {
-  font-size: 12px;
-  color: var(--accent-cyber-green);
-  font-weight: 600;
-  margin-top: 4px;
+  font-size: 12px !important;
+  color: var(--accent-cyber-green) !important;
+  font-weight: 600 !important;
+  margin-top: 4px !important;
 }
 
 .dashboard-root-frame.light-theme .contact-action-hint {
-  color: #00c853 !important; /* High contrast visibility action anchor hint */
+  color: #00c853 !important; /* Standard accessibilities WCAG guideline contrast color */
 }
 
 /* --- Ghost Card Outline Destruction Override Layer --- */

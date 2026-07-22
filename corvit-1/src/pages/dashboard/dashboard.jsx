@@ -17,6 +17,10 @@ import {
   FiZap,
   FiMenu,
   FiX,
+  FiVideo,
+  FiInstagram,
+  FiFacebook,
+  FiTwitter,
 } from "react-icons/fi";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { LuArrowRight } from "react-icons/lu";
@@ -568,6 +572,7 @@ function Dashboard() {
               pipeline discussions.
             </p>
             <div className="contact-methods-grid">
+              {/* --- Core Professional Communications Channels --- */}
               <a
                 href="mailto:misbahnazirdeveloper@gmail.com"
                 className="contact-action-card-link"
@@ -583,10 +588,11 @@ function Dashboard() {
                     misbahnazirdeveloper@gmail.com
                   </h4>
                   <span className="contact-action-hint">
-                    Click to Compose Email ↗
+                    Click to Compose Email <FiExternalLink />
                   </span>
                 </div>
               </a>
+
               <a
                 href="https://github.com/MisbahNazir-1"
                 target="_blank"
@@ -601,8 +607,12 @@ function Dashboard() {
                     Version Control Node
                   </span>
                   <h4 className="contact-main-value">Misbah Nazir-1</h4>
+                  <span className="contact-action-hint">
+                    Review Repositories <FiExternalLink />
+                  </span>
                 </div>
               </a>
+
               <a
                 href="https://www.linkedin.com/in/misbah-nazir-developer"
                 target="_blank"
@@ -617,6 +627,90 @@ function Dashboard() {
                     Corporate Identity Dock
                   </span>
                   <h4 className="contact-main-value">Misbah Nazir Developer</h4>
+                  <span className="contact-action-hint">
+                    Connect Profile <FiExternalLink />
+                  </span>
+                </div>
+              </a>
+
+              <a
+                href="https://x.com/misbahhnazir"
+                target="_blank"
+                rel="noreferrer"
+                className="contact-action-card-link"
+              >
+                <div className="contact-icon-wrapper-block">
+                  <Icons.FiTwitter />
+                </div>
+                <div className="contact-card-text-details">
+                  <span className="contact-meta-label">
+                    Tech Network Stream
+                  </span>
+                  <h4 className="contact-main-value">@MisbahNazir</h4>
+                  <span className="contact-action-hint">
+                    Follow Updates <FiExternalLink />
+                  </span>
+                </div>
+              </a>
+
+              {/* --- Secondary Cross-Platform Connections Footprints --- */}
+              <a
+                href="https://www.facebook.com/share/18tMxRUZyK/"
+                target="_blank"
+                rel="noreferrer"
+                className="contact-action-card-link"
+              >
+                <div className="contact-icon-wrapper-block">
+                  <Icons.FiFacebook />
+                </div>
+                <div className="contact-card-text-details">
+                  <span className="contact-meta-label">
+                    Social Connection Node
+                  </span>
+                  <h4 className="contact-main-value">Misbah Nazir</h4>
+                  <span className="contact-action-hint">
+                    View Profile <FiExternalLink />
+                  </span>
+                </div>
+              </a>
+
+              <a
+                href="https://www.instagram.com/misbahnazir2474?igsh=MW5zeGw0Znh6dWZ3cA=="
+                target="_blank"
+                rel="noreferrer"
+                className="contact-action-card-link"
+              >
+                <div className="contact-icon-wrapper-block">
+                  <Icons.FiInstagram />
+                </div>
+                <div className="contact-card-text-details">
+                  <span className="contact-meta-label">
+                    Creative Lifestyle Log
+                  </span>
+                  <h4 className="contact-main-value">@misbah_developer</h4>
+                  <span className="contact-action-hint">
+                    Follow Feed <FiExternalLink />
+                  </span>
+                </div>
+              </a>
+
+              <a
+                href="https://tiktok.com"
+                target="_blank"
+                rel="noreferrer"
+                className="contact-action-card-link"
+              >
+                <div className="contact-icon-wrapper-block">
+                  <Icons.FiVideo />
+                </div>
+                <div className="contact-card-text-details">
+                  <span className="contact-meta-label">
+                    Short Content Ecosystem
+                  </span>
+                  <h4 className="contact-main-value">@misbah.dev</h4>
+                  <span className="contact-action-hint">
+                    Watch Content <FiExternalLink />
+                  </span>
                 </div>
               </a>
             </div>
@@ -633,14 +727,14 @@ function Dashboard() {
                   tag="User Login / JWT Session Gate"
                   iconName="FiLock"
                   glowColor="#00ffcc"
-                  imageUrl="https://postimg.cc"
+                  imageUrl="https://i.postimg.cc/hvq8vgqy/login.png"
                 />
                 <div className="gateway-action-row">
                   <Link to="/login" className="gateway-live-btn">
                     Open Module <FiArrowUpRight className="button-icon" />
                   </Link>
                   <a
-                    href="https://github.com/Portfolio/tree/f190bf9c639b469e363e280493682bf9ccfd4930/corvit-1/src/pages/auth/entry"
+                    href="https://github.com/MisbahNazir-1/Portfolio/tree/8ede7ecf57ab1d48b6e1b9b8e22a4aadfb5ee0d1/corvit-1/src/pages/auth/entry"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="gateway-repo-btn"
@@ -656,14 +750,14 @@ function Dashboard() {
                   tag="Admin Enrollment / Schema Setup"
                   iconName="FiUser"
                   glowColor="#00ffcc"
-                  imageUrl="https://postimg.cc"
+                  imageUrl="https://i.postimg.cc/sDxxWqDN/register.png"
                 />
                 <div className="gateway-action-row">
                   <Link to="/register" className="gateway-live-btn">
                     Open Module <FiArrowUpRight className="button-icon" />
                   </Link>
                   <a
-                    href="https://github.com/Portfolio/tree/f190bf9c639b469e363e280493682bf9ccfd4930/corvit-1/src/pages/auth/registerpage"
+                    href="https://github.com/MisbahNazir-1/Portfolio/tree/8ede7ecf57ab1d48b6e1b9b8e22a4aadfb5ee0d1/corvit-1/src/pages/auth/registerpage"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="gateway-repo-btn"
